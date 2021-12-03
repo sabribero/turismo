@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="FAVICO-TMA.png" />
 
 
-
+<script type="text/javascript" src="/js/script.js"></script>
 
 
 </head>

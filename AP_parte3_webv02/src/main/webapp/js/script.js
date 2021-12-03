@@ -9,11 +9,11 @@ function funcionIngresar(){
 	
 	if(nombreUsuario.value == "user"){
 
-    location.href= "/user/user.html"
+    location.href= "../user/user.html"
 
 } else if(nombreUsuario.value == "admin"){
 
-    location.href= "/admin/admin.html"
+    location.href= "../admin/admin.html"
 
 } else {
 	
@@ -32,7 +32,7 @@ function funcionIngresar(){
 
 function ir_a_index(){
 
-    location.href= "../index.html"
+    location.href= "../index.jsp"
 	
 	
 };
