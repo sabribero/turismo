@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+/*no son los colores definitivos, estan mas que nada para diferenciar del blanco*/
+.contenedor, .contenido, .bodyacordeon{
+	background-color:LightGoldenrodYellow;
+}
+.botonacordeon{
+	background-color:DarkKhaki;
+}
+.botonacordeon:not(.collapsed){
+	background-color:DarkKhaki;
+	color:Khaki;
+}
+.botonacordeon:focus{
+	box-shadow:0 0 0 .25rem rgba(240, 230, 140,0.25);
+}
+.contenedor a{
+	color:SaddleBrown;
+}
+.contenedor a:visited{
+	color:OliveDrab;
+}
+.excepciona a, .excepciona a:visited{
+	color:white;
+}
+.excepciona, .excepciona:visited{
+	color:white !important;
+}
+.contenidocarousel{
+	padding:50px;
+}
+
+.recuadro{
+	border:solid SaddleBrown 4px;
+}

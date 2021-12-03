@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin</title>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/espaciados.css">
+<link rel="stylesheet" href="../css/colores.css">
+<link rel="stylesheet" href="../css/estilos.css">
+<script src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../js/script.js"></script>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="../index.html">TIERRA MEDIA</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="../index.html">Home</a></li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">FAQ </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#">¿Qué es tierra media?</a></li>
+							<li><a class="dropdown-item" href="#">¿Cómo usar esta pagina?</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#">Información</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container contenedor">
+		<ul class="nav nav-tabs nav-fill">
+			<li class="nav-item"><a class="nav-link" href="admin.html">Inicio</a></li>
+			<li class="nav-item"><a class="nav-link" href="modificar.html">Modificar</a></li>
+			<li class="nav-item"><a class="nav-link" href="agregar.html">Agregar</a></li>
+			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Ver</a></li>
+			<li class="nav-item"><a class="nav-link" href="eliminar.html">Eliminar</a></li>
+		</ul>
+		<header class="headercentrado">
+			<h1>BIENVENIDO ADMIN!</h1>
+			<p>¡Seleccione una de las siguientes opciones!</p>
+		</header>
+		<main class="contenido">
+			<div class="accordion accordion-flush" id="accordionFlushExample">
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="flush-headingOne">
+			      <button class="accordion-button collapsed botonacordeon" id="tipos_de_atraccion" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+			        Tipos de Atracción
+			      </button>
+			    </h2>
+			    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+				      <div class="accordion-body container bodyacordeon">
+				      	<table class="table table-hover">
+				      		<thead>
+				      			<tr>
+				      				<th class="col-3">ID</th>
+				      				<th class="col-6">Nombre</th>
+				      			</tr>
+				      		</thead>
+				      		<tbody>
+				      			<tr>
+				      				<td>1</td>
+				      				<td>Tipos sacados de bdd</td>
+				      			</tr>
+				      		</tbody>
+				      	</table>
+				      </div>
+			    </div>
+			  </div>
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="flush-headingTwo">
+			      <button class="accordion-button collapsed botonacordeon" id="atracciones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+			        Atracciones
+			      </button>
+			    </h2>
+			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+			      <div class="accordion-body container bodyacordeon">
+			      		<table class="table table-hover">
+				      		<thead>
+				      			<tr>
+				      				<th class="col-1">ID</th>
+				      				<th class="col-2">Nombre</th>
+				      				<th class="col-2">Costo</th>
+				      				<th class="col-2">Duración</th>
+				      				<th class="col-2">Cupos</th>
+				      				<th class="col-2">Tipo</th>
+				      			</tr>
+				      		</thead>
+				      		<tbody>
+				      			<tr>
+				      				<td>1</td>
+				      				<td>Atraccion1</td>
+				      				<td>5 monedas</td>
+				      				<td>2 horas</td>
+				      				<td>30</td>
+				      				<td>Aventura</td>
+				      			</tr>
+				      		</tbody>
+				      	</table>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="flush-headingThree">
+			      <button class="accordion-button collapsed botonacordeon" id="promociones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+			        Promociones
+			      </button>
+			    </h2>
+			    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+			      <div class="accordion-body container bodyacordeon">
+			      		<table class="table table-hover">
+				      		<thead>
+				      			<tr>
+				      				<th class="col-1">ID</th>
+				      				<th class="col-2">Tipo de promoción</th>
+				      				<th class="col-2">Precio/Descuento</th>
+				      				<th class="col-2">Atracción 1</th>
+				      				<th class="col-2">Atracción 2</th>
+				      				<th class="col-2">Atracción 3</th>
+				      			</tr>
+				      		</thead>
+				      		<tbody>
+				      			<tr>
+				      				<td>1</td>
+				      				<td>AxB</td>
+				      				<td>0</td>
+				      				<td>Lothlorien</td>
+				      				<td>La Comarca</td>
+				      				<td>&nbsp;</td>
+				      			</tr>
+				      		</tbody>
+				      	</table>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="flush-headingFour">
+			      <button class="accordion-button collapsed botonacordeon" id="usuarios" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+			        Usuarios
+			      </button>
+			    </h2>
+			    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+			      <div class="accordion-body container bodyacordeon">
+			      		<table class="table table-hover">
+				      		<thead>
+				      			<tr>
+				      				<th class="col-1">ID</th>
+				      				<th class="col-2">Nombre</th>
+				      				<th class="col-2">Tipo preferido</th>
+				      				<th class="col-2">Dinero</th>
+				      				<th class="col-2">Tiempo disponible</th>
+				      			</tr>
+				      		</thead>
+				      		<tbody>
+				      			<tr>
+				      				<td>1</td>
+				      				<td>Un nombre</td>
+				      				<td>Aventura</td>
+				      				<td>15 monedas</td>
+				      				<td>15 horas</td>
+				      			</tr>
+				      		</tbody>
+				      	</table>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.centrado .separarli, .recuadro{
+	list-style-type:none;
+}
+
+.subrayado{
+	text-decoration:underline;
+}
+
+.separarli li a{
+	text-decoration:none;
+}

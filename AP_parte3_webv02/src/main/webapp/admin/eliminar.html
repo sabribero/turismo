@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin</title>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/espaciados.css">
+<link rel="stylesheet" href="../css/colores.css">
+<link rel="stylesheet" href="../css/estilos.css">
+<script src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../js/script.js"></script>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="../index.html">TIERRA MEDIA</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="../index.html">Home</a></li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">FAQ </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#">¿Qué es tierra media?</a></li>
+							<li><a class="dropdown-item" href="#">¿Cómo usar esta pagina?</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#">Información</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container contenedor">
+		<ul class="nav nav-tabs nav-fill">
+			<li class="nav-item"><a class="nav-link" href="admin.html">Inicio</a></li>
+			<li class="nav-item"><a class="nav-link" href="modificar.html">Modificar</a></li>
+			<li class="nav-item"><a class="nav-link" href="agregar.html">Agregar</a></li>
+			<li class="nav-item"><a class="nav-link" href="ver.html">Ver</a></li>
+			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Eliminar</a></li>
+		</ul>
+		<header class="headercentrado">
+			<h1>BIENVENIDO ADMIN!</h1>
+			<p>¡Seleccione una de las siguientes opciones!</p>
+		</header>
+		<main class="contenido">
+			<div class="accordion accordion-flush" id="accordionFlushExample">
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="flush-headingOne">
+			      <button class="accordion-button collapsed botonacordeon" id="tipos_de_atraccion" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+			        Tipos de Atracción
+			      </button>
+			    </h2>
+			    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+				      <div class="accordion-body bodyacordeon">
+				      	<form method="post">
+				      		<label for="seleccion_tipo">Seleccione un tipo para eliminar:</label>
+		<!-- los tipos deberian salir de la bdd -->
+				      			<select name="seleccion_tipo" id="seleccion_tipo" required>
+				      				<option value="" selected disabled>Tipos:</option>
+				      				<option value="aventura">Aventura</option>
+				      				<option value="degustacion">Degustación</option>
+				      				<option value="paisaje">Paisaje</option>
+				      			</select><br>
+				      			<input type="submit" value="Eliminar">
+				      	</form>
+				      </div>
+			    </div>
+			  </div>
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="flush-headingTwo">
+			      <button class="accordion-button collapsed botonacordeon" id="atracciones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+			        Atracciones
+			      </button>
+			    </h2>
+			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+			      <div class="accordion-body bodyacordeon">
+			      		<form method="post">
+		<!-- atracciones de bdd -->
+				      		<label for="atraccion_eliminar">Seleccione una atracción para eliminar:</label>
+				      			<select name="atraccion_eliminar" id="atraccion_eliminar" required>
+				      				<option value="" selected disabled>Todas las atracciones</option>
+				      			</select><br>
+				      			<input type="submit" value="Eliminar">
+				      	</form>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="flush-headingThree">
+			      <button class="accordion-button collapsed botonacordeon" id="promociones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+			        Promociones
+			      </button>
+			    </h2>
+			    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+			      <div class="accordion-body bodyacordeon">
+			      		<form method="post">
+				      		<label for="seleccion_promo">Seleccione una promoción para eliminar:</label>
+		<!-- cada promocion puede estar representada como Tipo, Valor, Atraccion1, Atraccion2, Atraccion3 -->
+				      			<select name="seleccion_promo" id="seleccion_promo">
+		<!-- extraer promociones de bdd -->
+				      				<option value="" selected disabled>Cada promoción</option>
+				      			</select><br>
+				      			<input type="submit" value="Eliminar">
+				      	</form>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="flush-headingFour">
+			      <button class="accordion-button collapsed botonacordeon" id="usuarios" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+			        Usuarios
+			      </button>
+			    </h2>
+			    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+			      <div class="accordion-body bodyacordeon">
+			      		<form method="post">
+		<!-- usuarios de bdd -->
+				      		<label for="usuario_eliminar">Seleccione un usuario para eliminar:</label>
+				      			<select name="usuario_eliminar" id="usuario_eliminar" required>
+				      				<option value="" selected disabled>Todos los usuarios</option>
+				      			</select><br>
+				      			<input type="submit" value="Eliminar">
+				      	</form>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>

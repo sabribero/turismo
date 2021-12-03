@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.contenedor{
+	margin:50px 80px;
+	padding:0;
+}
+.contenido{
+	margin:20px 30px;
+	padding:20px;
+}
+.centrado{
+	text-align:center;
+}
+.headercentrado{
+	margin:20px;
+	text-align:center;
+}
+.formularioespaciado{
+	display:block;
+	margin:20px;
+}
+
+
+#index{
+	padding:30px;
+}
+
+.separarli{
+	padding:0;
+}
+.separarli li{
+	display:block;
+	margin: 10px auto;
+}
+
+.bodyacordeon{
+	margin:0;
+}
+.bodyacordeon .table{
+	width:auto;
+	margin:auto;
+}
+
+.titulo{
+	margin:30px auto;
+	text-align:center;
+}
+#titulo1{
+	margin-top:0;
+}
+.recuadro li{
+	width:auto;
+}
+.recuadro{
+	width:auto;
+	margin:20px 25%;
+	padding:20px;
+}
