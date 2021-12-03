@@ -1,13 +1,15 @@
 @charset "UTF-8";
 
 .contenedor{
-	margin:50px 80px;
-	padding:0;
+	margin: auto;
+	margin-top: 30px;
+	width: 90%;
 }
 .contenido{
 	margin:20px 30px;
 	padding:20px;
 }
+
 .centrado{
 	text-align:center;
 }
@@ -18,6 +20,18 @@
 .formularioespaciado{
 	display:block;
 	margin:20px;
+}
+.container-qetm{
+	margin: auto;
+	margin-top: 30px;
+	width: 60%;
+  	border: 3px solid #73AD21;
+  	padding: 10px;
+  	text-align: center;
+}
+
+.parrafo-qetm{
+	margin-top: 60px;
 }
 
 

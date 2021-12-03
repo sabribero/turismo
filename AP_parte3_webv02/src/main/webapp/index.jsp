@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Tierra Media</title>
 
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/espaciados.css">
+<link rel="stylesheet" href="css/colores.css">
+<script src="js/bootstrap.min.js"></script>
+
 <link rel="shortcut icon" href="FAVICO-TMA.png" />
 
-
-<script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 
 
 </head>
@@ -18,12 +23,12 @@
 
 
 
-	<div class="container">
+	<div class="container contenedor" id="index">
 		<div class="row justify-content-center headercentrado">
 			<div class="col-8">
 				<h1>Ingresar</h1>
 				<p><strong>Ingresar como nombre "user" para entrar como usuario y "admin" para entrar como administrador</strong></p>
-				<p>La idea es que cuando ingresemos con un "usuario" y "contraseña" verifiquemos (con los datos de la DB) primero que el usuario 
+				<p>La idea es que cuando ingresemos con un "usuario" y "contraseÃ±a" verifiquemos (con los datos de la DB) primero que el usuario 
 				exista y despues, si el usuario existe, verificamos si es un admin o un usuario normal e ingresamos a la pagina correspondiente.</p>
 			</div>
 		</div>
@@ -36,7 +41,7 @@
 					</div>
 					<div class="form-floating formularioespaciado">
 						<input type="password" class="form-control" id="password" placeholder="Password"> 
-						<label for="password">Contraseña</label>
+						<label for="password">ContraseÃ±a</label>
 					</div>
 					<button type="button" onclick="funcionIngresar()" class="btn btn-primary formularioespaciado mx-auto" id="boton">Ingresar</button>
 					<p id=textoOculto></p>
