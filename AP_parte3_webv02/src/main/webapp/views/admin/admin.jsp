@@ -34,37 +34,37 @@
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Tipos de atracción</h5>
 						<ul class="separarli">
-							<li><a href="modificar.html#tipos_de_atraccion">Modificar</a></li>
-							<li><a href="agregar.html#tipos_de_atraccion">Agregar</a></li>
-							<li><a href="ver.html#tipos_de_atraccion">Ver</a></li>
-							<li><a href="eliminar.html#tipos_de_atraccion">Eliminar</a></li>
+							<li><a href="modificar.jsp#tipos_de_atraccion">Modificar</a></li>
+							<li><a href="agregar.jsp#tipos_de_atraccion">Agregar</a></li>
+							<li><a href="ver.jsp#tipos_de_atraccion">Ver</a></li>
+							<li><a href="eliminar.jsp#tipos_de_atraccion">Eliminar</a></li>
 						</ul>
 					</div>
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Atracciones</h5>
 						<ul class="separarli">
-							<li><a href="modificar.html#atracciones">Modificar</a></li>
-							<li><a href="agregar.html#atracciones">Agregar</a></li>
-							<li><a href="ver.html#atracciones">Ver</a></li>
-							<li><a href="eliminar.html#atracciones">Eliminar</a></li>
+							<li><a href="modificar.jsp#atracciones">Modificar</a></li>
+							<li><a href="agregar.jsp#atracciones">Agregar</a></li>
+							<li><a href="ver.jsp#atracciones">Ver</a></li>
+							<li><a href="eliminar.jsp#atracciones">Eliminar</a></li>
 						</ul>
 					</div>
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Promociones</h5>
 						<ul class="separarli">
-							<li><a href="modificar.html#promociones">Modificar</a></li>
-							<li><a href="agregar.html#promociones">Agregar</a></li>
-							<li><a href="ver.html#promociones">Ver</a></li>
-							<li><a href="eliminar.html#promociones">Eliminar</a></li>
+							<li><a href="modificar.jsp#promociones">Modificar</a></li>
+							<li><a href="agregar.jsp#promociones">Agregar</a></li>
+							<li><a href="ver.jsp#promociones">Ver</a></li>
+							<li><a href="eliminar.jsp#promociones">Eliminar</a></li>
 						</ul>
 					</div>
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Usuarios</h5>
 						<ul class="separarli">
-							<li><a href="modificar.html#usuarios">Modificar</a></li>
-							<li><a href="agregar.html#usuarios">Agregar</a></li>
-							<li><a href="ver.html#usuarios">Ver</a></li>
-							<li><a href="eliminar.html#usuarios">Eliminar</a></li>
+							<li><a href="modificar.jsp#usuarios">Modificar</a></li>
+							<li><a href="agregar.jsp#usuarios">Agregar</a></li>
+							<li><a href="ver.jsp#usuarios">Ver</a></li>
+							<li><a href="eliminar.jsp#usuarios">Eliminar</a></li>
 						</ul>
 					</div>
 				</div>
