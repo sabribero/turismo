@@ -27,7 +27,7 @@
 			<h1>¡Bienvenido user!</h1>
 	
 			<ul class="centrado recuadro">
-					<li>* Tu <a href="itinerario.html">itinerario</a> actual cuenta con X atracciones.</li>
+					<li>* Tu <a href="itinerario.jsp">itinerario</a> actual cuenta con X atracciones.</li>
 					<li>* Has gastado X cantidad de monedas. </li>
 					<li>* Vas a pasar X horas en tierra media.</li>
 					<li>* Te quedan X monedas.</li>
@@ -39,9 +39,9 @@
 	
 			<div class="row align-items-start">
 				<ul>
-					<li><a href="sugeridor.html">Obtener sugerencias</a></li>
-					<li><a href="visualizar.html">Ver todas las atracciones/promociones</a></li>
-					<li><a href="itinerario.html">Ver mi itinerario</a></li>
+					<li><a href="sugeridor.jsp">Obtener sugerencias</a></li>
+					<li><a href="visualizar.jsp">Ver todas las atracciones/promociones</a></li>
+					<li><a href="itinerario.jsp">Ver mi itinerario</a></li>
 				</ul>
 			</div>
 			</div>
