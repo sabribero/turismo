@@ -1,27 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Tierra Media</title>
-
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="css/espaciados.css">
-<link rel="stylesheet" href="css/colores.css">
-<script src="js/bootstrap.min.js"></script>
-
-<link rel="shortcut icon" href="FAVICO-TMA.png" />
-
-<script type="text/javascript" src="js/script.js"></script>
-
-
+<jsp:include page="partials/head.jsp"></jsp:include>
 </head>
 <body>
 
 
-
+	<jsp:include page="partials/nav.jsp"></jsp:include>
 
 	<div class="container contenedor" id="index">
 		<div class="row justify-content-center headercentrado">

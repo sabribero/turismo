@@ -1,56 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Tierra Media</title>
 
-<link rel="shortcut icon" href="FAVICO-TMA.png" />
+<jsp:include page="../../partials/view-head.jsp"></jsp:include>
 
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/espaciados.css">
-<link rel="stylesheet" href="../css/colores.css">
-<link rel="stylesheet" href="../css/estilos.css">
-<script src="../js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="../js/script.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="../index.html">TIERRA MEDIA</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="../index.html">Home</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							FAQ </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">¿Qué es tierra
-									media?</a></li>
-							<li><a class="dropdown-item" href="#">¿Cómo usar esta
-									página?</a></li>
-							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">Información</a></li>
-						</ul></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	
+	<jsp:include page="../../partials/view-nav.jsp"></jsp:include>
+	
 	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">
-			<li class="nav-item"><a class="nav-link" href="user.html">Inicio</a></li>
-			<li class="nav-item"><a class="nav-link" href="sugeridor.html">Obtener sugerencias</a></li>
+			<li class="nav-item"><a class="nav-link" href="user.jsp">Inicio</a></li>
+			<li class="nav-item"><a class="nav-link" href="sugeridor.jsp">Obtener sugerencias</a></li>
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Ver Atracciones/Promociones</a></li>
-			<li class="nav-item"><a class="nav-link" href="itinerario.html">Mi Itinerario</a></li>
+			<li class="nav-item"><a class="nav-link" href="itinerario.jsp">Mi Itinerario</a></li>
 		</ul>
 	
 		<div class="contenido">

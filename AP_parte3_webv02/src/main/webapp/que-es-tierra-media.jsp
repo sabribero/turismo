@@ -1,50 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>¿Qué es Tierra Media?</title>
+<meta charset="UTF-8">
+<title>Â¿QuÃ© es Tierra Media?</title>
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="css/espaciados.css">
-<link rel="stylesheet" href="css/colores.css">
-<script src="js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="js/script.js"></script>
+<jsp:include page="partials/head.jsp"></jsp:include>
 </head>
 <body>
 
+	<jsp:include page="partials/nav.jsp"></jsp:include>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">TIERRA MEDIA</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="index.html">Home</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							FAQ </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item color-azul" href="que-es-tierra-media.html">¿Qué es tierra media?</a></li>
-							<li><a class="dropdown-item" href="#">¿Cómo usar esta página?</a></li>
-							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">Información</a></li>
-						</ul></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-		
 	<div class="contenedor container container-qetm">
-		<h1>¿Qué es Tierra Media?</h1>
+		<h1>Â¿QuÃ© es Tierra Media?</h1>
 		
 		<p class="parrafo-qetm">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam gravida dapibus orci, ac pretium lorem euismod et. Duis molestie, neque mollis sollicitudin pulvinar, magna diam semper velit, quis posuere leo ipsum non diam. Proin faucibus dui nec libero ullamcorper, id efficitur massa cursus. Nullam laoreet a felis consectetur hendrerit. Vestibulum vel tellus laoreet, elementum diam in, vulputate magna. Cras feugiat eros eu arcu semper ullamcorper. Pellentesque molestie nibh vitae ex elementum auctor. Fusce sodales ut elit et rutrum. Nunc odio eros, laoreet et neque non, porta commodo augue.

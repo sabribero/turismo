@@ -1,55 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin</title>
+<title>Ver</title>
 
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../css/espaciados.css">
-<link rel="stylesheet" href="../css/colores.css">
-<link rel="stylesheet" href="../css/estilos.css">
-<script src="../js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="../js/script.js"></script>
+<jsp:include page="../../partials/view-head.jsp"></jsp:include>
 
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="../index.html">TIERRA MEDIA</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="../index.html">Home</a></li>
-					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">FAQ </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">¿Qué es tierra media?</a></li>
-							<li><a class="dropdown-item" href="#">¿Cómo usar esta pagina?</a></li>
-							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">Información</a></li>
-						</ul></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<jsp:include page="../../partials/view-nav.jsp"></jsp:include>
+	
 	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">
-			<li class="nav-item"><a class="nav-link" href="admin.html">Inicio</a></li>
-			<li class="nav-item"><a class="nav-link" href="modificar.html">Modificar</a></li>
-			<li class="nav-item"><a class="nav-link" href="agregar.html">Agregar</a></li>
+			<li class="nav-item"><a class="nav-link" href="admin.jsp">Inicio</a></li>
+			<li class="nav-item"><a class="nav-link" href="modificar.jsp">Modificar</a></li>
+			<li class="nav-item"><a class="nav-link" href="agregar.jsp">Agregar</a></li>
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Ver</a></li>
-			<li class="nav-item"><a class="nav-link" href="eliminar.html">Eliminar</a></li>
+			<li class="nav-item"><a class="nav-link" href="eliminar.jsp">Eliminar</a></li>
 		</ul>
 		<header class="headercentrado">
 			<h1>BIENVENIDO ADMIN!</h1>
-			<p>¡Seleccione una de las siguientes opciones!</p>
+			<p>Seleccione una de las siguientes opciones:</p>
 		</header>
 		<main class="contenido">
 			<div class="accordion accordion-flush" id="accordionFlushExample">
@@ -123,7 +98,7 @@
 				      		<thead>
 				      			<tr>
 				      				<th class="col-1">ID</th>
-				      				<th class="col-2">Tipo de promoción</th>
+				      				<th class="col-2">Tipo de promociÃ³n</th>
 				      				<th class="col-2">Precio/Descuento</th>
 				      				<th class="col-2">Atracción 1</th>
 				      				<th class="col-2">Atracción 2</th>
