@@ -9,7 +9,6 @@
 <jsp:include page="partials/head.jsp"></jsp:include>
 
 
-
 <link href="assets/css/estilos.css" rel="stylesheet" type="text/css">
 
 
