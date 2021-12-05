@@ -38,8 +38,8 @@
 					<li>* Tu <a href="itinerario.jsp">itinerario</a> actual cuenta con X atracciones.</li>
 					<li>* Has gastado X cantidad de monedas. </li>
 					<li>* Vas a pasar X horas en tierra media.</li>
-					<li>* Te quedan X monedas.</li>
-					<li>* Te quedan X horas libres.</li> 
+					<li>* Te quedan <c:out value="${user.presupuesto}" /> monedas.</li>
+					<li>* Te quedan <c:out value="${user.tiempoDisponible}" /> horas libres.</li> 
 			</ul>
 		</header>
 		<div class="contenido">
