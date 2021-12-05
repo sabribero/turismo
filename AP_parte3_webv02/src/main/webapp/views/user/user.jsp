@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
+	
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +19,10 @@
 
 	<jsp:include page="../../partials/view-nav.jsp"></jsp:include>
 	
+	
+
+	
+	
 	<div class="container contenedor">	
 		<ul class="nav nav-tabs nav-fill">
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
@@ -24,7 +31,8 @@
 			<li class="nav-item"><a class="nav-link" href="itinerario.jsp">Mi Itinerario</a></li>
 		</ul>
 		<header class="headercentrado">
-			<h1>¡Bienvenido user!</h1>
+
+					¡Bienvenido, <c:out value="${user.nombre}" />!
 	
 			<ul class="centrado recuadro">
 					<li>* Tu <a href="itinerario.jsp">itinerario</a> actual cuenta con X atracciones.</li>

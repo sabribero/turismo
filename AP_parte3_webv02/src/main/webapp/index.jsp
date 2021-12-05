@@ -37,19 +37,15 @@
 				<p>
 				<p>
 				<p>
-					<strong>Ingresar como nombre "user" para entrar como
-						usuario y "admin" para entrar como administrador</strong>
+					<strong>Ingresar como nombre cualquiera de los usuarios del proyecto
+					(Sam, Frodo, etc.) y como contraseña "pass".</strong>
 				</p>
-				<p>La idea es que cuando ingresemos con un "usuario" y
-					"contraseña" verifiquemos (con los datos de la DB) primero que el
-					usuario exista y despues, si el usuario existe, verificamos si es
-					un admin o un usuario normal e ingresamos a la pagina
-					correspondiente.</p>
+
 			</div>
 		</div>
 
 
-
+<main>
 
 			<c:if test="${flash != null}">
 				<div class="alert alert-danger">
@@ -81,6 +77,7 @@
 
 
 
+				
 	<!-- Probando un login 
 
 	<br>
