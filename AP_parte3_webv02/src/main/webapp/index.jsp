@@ -25,6 +25,8 @@
 				<!-- 
 				<h1>Bienvenido a la tierra media</h1>
 				
+				
+				IMAGEN DE BIENVENIDA
 				 -->
 				
 						<img src="assets/welcome.png"/>
@@ -41,6 +43,9 @@
 					correspondiente.</p>
 			</div>
 		</div>
+		
+		
+
 		<div class="row justify-content-center">
 			<div class="col-6">
 				<form method="post">
@@ -60,6 +65,8 @@
 			</div>
 		</div>
 	</div>
+
+	
 
 
 	<!-- Probando un login -->

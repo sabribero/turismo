@@ -4,8 +4,10 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
 
-		<img src="https://delatierramedia.com/wp-content/uploads/2020/11/el-anillo-unico.jpg" width="100" height="100" />
+		<img src="assets/header.png" width="200" height="100" />
 
+
+<!--  Este texto de abajo se deberia combinar con la imagen de arriba para que la imagen tenga el enlace -->
 			<a class="navbar-brand" href="index.jsp">TIERRA MEDIA</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
