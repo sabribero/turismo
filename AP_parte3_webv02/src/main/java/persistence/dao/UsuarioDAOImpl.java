@@ -6,10 +6,12 @@ import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
 
+
 import excepciones.MissingDataException;
 import jdbc.ConnectionProvider;
 import model.TipoDeAtraccion;
 import model.Usuario;
+import model.nullobjects.NullUser;
 
 public class UsuarioDAOImpl implements UsuarioDAO{
 
@@ -99,6 +101,8 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			throw new MissingDataException(e);
 		}
 	}
+	
+	
 
 	public Usuario findByNombre(String nombre) {
 		try {
@@ -108,14 +112,15 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			statement.setString(1, nombre);
 			ResultSet resultados = statement.executeQuery();
 
-			Usuario usuario = null;
+			Usuario usuario = NullUser.build();
 
 			if (resultados.next()) {
-				usuario = toUsuario(resultados);
+				usuario = this.toUsuario(resultados);
 			}
 			return usuario;
 		} catch(Exception e) {
 			throw new MissingDataException(e);
+
 		}
 	}
 	
