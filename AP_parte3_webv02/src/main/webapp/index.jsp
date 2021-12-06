@@ -35,8 +35,6 @@
 
 				<img src="assets/welcome.png" />
 				<p>
-				<p>
-				<p>
 					<strong>Ingresar como nombre cualquiera de los usuarios del proyecto
 					(Sam, Frodo, etc.) y como contraseña "pass".</strong>
 				</p>
