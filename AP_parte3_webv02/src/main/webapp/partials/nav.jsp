@@ -1,19 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+		
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
-
-
-
-
-<!--  Este texto de abajo se deberia combinar con la imagen de arriba para que la imagen tenga el enlace -->
-		
-		
-		<a class="navbar-brand" href="/AP_parte3_webv02/index.jsp">	<img src="/AP_parte3_webv02/assets/header.png" width="200" height="50" /></a>
-		
-		
-
+			<a class="navbar-brand" href="/AP_parte3_webv02/index.jsp">TIERRA MEDIA</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"

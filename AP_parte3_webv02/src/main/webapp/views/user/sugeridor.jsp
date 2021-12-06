@@ -7,12 +7,12 @@
 <meta charset="UTF-8">
 <title>Obtener sugerencias</title>
 
-<jsp:include page="../../partials/view-head.jsp"></jsp:include>
+<jsp:include page="../../partials/head.jsp"></jsp:include>
 
 </head>
 <body>
 	
-	<jsp:include page="../../partials/view-nav.jsp"></jsp:include>
+	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 
 	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">

@@ -12,12 +12,12 @@
 
 <link rel="shortcut icon" href="FAVICO-TMA.png" />
 
-<jsp:include page="../../partials/view-head.jsp"></jsp:include>
+<jsp:include page="../../partials/head.jsp"></jsp:include>
 
 </head>
 <body>
 
-	<jsp:include page="../../partials/view-nav.jsp"></jsp:include>
+	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 	
 	
 
