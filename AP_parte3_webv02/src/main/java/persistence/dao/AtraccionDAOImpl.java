@@ -30,6 +30,25 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 		} 
 	}
 	
+	
+	public List<Atraccion> findItinerarioById(int id) {
+		try {
+		String sql = "SELECT * FROM itinerarios WHERE id_usuario= ?";
+		Connection conn = ConnectionProvider.getConnection();
+		PreparedStatement statement = conn.prepareStatement(sql);
+		statement.setInt(1, id);
+		ResultSet resultados = statement.executeQuery();
+
+		List<Atraccion> atracciones = new LinkedList<Atraccion>();
+		while (resultados.next()) {
+			atracciones.add(toAtraccion(resultados));
+		}
+		return atracciones;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		} 
+	}
+	
 	public int countAll() {
 		try {
 			String sql = "SELECT count(1) AS 'total' FROM atracciones";

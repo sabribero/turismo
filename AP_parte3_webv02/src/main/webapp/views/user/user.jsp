@@ -28,11 +28,12 @@
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="sugeridor.jsp">Obtener sugerencias</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/visualizar.do">Ver Atracciones/Promociones</a></li>
-			<li class="nav-item"><a class="nav-link" href="itinerario.jsp">Mi Itinerario</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/itinerario.do">Mi Itinerario</a></li>
 		</ul>
 		<header class="headercentrado">
 
 					¡Bienvenido, <c:out value="${user.nombre}" />!
+										¡Tu ID es, <c:out value="${user.id}" />!
 	
 			<ul class="centrado recuadro">
 					<li>* Tu <a href="itinerario.jsp">itinerario</a> actual cuenta con X atracciones.</li>
