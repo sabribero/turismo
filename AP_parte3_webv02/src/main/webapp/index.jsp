@@ -33,7 +33,7 @@
 				IMAGEN DE BIENVENIDA
 				 -->
 
-				<img src="assets/welcome.png" />
+				<img src="/AP_parte3_webv02/assets/welcome.png" />
 				<p>
 					<strong>Ingresar como nombre cualquiera de los usuarios del proyecto
 					(Sam, Frodo, etc.) y como contraseña "pass".</strong>
@@ -53,7 +53,7 @@
 				</div>
 			</c:if>
 
-			<form action="login" method="post">
+			<form action="/AP_parte3_webv02/login" method="post">
 
 				<div class="mb-3">
 					<label for="username" class="form-label">Usuario</label> <input
@@ -114,7 +114,7 @@
 	<br>
 
 
-	<footer style="width: 100%; margin-left: 0px;" position>
+	<footer style="width: 100%; margin-left: 0px;">
 
 
 		<div class="foot" style="background-color: #0d47a1;">
