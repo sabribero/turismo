@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -33,18 +35,45 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+				
+				
+					<c:forEach items="${attractions}" var="atraccion">
+						
+									<tr>
 						<td>1</td>
-						<td>Atraccion 1 <br> Atraccion 2</td>
-						<td>20 monedas</td>
-						<td>3 horas</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Atraccion 1</td>
-						<td>5 monedas</td>
-						<td>2 horas</td>
-					</tr>
+						<td><c:out value="${atraccion.nombre}"></c:out>
+						 <br> Atraccion 2</td>
+						<td>Costo: <c:out value="${atraccion.valor}"></c:out></td>
+						<td>Costo: <c:out value="${atraccion.valor}"></c:out></td>
+					</tr>		
+
+			
+				</c:forEach>
+						
+				<!-- 
+						<div class="card col">
+							<img src="https://martialartsplusinc.com/wp-content/uploads/2017/04/default-image-620x600.jpg" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title" id="${atraccion.nombre.replace(' ','')}"><c:out value="${atraccion.nombre}"></c:out></h5>
+								<h6 class="card-text"><c:out value="${atraccion.tipo}"></c:out></h6>
+								<p class="card-text">Costo: <c:out value="${atraccion.valor}"></c:out> monedas</p>
+								<p class="card-text">Costo: <c:out value="${atraccion.valor}"></c:out> hora/s</p>
+								<p class="card-text">Cupos: <c:out value="${atraccion.usosDisponibles}"></c:out></p>
+							</div>
+						</div>
+						
+						
+						
+						
+
+				
+				
+				 -->		
+						
+				
+
+
+
 				</tbody>
 				<tfoot class="table-light">
 					<tr>
@@ -57,5 +86,14 @@
 			</table>
 		</div>
 	</div>
+	
+	
+	
+	
+
+	
+	
+	
+	
 </body>
 </html>

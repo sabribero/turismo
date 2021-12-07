@@ -12,6 +12,12 @@ public class AttractionService {
 	public List<Atraccion> list() {
 		return DAOFactory.getAtraccionDAO().findAll();
 	}
+	
+
+	public List<Atraccion> listItinerario(int id) {
+		return DAOFactory.getAtraccionDAO().findAll();
+	}
+	
 
 	public Atraccion create(String name, Integer cost, Double duration, Integer capacity) {
 

@@ -1,6 +1,7 @@
 
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -35,15 +36,15 @@
 
 				<img src="/AP_parte3_webv02/assets/welcome.png" />
 				<p>
-					<strong>Ingresar como nombre cualquiera de los usuarios del proyecto
-					(Sam, Frodo, etc.) y como contraseña "pass".</strong>
+					<strong>Ingresar como nombre cualquiera de los usuarios
+						del proyecto (Sam, Frodo, etc.) y como contraseña se repite el mismo nombre.</strong>
 				</p>
 
 			</div>
 		</div>
 
 
-<main>
+		<main>
 
 			<c:if test="${flash != null}">
 				<div class="alert alert-danger">
@@ -75,7 +76,7 @@
 
 
 
-				
+
 	<!-- Probando un login 
 
 	<br>

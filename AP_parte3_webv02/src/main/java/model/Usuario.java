@@ -14,21 +14,24 @@ public class Usuario {
 	private int presupuesto, monedasIniciales;
 	private float tiempoDisponible, tiempoDisponibleOriginal;
 	private int id;
-
-	public Usuario(String nombre, TipoDeAtraccion atraccionFavorita, int monedas, float tiempoLibre) {
+	private boolean esAdmin;
+	
+	public Usuario(String nombre, TipoDeAtraccion atraccionFavorita, int monedas, float tiempoLibre, String password, boolean esAdmin) {
 		this.nombre = nombre;
 		this.atraccionFavorita = atraccionFavorita;
 		this.presupuesto = monedas;
 		this.monedasIniciales = this.presupuesto;
 		this.tiempoDisponible = tiempoLibre;
 		this.tiempoDisponibleOriginal = this.tiempoDisponible;
+		this.password = password;
+		this.esAdmin = esAdmin;
 	}
 
 	public Usuario() {
-		this(" ", TipoDeAtraccion.DEFAULT, 0, 0);
+		this(" ", TipoDeAtraccion.DEFAULT, 0, 0,"",false);
 	}
 
-//----------------------------GETTERS---------------------------------------------------
+	//----------------------------GETTERS---------------------------------------------------
 	public int getPresupuesto() {
 		return presupuesto;
 	}
@@ -60,6 +63,18 @@ public class Usuario {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = Crypt.hash(password);
+	}
+	
+	public boolean getEsAdmin() {
+		return esAdmin;
 	}
 
 //-------------------------------METODOS----------------------------
@@ -218,8 +233,4 @@ public class Usuario {
 			return false;
 		return true;
 	}
-
-
-	
-	
 }

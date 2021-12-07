@@ -25,6 +25,8 @@
 		<main class="contenido">
 			<div class="headercentrado">
 				<h1>BIENVENIDO ADMIN!</h1>
+				<br>
+				<p>* <a href="/AP_parte3_webv02/cambiarpass.jsp"> Cambiar contraseña</a></p>
 				<p>Seleccione una de las siguientes opciones:</p>
 			</div>
 			<br>

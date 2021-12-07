@@ -52,7 +52,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 	public int insert(Usuario usuario) {
 		try {
-			String sql = "INSERT INTO usuarios (nombre, monedas, tiempo_libre, ID_tipo_favorito) VALUES (?, ?, ?, (SELECT ID FROM tipos_atraccion WHERE tipo_de_atraccion LIKE ?))";
+			String sql = "INSERT INTO usuarios (nombre, monedas, tiempo_libre, ID_tipo_favorito, password, esAdmin) VALUES (?, ?, ?, (SELECT ID FROM tipos_atraccion WHERE tipo_de_atraccion LIKE ?),?,?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -60,6 +60,8 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			statement.setInt(2, usuario.getPresupuesto());
 			statement.setDouble(3, usuario.getTiempoDisponible());
 			statement.setString(4, usuario.getAtraccionFavorita().getNombreDeTipo());
+			statement.setString(5,usuario.getPassword());
+			statement.setBoolean(6, usuario.getEsAdmin());
 			int rows = statement.executeUpdate();
 			
 			return rows;
@@ -70,13 +72,32 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 	public int update(Usuario usuario) {
 		try {
-			String sql = "UPDATE usuarios SET monedas = ?, tiempo_libre = ? WHERE nombre = ?";
+			String sql = "UPDATE usuarios SET monedas = ?, tiempo_libre = ?, esAdmin = ? WHERE nombre = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, usuario.getPresupuesto());
 			statement.setDouble(2, usuario.getTiempoDisponible());
-			statement.setString(3, usuario.getNombre());
+			statement.setBoolean(3, usuario.getEsAdmin());
+			statement.setString(4, usuario.getNombre());
+			int rows = statement.executeUpdate();
+
+			
+			return rows;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+	public int updatepassword (Usuario usuario) {
+		try {
+			String sql = "UPDATE usuarios SET password = ? WHERE nombre = ?";
+			
+			Connection conn = ConnectionProvider.getConnection();
+			
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, usuario.getPassword());
+			statement.setString(2, usuario.getNombre());
 			int rows = statement.executeUpdate();
 
 			
@@ -174,7 +195,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			String tipoAtraccion= resultadoDos.getString("tipo_de_atraccion");
 			//retorno el objeto
 			return new Usuario(resultado.getString("nombre"), TipoDeAtraccion.valueOf(tipoAtraccion),
-					resultado.getInt("monedas"), resultado.getFloat("tiempo_libre"));
+					resultado.getInt("monedas"), resultado.getFloat("tiempo_libre"), resultado.getString("password"), resultado.getBoolean("esAdmin"));
 		} catch(Exception e) {
 			throw new MissingDataException(e);
 		}
