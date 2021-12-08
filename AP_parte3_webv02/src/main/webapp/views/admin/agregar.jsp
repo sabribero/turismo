@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +39,7 @@
 				      	<form method="post">
 				      		<label for="nuevo_tipo">Ingrese un nuevo tipo de atracción:</label>
 				      			<input type="text" name="nuevo_tipo" id="nuevo_tipo" required><br>
-				      		<input type="submit">
+				      		<input type="submit" value="Crear">
 				      	</form>
 				      </div>
 			    </div>
@@ -52,24 +52,24 @@
 			    </h2>
 			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form method="post">
+			      		<form action="/AP_parte3_webv02/attractions/create.do" method="post">
 				      		<label for="nombre_atraccion">Nombre:</label>
 				      			<input type="text" name="nombre_atraccion" id="nombre_atraccion" required><br>
 				      			<label for="seleccion_tipo_atraccion">Seleccione el tipo de atracción:</label>
 				      			<select name="seleccion_tipo_atraccion" id="seleccion_tipo_atraccion" required>
 		<!-- extraer tipos de atraccion de bdd -->
 									<option value="" selected disabled>Tipos:</option>
-				      				<option value="aventura">Aventura</option>
-				      				<option value="degustacion">Degustación</option>
-				      				<option value="paisaje">Paisaje</option>
+				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
+				      					<option value="${tipoDeAtraccion}"><c:out value="${tipoDeAtraccion}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
 				      		<label for="valor_atraccion">Valor:</label>
 				      			<input type="number" name="valor_atraccion" id="valor_atraccion" min=0 required><br>
 				      		<label for="tiempo_atraccion">Duración:</label>
-				      			<input type="number" name="tiempo_atraccion" id="tiempo_atraccion" min=0 step=0.1 required><br>
+				      			<input type="number" name="tiempo_atraccion" id="tiempo_atraccion" min=0 step=0.5 required><br>
 				      		<label for="cupos_atraccion">Cupos:</label>
 				      			<input type="number" name="cupos_atraccion" id="cupos_atraccion" min=0 required><br>
-				      		<input type="submit" value="Aceptar">
+				      		<input type="submit" value="Crear">
 				      	</form>
 			      </div>
 			    </div>
@@ -105,6 +105,7 @@
 				      				<option value="" selected disabled>Todas las atracciones</option>
 				      				<option value="ninguna">Ninguna</option>
 				      			</select><br>
+				      		<input type="submit" value="Crear">
 				      	</form>
 			      </div>
 			    </div>
@@ -124,14 +125,16 @@
 				      			<select name="favorito_usuario" id="favorito_usuario" required>
 		<!-- extraer tipos de atraccion de bdd -->
 									<option value="" selected disabled>Tipos:</option>
-				      				<option value="aventura">Aventura</option>
-				      				<option value="degustacion">Degustación</option>
-				      				<option value="paisaje">Paisaje</option>
+				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
+				      					<option value="${tipoDeAtraccion}"><c:out value="${tipoDeAtraccion}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
 				      		<label for="monedas_usuario">Monedas:</label>
 				      			<input type="number" name="monedas_usuario" id="monedas_usuario" min=0 required><br>
 				      		<label for="tiempo_usuario">Tiempo disponible:</label>
 				      			<input type="number" name="tiempo_usuario" id="tiempo_usuario" min=0 step=0.1 required>
+				      		<br>
+				      		<input type="submit" value="Crear">
 				      	</form>
 			      </div>
 			    </div>

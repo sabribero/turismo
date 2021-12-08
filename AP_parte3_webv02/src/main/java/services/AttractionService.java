@@ -3,9 +3,9 @@ package services;
 import java.util.List;
 
 import model.Atraccion;
+import model.TipoDeAtraccion;
 import persistence.dao.AtraccionDAO;
 import persistence.dao.DAOFactory;
-import model.TipoDeAtraccion;
 
 public class AttractionService {
 
@@ -19,9 +19,9 @@ public class AttractionService {
 	}
 	
 
-	public Atraccion create(String name, Integer cost, Double duration, Integer capacity) {
+	public Atraccion create(String name, Integer cost, Double duration, Integer capacity, TipoDeAtraccion tipo) {
 
-		Atraccion atr = new Atraccion(name, cost, duration, capacity, null, 0);
+		Atraccion atr = new Atraccion(name, cost, duration, capacity, tipo, 0);
 
 		if (atr.isValid()) {
 			AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();

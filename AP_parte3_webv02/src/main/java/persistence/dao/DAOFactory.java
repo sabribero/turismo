@@ -17,4 +17,8 @@ public class DAOFactory {
 	public static ItinerarioDAOImpl getItinerarioDAO() {
 		return new ItinerarioDAOImpl();
 	}
+	
+	public static TipoDeAtraccionDAOImpl getTipoDeAtraccionDAO() {
+		return new TipoDeAtraccionDAOImpl();
+	}
 }

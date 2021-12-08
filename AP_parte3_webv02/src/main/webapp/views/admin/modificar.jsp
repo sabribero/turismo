@@ -18,7 +18,7 @@
 		<ul class="nav nav-tabs nav-fill">
 			<li class="nav-item"><a class="nav-link" href="admin.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link active" aria-current="page"  href="#">Modificar</a></li>
-			<li class="nav-item"><a class="nav-link" href="agregar.jsp">Agregar</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/agregar.do">Agregar</a></li>
 			<li class="nav-item"><a class="nav-link" href="ver.jsp">Ver</a></li>
 			<li class="nav-item"><a class="nav-link" href="eliminar.jsp">Eliminar</a></li>
 		</ul>
@@ -73,7 +73,7 @@
 				      		<label for="valor_atraccion">Valor:</label>
 				      			<input type="number" name="valor_atraccion" id="valor_atraccion" min=0 required><br>
 				      		<label for="tiempo_atraccion">Duración:</label>
-				      			<input type="number" name="tiempo_atraccion" id="tiempo_atraccion" min=0 step=0.1 required><br>
+				      			<input type="number" name="tiempo_atraccion" id="tiempo_atraccion" min=0 step=0.5 required><br>
 				      		<label for="cupos_atraccion">Cupos:</label>
 				      			<input type="number" name="cupos_atraccion" id="cupos_atraccion" min=0 required><br>
 				      		<label for="seleccion_tipo_atraccion">Seleccione el tipo de atracción:</label>

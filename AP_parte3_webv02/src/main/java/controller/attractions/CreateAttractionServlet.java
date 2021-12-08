@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
+import model.TipoDeAtraccion;
 import services.AttractionService;
 
 @WebServlet("/attractions/create.do")
@@ -26,25 +27,26 @@ public class CreateAttractionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/create.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/agregar.jsp");
 		dispatcher.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String name = req.getParameter("name");
-		Integer cost = Integer.parseInt(req.getParameter("cost"));
-		Double duration = Double.parseDouble(req.getParameter("duration"));
-		Integer capacity = Integer.parseInt(req.getParameter("capacity"));
+		String name = req.getParameter("nombre_atraccion");
+		Integer cost = Integer.parseInt(req.getParameter("valor_atraccion"));
+		Double duration = Double.parseDouble(req.getParameter("tiempo_atraccion"));
+		Integer capacity = Integer.parseInt(req.getParameter("cupos_atraccion"));
+		TipoDeAtraccion tipo= TipoDeAtraccion.valueOf(req.getParameter("seleccion_tipo_atraccion"));
 
-		Atraccion attraction = attractionService.create(name, cost, duration, capacity);
+		Atraccion attraction = attractionService.create(name, cost, duration, capacity, tipo);
 		if (attraction.isValid()) {
-			resp.sendRedirect("/turismo/attractions/index.do");
+			resp.sendRedirect("/AP_parte3_webv02/administrador/agregar.do");
 		} else {
 			req.setAttribute("attraction", attraction);
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/attractions/create.jsp");
+					.getRequestDispatcher("/administrador/agregar.do");
 			dispatcher.forward(req, resp);
 		}
 

@@ -18,7 +18,7 @@
 		<ul class="nav nav-tabs nav-fill">
 			<li class="nav-item"><a class="nav-link" href="admin.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="modificar.jsp">Modificar</a></li>
-			<li class="nav-item"><a class="nav-link" href="agregar.jsp">Agregar</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/agregar.do">Agregar</a></li>
 			<li class="nav-item"><a class="nav-link" href="ver.jsp">Ver</a></li>
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Eliminar</a></li>
 		</ul>
