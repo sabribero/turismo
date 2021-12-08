@@ -36,11 +36,28 @@
 								<p class="card-text">Costo: <c:out value="${atraccion.valor}"></c:out> monedas</p>
 								<p class="card-text">Duraci&oacute;n: <c:out value="${atraccion.tiempoDeUso}"></c:out> hora/s</p>
 								<p class="card-text">Cupos: <c:out value="${atraccion.usosDisponibles}"></c:out></p>
+								
+								<!--  -->
+							<c:choose>
+
+								<c:when
+								
+									test="${user.podesIrA(atraccion) && user.todaviaNoVasA(atraccion) && atraccion.podesRecibir()}">
+									<a href="/turismo/attractions/buy.do?id=${attraction.id}"
+										class="btn btn-success rounded" role="button">Comprar</a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="btn btn-secondary rounded disabled"
+										role="button">No se puede comprar</a>
+								</c:otherwise>
+							</c:choose>
+								
+								<!--  -->
 							</div>
 						</div>
 					</c:forEach>
 				</div>
-			<h3 class="titulo" id="titulo1">Promociones</h3>
+			<h3 class="titulo" id="titulo1">Promociones: Se podria agregar como "cupos" el cupo de la atraccion que tenga un menor cupo</h3>
 			<div class="row row-cols-4">
 				<c:forEach items="${promociones}" var="promocion">
 					<div class="card col">
@@ -60,5 +77,11 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	
+	
+	
 </body>
 </html>

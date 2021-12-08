@@ -102,6 +102,18 @@ public class Atraccion {
 		
 	}
 	
+	public boolean podesRecibir() {
+		
+		if(this.usosDisponibles>=1) {
+			
+			return true;
+		}else {
+			
+			return false;
+		}
+		
+	}
+	
 	
 	
 	public boolean isValid() {
