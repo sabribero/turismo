@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -24,8 +27,13 @@
 		</ul>
 		<main class="contenido">
 			<div class="headercentrado">
-				<h1>BIENVENIDO ADMIN!</h1>
+				<h1>BIENVENIDO <c:out value="${user.nombre}" />!</h1>
 				<br>
+				
+
+		
+		
+		<br>
 				<p>* <a href="/AP_parte3_webv02/cambiarpass.jsp"> Cambiar contraseña</a></p>
 				<p>Seleccione una de las siguientes opciones:</p>
 			</div>

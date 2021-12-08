@@ -33,7 +33,8 @@
 		<header class="headercentrado">
 
 		¡Bienvenido, <c:out value="${user.nombre}" />!
-										¡Tu ID es, <c:out value="${user.id}" />!
+									
+										
 	
 			<ul class="centrado recuadro">
 					<li>* Tu <a href="itinerario.jsp">itinerario</a> actual cuenta con X atracciones.</li>
