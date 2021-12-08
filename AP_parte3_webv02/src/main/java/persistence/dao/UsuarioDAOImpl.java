@@ -195,7 +195,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			String tipoAtraccion= resultadoDos.getString("tipo_de_atraccion");
 			//retorno el objeto
 			return new Usuario(resultado.getString("nombre"), TipoDeAtraccion.valueOf(tipoAtraccion),
-					resultado.getInt("monedas"), resultado.getFloat("tiempo_libre"), resultado.getString("password"), resultado.getBoolean("esAdmin"));
+					resultado.getInt("monedas"), resultado.getFloat("tiempo_libre"), resultado.getString("password"), resultado.getBoolean("esAdmin"), resultado.getInt("ID"));
 		} catch(Exception e) {
 			throw new MissingDataException(e);
 		}

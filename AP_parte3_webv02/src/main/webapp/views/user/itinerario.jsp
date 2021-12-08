@@ -24,6 +24,11 @@
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Mi Itinerario</a></li>
 		</ul>
 		
+		
+		Este es tu itinerario, "${user.nombre}"
+		
+
+		
 		<div class="contenido">
 			<table class="table table-hover">
 				<thead class="table-dark">
@@ -37,12 +42,15 @@
 				<tbody>
 				
 				
+				
+				
+				
+				
 					<c:forEach items="${attractions}" var="atraccion">
 						
 									<tr>
 						<td>1</td>
 						<td><c:out value="${atraccion.nombre}"></c:out>
-						 <br> Atraccion 2</td>
 						<td>Costo: <c:out value="${atraccion.valor}"></c:out></td>
 						<td>Costo: <c:out value="${atraccion.valor}"></c:out></td>
 					</tr>		

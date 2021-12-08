@@ -40,9 +40,26 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 		ResultSet resultados = statement.executeQuery();
 
 		List<Atraccion> atracciones = new LinkedList<Atraccion>();
+		
+		Atraccion atr = new Atraccion();  
+		String sql2 = "SELECT * FROM atracciones WHERE ID= ?";
+		
+
+		
 		while (resultados.next()) {
-			atracciones.add(toAtraccion(resultados));
+
+
+			Connection conn2 = ConnectionProvider.getConnection();
+			PreparedStatement statement2 = conn2.prepareStatement(sql2);
+			statement2.setInt(1, resultados.getInt("id_atr"));
+			ResultSet resultados2 = statement2.executeQuery();
+			
+			
+			atracciones.add(toAtraccion(resultados2));
 		}
+		
+		
+		
 		return atracciones;
 		} catch(Exception e) {
 			throw new MissingDataException(e);
@@ -185,7 +202,7 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 			
 			//retorno el objeto
 			return new Atraccion(resultado.getString("nombre"), resultado.getInt("valor"), resultado.getDouble("tiempo"), 
-					resultado.getInt("usos_disponibles"), TipoDeAtraccion.valueOf(tipoAtraccion));
+					resultado.getInt("usos_disponibles"), TipoDeAtraccion.valueOf(tipoAtraccion), resultado.getInt("borrado"));
 			
 		} catch(Exception e) {
 			throw new MissingDataException(e);

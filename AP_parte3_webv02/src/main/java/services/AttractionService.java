@@ -15,13 +15,13 @@ public class AttractionService {
 	
 
 	public List<Atraccion> listItinerario(int id) {
-		return DAOFactory.getAtraccionDAO().findAll();
+		return DAOFactory.getAtraccionDAO().findItinerarioById(id);
 	}
 	
 
 	public Atraccion create(String name, Integer cost, Double duration, Integer capacity) {
 
-		Atraccion atr = new Atraccion(name, cost, duration, capacity, null);
+		Atraccion atr = new Atraccion(name, cost, duration, capacity, null, 0);
 
 		if (atr.isValid()) {
 			AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
@@ -52,7 +52,7 @@ public class AttractionService {
 
 	public void delete(Integer id) {
 		
-		Atraccion attraction = new Atraccion("", 0, 0, 0, null);
+		Atraccion attraction = new Atraccion("", 0, 0, 0, null, 0);
 
 		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
 		attractionDAO.delete(attraction);

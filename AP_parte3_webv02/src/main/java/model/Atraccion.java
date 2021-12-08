@@ -8,27 +8,35 @@ public class Atraccion {
 	private String nombre;
 	private int valor;
 	private double tiempoDeUso;
-	private int usosDisponibles;
+	private int usosDisponibles, borrado;
+	public int getBorrado() {
+		return borrado;
+	}
+
+	public void setBorrado(int borrado) {
+		this.borrado = borrado;
+	}
+
 	private TipoDeAtraccion tipo;
 	
 	private Map<String, String> errors;
 
 	
-	public Atraccion( String nombre, int valor, double tiempoDeUso, int usosMaximos, TipoDeAtraccion tipo) {
+	public Atraccion( String nombre, int valor, double tiempoDeUso, int usosMaximos, TipoDeAtraccion tipo, int borrado) {
 
 		this.nombre=nombre;
 		this.valor=valor;
 		this.tiempoDeUso=tiempoDeUso;
 		this.usosDisponibles=usosMaximos;
 		this.tipo=tipo;
-		
+		this.borrado=borrado;
 		
 
 	}
 
 	//constructor por defecto
 	public Atraccion() {
-		this(" ", 0, 0,0, TipoDeAtraccion.DEFAULT);
+		this(" ", 0, 0,0, TipoDeAtraccion.DEFAULT,0);
 	}
 
 //--------------------------GETTERS----------------------------------

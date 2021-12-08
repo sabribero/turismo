@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import model.Promocion;
+import model.Usuario;
 import services.AttractionService;
 import services.PromocionService;
 
@@ -33,8 +34,14 @@ public class ObtenerItinerarioServlet extends HttpServlet implements Servlet {
 
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			List<Atraccion> attractions = attractionService.listItinerario(8);
+			
+			
+			Usuario user = (Usuario) req.getSession().getAttribute("user");
+			
+			
+			List<Atraccion> attractions = attractionService.listItinerario(user.getId());
 			req.setAttribute("attractions", attractions);
+
 			
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/user/itinerario.jsp");

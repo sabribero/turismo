@@ -16,7 +16,7 @@ public class Usuario {
 	private int id;
 	private boolean esAdmin;
 	
-	public Usuario(String nombre, TipoDeAtraccion atraccionFavorita, int monedas, float tiempoLibre, String password, boolean esAdmin) {
+	public Usuario(String nombre, TipoDeAtraccion atraccionFavorita, int monedas, float tiempoLibre, String password, boolean esAdmin, int id) {
 		this.nombre = nombre;
 		this.atraccionFavorita = atraccionFavorita;
 		this.presupuesto = monedas;
@@ -25,10 +25,11 @@ public class Usuario {
 		this.tiempoDisponibleOriginal = this.tiempoDisponible;
 		this.password = password;
 		this.esAdmin = esAdmin;
+		this.id=id;
 	}
 
 	public Usuario() {
-		this(" ", TipoDeAtraccion.DEFAULT, 0, 0,"",false);
+		this(" ", TipoDeAtraccion.DEFAULT, 0, 0,"",false, 0);
 	}
 
 	//----------------------------GETTERS---------------------------------------------------
