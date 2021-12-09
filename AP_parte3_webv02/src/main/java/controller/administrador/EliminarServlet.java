@@ -10,8 +10,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
+import model.Promocion;
 import model.TipoDeAtraccion;
 import services.AttractionService;
+import services.PromocionService;
 import services.TipoDeAtraccionService;
 
 @WebServlet("/administrador/eliminar.do")
@@ -21,12 +23,14 @@ public class EliminarServlet extends HttpServlet {
 
 	private AttractionService atraccionService;
 	private TipoDeAtraccionService tipoDeAtraccionService;
+	private PromocionService promocionService;
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		this.atraccionService = new AttractionService();
 		this.tipoDeAtraccionService= new TipoDeAtraccionService();
+		this.promocionService= new PromocionService();
 	}
 	
 	@Override
@@ -36,7 +40,9 @@ public class EliminarServlet extends HttpServlet {
 		
 		List<TipoDeAtraccion> tiposDeAtraccion = tipoDeAtraccionService.list();
 		req.setAttribute("tiposDeAtraccion", tiposDeAtraccion);
-		
+
+		List<Promocion> promociones = promocionService.list();
+		req.setAttribute("promociones", promociones);
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/eliminar.jsp");
 		dispatcher.forward(req, resp);

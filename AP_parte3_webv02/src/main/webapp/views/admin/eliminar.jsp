@@ -82,12 +82,14 @@
 			    </h2>
 			    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form method="post">
-				      		<label for="seleccion_promo">Seleccione una promoción para eliminar:</label>
-		<!-- cada promocion puede estar representada como Tipo, Valor, Atraccion1, Atraccion2, Atraccion3 -->
+			      		<form action="/AP_parte3_webv02/promociones/delete.do">
+				      		<label for="seleccion_promo">Seleccione una promoci&oacute;n para eliminar:</label>
 				      			<select name="seleccion_promo" id="seleccion_promo">
-		<!-- extraer promociones de bdd -->
-				      				<option value="" selected disabled>Cada promoción</option>
+				      				<option value="" selected disabled>Cada promoci&oacute;n</option>
+				      				<c:forEach items="${promociones}" var="promocion">
+				      					<option value="${promocion.getNombre()}"><c:out value="${promocion.getClass().getSimpleName().replace('Promo', '')}"></c:out>, 
+				      					<c:out value="${promocion.getNombre()}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
 				      			<input type="submit" value="Eliminar">
 				      	</form>

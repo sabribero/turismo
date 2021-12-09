@@ -9,6 +9,7 @@ import model.PromoAxB;
 import model.PromoPorcentual;
 import model.Promocion;
 import model.TipoDePromo;
+import persistence.dao.AtraccionDAO;
 import persistence.dao.DAOFactory;
 import persistence.dao.PromocionDAOImpl;
 
@@ -62,5 +63,21 @@ public class PromocionService {
 			return null;
 		}
 	}
+
+	public void delete(String atracciones) {
+		String[] listaAtracciones= atracciones.split(",");
+		List<Atraccion> attractions= new ArrayList<Atraccion>();
+		for(String cadaUna : listaAtracciones) {
+			cadaUna = cadaUna.trim();
+			Atraccion attraction = new Atraccion(cadaUna, 0, 0, 0, null, 0);
+			attractions.add(attraction);
+			
+		}
+		Promocion promocion = new Promocion(attractions);
+
+		PromocionDAOImpl promocionDAO = DAOFactory.getPromocionDAO();
+		promocionDAO.borradoLogico(promocion);
+	}
+
 
 }

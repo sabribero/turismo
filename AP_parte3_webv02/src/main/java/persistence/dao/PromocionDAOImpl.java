@@ -22,7 +22,9 @@ public class PromocionDAOImpl implements PromocionDAO{
 
 		List<Promocion> promociones = new LinkedList<Promocion>();
 		while (resultados.next()) {
-			promociones.add(toPromocion(resultados, atraccionesImportadas));
+			if(resultados.getInt("borrado") == 0) {
+				promociones.add(toPromocion(resultados, atraccionesImportadas));
+			}
 		}
 
 		return promociones;
@@ -152,6 +154,22 @@ public class PromocionDAOImpl implements PromocionDAO{
 		} catch(Exception e) {
 			throw new MissingDataException(e);
 		}
+	}
+	
+	public int borradoLogico(Promocion promocion) {
+		try {
+			String sql = "UPDATE promociones SET borrado=1 WHERE id= ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, this.findByAtraccionesList(promocion.getAtraccionesEnPromocion()));
+			int rows = statement.executeUpdate();
+			
+			return rows;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		}
+		
 	}
 	
 	

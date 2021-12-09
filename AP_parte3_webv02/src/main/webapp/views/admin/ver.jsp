@@ -100,23 +100,30 @@
 			      		<table class="table table-hover">
 				      		<thead>
 				      			<tr>
-				      				<th class="col-1">ID</th>
-				      				<th class="col-2">Tipo de promociÃ³n</th>
-				      				<th class="col-2">Precio/Descuento</th>
-				      				<th class="col-2">Atracción 1</th>
-				      				<th class="col-2">Atracción 2</th>
-				      				<th class="col-2">Atracción 3</th>
+				      				<th class="col-2">Tipo de promoci&oacute;n</th>
+				      				<th class="col-2">Precio</th>
+				      				<th class="col-2">Duraci&oacute;n</th>
+				      				<th class="col-2">Atracci&oacute;n 1</th>
+				      				<th class="col-2">Atracci&oacute;n 2</th>
+				      				<th class="col-2">Atracci&oacute;n 3</th>
 				      			</tr>
 				      		</thead>
 				      		<tbody>
-				      			<tr>
-				      				<td>1</td>
-				      				<td>AxB</td>
-				      				<td>0</td>
-				      				<td>Lothlorien</td>
-				      				<td>La Comarca</td>
-				      				<td>&nbsp;</td>
-				      			</tr>
+				      			<c:forEach items="${promociones}" var="promocion">
+				      				<tr>
+						      			<td><c:out value="${promocion.getClass().getSimpleName().replace('Promo', '')}"></c:out></td>
+						      			<td><c:out value="${promocion.getValorPromo()}"></c:out> monedas</td>
+						      			<td><c:out value="${promocion.getTiempoDeUso()}"></c:out> hora/s</td>
+						      			<td><c:out value="${promocion.getAtraccionesEnPromocion().get(0)}"></c:out></td>
+						      			<td><c:out value="${promocion.getAtraccionesEnPromocion().get(1)}"></c:out></td>
+						      			<c:if test="${promocion.getAtraccionesEnPromocion().size()>2}">
+						      				<td><c:out value="${promocion.getAtraccionesEnPromocion().get(2)}"></c:out></td>
+						      			</c:if>
+						      			<c:if test="${promocion.getAtraccionesEnPromocion().size()==2}">
+						      				<td>-</td>
+						      			</c:if>
+				      				</tr>
+					      		</c:forEach>
 				      		</tbody>
 				      	</table>
 			      </div>
