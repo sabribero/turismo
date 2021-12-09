@@ -99,34 +99,41 @@
 			    </h2>
 			    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form method="post">
+			      		<form action="/AP_parte3_webv02/promociones/edit.do" method="post">
 		<!-- cada promocion puede estar representada como Tipo, Valor, Atraccion1, Atraccion2, Atraccion3 -->
 				      		<label for="seleccion_promo">Seleccione una promoción para modificar:</label>
 				      			<select name="seleccion_promo" id="seleccion_promo">
 		<!-- extraer promociones de bdd -->
 				      				<option value="" selected disabled>Cada promoción</option>
+				      				<c:forEach items="${promociones}" var="promocion">
+				      					<option value="${promocion.getNombre()}"><c:out value="${promocion.getClass().getSimpleName().replace('Promo', '')}"></c:out>, 
+				      					<c:out value="${promocion.getNombre()}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
-				     		<label for="tipo_promo">Tipo de promoción:</label>
-				     			<select name="tipo_promo" id="tipo_promo" required>
-		<!-- un input de valor/descuento deberia aparecer solo cuando se abra la opcion correspondiente -->
-									<option value="" selected disabled>Tipos:</option>
-				     				<option value="axb">AxB</option>
-				     				<option value="porcentual">Porcentual</option>
-				     				<option value="absoluta">Absoluta</option>
-				     			</select><br>
+				     		<label for="valor_promo">Valor de promoci&oacute;n: (Si la promoci&oacute;n es AxB el valor se desestima)</label>
+				     			<input type="number" name="valor_promo" id="valor_promo" min=0 required><br>
 		<!-- aca tambien idealmente se traerian las atracciones que ya estan por default -->
-							<label for="seleccion_atr1_promo">Atracción 1:</label>
+							<label for="seleccion_atr1_promo">Atracci&oacute;n 1:</label>
 				      			<select name="seleccion_atr1_promo" id="seleccion_atr1_promo" required>
-				      				<option value="" selected disabled>Cada atracción</option>
+				      				<option value="" selected disabled>Cada atracci&oacute;n</option>
+				      				<c:forEach items="${attractions}" var="atraccion">
+				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
-				      		<label for="seleccion_atr2_promo">Atracción 2:</label>
+				      		<label for="seleccion_atr2_promo">Atracci&oacute;n 2:</label>
 				      			<select name="seleccion_atr2_promo" id="seleccion_atr2_promo" required>
-				      				<option value="" selected disabled>Cada atracción</option>
+				      				<option value="" selected disabled>Cada atracci&oacute;n</option>
+				      				<c:forEach items="${attractions}" var="atraccion">
+				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
-				      		<label for="seleccion_atr3_promo">Atracción 3:</label>
+				      		<label for="seleccion_atr3_promo">Atracci&oacute;n 3:</label>
 				      			<select name="seleccion_atr3_promo" id="seleccion_atr3_promo">
-				      				<option value="" selected disabled>Cada atracción</option>
-				      				<option value="ninguna">Ninguna</option>
+				      				<option value="" selected disabled>Cada atracci&oacute;n</option>
+				      				<c:forEach items="${attractions}" var="atraccion">
+				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
+				      				</c:forEach>
+				      				<option value="-">-</option>
 				      			</select><br>
 				      		<input type="submit" value="Aceptar">
 				      	</form>

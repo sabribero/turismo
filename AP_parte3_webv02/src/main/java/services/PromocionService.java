@@ -9,7 +9,7 @@ import model.PromoAxB;
 import model.PromoPorcentual;
 import model.Promocion;
 import model.TipoDePromo;
-import persistence.dao.AtraccionDAO;
+import persistence.dao.AtraccionDAOImpl;
 import persistence.dao.DAOFactory;
 import persistence.dao.PromocionDAOImpl;
 
@@ -62,6 +62,50 @@ public class PromocionService {
 		} else {
 			return null;
 		}
+	}
+	
+	public Promocion update(String nombre, int valor, String atr1, String atr2, String atr3) {
+
+		//creo la promocion original
+		String[] listaAtracciones= nombre.split(",");
+		List<Atraccion> atracciones= new ArrayList<Atraccion>();
+		AtraccionDAOImpl atraccionDAO= DAOFactory.getAtraccionDAO();
+		List<Atraccion> attractions= new ArrayList<Atraccion>();
+		for(String cadaUna : listaAtracciones) {
+			cadaUna = cadaUna.trim();
+			Atraccion attraction = atraccionDAO.findByNombre(cadaUna);
+			atracciones.add(attraction);
+			
+		}
+		Promocion promoOriginal = new Promocion(atracciones);
+
+		//promocion nueva
+		
+		
+		Atraccion atraccion1=atraccionDAO.findByNombre(atr1);
+		Atraccion atraccion2=atraccionDAO.findByNombre(atr2);
+		attractions.add(atraccion1);
+		attractions.add(atraccion2);
+		if(!atr3.equals("-")) {
+			Atraccion atraccion3=DAOFactory.getAtraccionDAO().findByNombre(atr3);
+			attractions.add(atraccion3);
+		}
+		
+		//"atracciones"==atracciones de la promo original, "attractions"==atracciones nuevas
+		PromocionDAOImpl promocionDAO = DAOFactory.getPromocionDAO();
+		int id= promocionDAO.findByAtraccionesList(atracciones);
+		
+		Promocion promo= promocionDAO.findById(id, atraccionDAO.findAll());
+
+		promo.setValor(valor);
+		promo.setAtraccionesEnPromocion(attractions);
+
+		if (promo.isValid()) {
+			promocionDAO.modificar(promo, promoOriginal);
+			// XXX: si no devuelve "1", es que hubo más errores
+		}
+
+		return promo;
 	}
 
 	public void delete(String atracciones) {

@@ -15,6 +15,7 @@ public interface PromocionDAO{
 	public void updateAtracciones(Promocion promocion);
 	public Integer findByAtraccionesList(List<Atraccion> atracciones); 	//usado en los test
 	public Promocion findById(Integer id, List<Atraccion> atraccionesImportadas);
+	public int modificar(Promocion promocion, Promocion promoOriginal);
 	public int delete(Promocion promocion);
 	public int borradoLogico(Promocion promocion);
 	//el siguiente metodo requiere de una lista de atracciones para tratar con los mismos objetos

@@ -71,6 +71,22 @@ public class Promocion {
 		}
 	}
 	
+	public void setValor(int nuevoValor) {
+		this.valor= nuevoValor;
+	}
+	
+	public void setAtraccionesEnPromocion(List<Atraccion> nuevasAtracciones) {
+		this.getAtraccionesEnPromocion().set(0, nuevasAtracciones.get(0));
+		this.getAtraccionesEnPromocion().set(1, nuevasAtracciones.get(1));	
+		if(nuevasAtracciones.size()>2) {
+			if(this.getAtraccionesEnPromocion().size() > 2) {
+				this.getAtraccionesEnPromocion().set(2, nuevasAtracciones.get(2));
+			}else {
+				this.getAtraccionesEnPromocion().add(nuevasAtracciones.get(2));
+			}
+		}
+	}
+	
 	public boolean isValid() {
 		validate();
 		return errors.isEmpty();
@@ -79,6 +95,9 @@ public class Promocion {
 	public void validate() {
 		errors = new HashMap<String, String>();
 
+		if (this.valor <= 0) {
+			errors.put("valor", "Costo invalido.");
+		}
 		if (this.getAtraccionesEnPromocion().get(0) == null) {
 			errors.put("atr1", "Atraccion 1 no puede ser null");
 		}

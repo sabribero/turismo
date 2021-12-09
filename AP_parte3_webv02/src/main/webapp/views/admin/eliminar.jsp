@@ -62,7 +62,7 @@
 			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
 			      		<form action="/AP_parte3_webv02/attractions/delete.do">
-				      		<label for="atraccion_eliminar">Seleccione una atracción para eliminar:</label>
+				      		<label for="atraccion_eliminar">Seleccione una atracci&oacute;n para eliminar:</label>
 				      			<select name="atraccion_eliminar" id="atraccion_eliminar" required>
 				      				<option value="" selected disabled>Atracciones:</option>
 				      				<c:forEach items="${attractions}" var="atraccion">

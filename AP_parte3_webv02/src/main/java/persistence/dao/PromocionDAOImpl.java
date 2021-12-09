@@ -141,6 +141,34 @@ public class PromocionDAOImpl implements PromocionDAO{
 		}
 	}
 	
+	public int modificar(Promocion promocion, Promocion promoOriginal) {
+		try {
+			String sql;
+			if(promocion.getAtraccionesEnPromocion().size()==3) {
+				sql = "UPDATE promociones SET valor_promo = ?, id_atr1 = ? ,id_atr2 = ?, id_atr3 = ? WHERE id = ?";
+			} else {
+				sql = "UPDATE promociones SET valor_promo = ?, id_atr1 = ? ,id_atr2 = ? WHERE id = ?";
+			}
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, promocion.getValorPromo());
+			statement.setInt(2, DAOFactory.getAtraccionDAO().findIDByNombre(promocion.getAtraccionesEnPromocion().get(0).getNombre()));
+			statement.setInt(3, DAOFactory.getAtraccionDAO().findIDByNombre(promocion.getAtraccionesEnPromocion().get(1).getNombre()));
+			if(promocion.getAtraccionesEnPromocion().size()==3) {
+				statement.setInt(4, DAOFactory.getAtraccionDAO().findIDByNombre(promocion.getAtraccionesEnPromocion().get(2).getNombre()));
+				statement.setInt(5, this.findByAtraccionesList(promoOriginal.getAtraccionesEnPromocion()));
+			} else {
+				statement.setInt(4, this.findByAtraccionesList(promoOriginal.getAtraccionesEnPromocion()));
+			}
+			int rows = statement.executeUpdate();
+			
+			return rows;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
 	public int delete(Promocion promocion) {
 		try {
 			String sql = "DELETE FROM promociones WHERE ID = ?";
