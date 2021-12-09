@@ -5,6 +5,7 @@ import java.util.List;
 import model.Atraccion;
 import model.TipoDeAtraccion;
 import persistence.dao.AtraccionDAO;
+import persistence.dao.AtraccionDAOImpl;
 import persistence.dao.DAOFactory;
 
 public class AttractionService {
@@ -32,18 +33,17 @@ public class AttractionService {
 		return atr;
 	}
 
-	public Atraccion update(Integer id, String name, Integer cost, Double duration, Integer capacity) {
+	public Atraccion update(String name, Integer cost, Double duration, Integer capacity) {
 
-		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
-		Atraccion atr = attractionDAO.findByID(id);
+		AtraccionDAOImpl attractionDAO = DAOFactory.getAtraccionDAO();
+		Atraccion atr = attractionDAO.findByNombre(name);
 
-		atr.setNombre(name);
 		atr.setValor(cost);
 		atr.setTiempoDeUso(duration);
 		atr.setUsosDisponibles(capacity);
 
 		if (atr.isValid()) {
-			attractionDAO.update(atr);
+			attractionDAO.modificar(atr);
 			// XXX: si no devuelve "1", es que hubo más errores
 		}
 

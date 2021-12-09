@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -41,9 +42,9 @@
 				      		<label for="seleccion_tipo">Seleccione un tipo para modificar:</label>
 				      			<select name="seleccion_tipo" id="seleccion_tipo" required>
 				      				<option value="" selected disabled>Tipos:</option>
-				      				<option value="aventura">Aventura</option>
-				      				<option value="degustacion">Degustación</option>
-				      				<option value="paisaje">Paisaje</option>
+				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
+				      					<option value="${tipoDeAtraccion}"><c:out value="${tipoDeAtraccion}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
 				      		<label for="nombre_tipo">Modifique el nombre:</label>
 				      			<input type="text" name="nombre_tipo" id="nombre_tipo" required><br>
@@ -61,29 +62,31 @@
 			    </h2>
 			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form method="post">
+			      		<form action="/AP_parte3_webv02/attractions/edit.do" method="post">
 		<!-- hay que poner cada atraccion desde el backend -->
-				      		<label for="seleccion_atraccion">Seleccione una atracción para modificar:</label>
+				      		<label for="seleccion_atraccion">Seleccione una atracci&oacute;n para modificar:</label>
 				      			<select name="seleccion_atraccion" id="seleccion_atraccion">
-				      				<option value="" selected disabled>Cada atracción</option>
+				      				<option value="" selected disabled>Cada atracci&oacute;n</option>
+				      				<c:forEach items="${attractions}" var="atraccion">
+				      					<option value="${atraccion}"><c:out value="${atraccion}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
 		<!-- estaria bueno que los input trayeran en el value la informacion que YA hay en la base de datos -->
-				      		<label for="nombre_atraccion">Nombre:</label>
-				      			<input type="text" name="nombre_atraccion" id="nombre_atraccion" required><br>
 				      		<label for="valor_atraccion">Valor:</label>
 				      			<input type="number" name="valor_atraccion" id="valor_atraccion" min=0 required><br>
 				      		<label for="tiempo_atraccion">Duración:</label>
 				      			<input type="number" name="tiempo_atraccion" id="tiempo_atraccion" min=0 step=0.5 required><br>
 				      		<label for="cupos_atraccion">Cupos:</label>
 				      			<input type="number" name="cupos_atraccion" id="cupos_atraccion" min=0 required><br>
-				      		<label for="seleccion_tipo_atraccion">Seleccione el tipo de atracción:</label>
+		<!-- comentado porque quiza no esta bueno que puedan cambiar el tipo de atraccion, puede romper alguna promocion -->
+				      		<!--<label for="seleccion_tipo_atraccion">Seleccione el tipo de atracción:</label>
 				      			<select name="seleccion_tipo_atraccion" id="seleccion_tipo_atraccion" required>
-		<!-- extraer tipos de atraccion de bdd -->
 									<option value="" selected disabled>Tipos:</option>
-				      				<option value="aventura">Aventura</option>
-				      				<option value="degustacion">Degustación</option>
-				      				<option value="paisaje">Paisaje</option>
-				      			</select><br>
+				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
+				      					<option value="${tipoDeAtraccion}"><c:out value="${tipoDeAtraccion}"></c:out></option>
+				      				</c:forEach>
+				      			</select>-->
+				      		<br>
 				      		<input type="submit" value="Aceptar">
 				      	</form>
 			      </div>
@@ -150,9 +153,9 @@
 				      		<label for="seleccion_favorito_usuario">Seleccione un tipo de atracción favorito:</label>
 				      			<select name="seleccion_favorito_usuario" id="seleccion_favorito_usuario" required>
 				      				<option value="" selected disabled>Tipos:</option>
-				      				<option value="aventura">Aventura</option>
-				      				<option value="degustacion">Degustación</option>
-				      				<option value="paisaje">Paisaje</option>
+				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
+				      					<option value="${tipoDeAtraccion}"><c:out value="${tipoDeAtraccion}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
 				      		<label for="dinero_usuario">Monedas:</label>
 				      			<input type="number" name="dinero_usuario" id="dinero_usuario" min=0 required><br>

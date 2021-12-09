@@ -36,21 +36,21 @@ public class EditAttractionServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id = Integer.parseInt(req.getParameter("id"));
-		String name = req.getParameter("name");
-		Integer cost = Integer.parseInt(req.getParameter("cost"));
+		String name = req.getParameter("seleccion_atraccion");
+		Integer cost = Integer.parseInt(req.getParameter("valor_atraccion"));
 		// Integer cost = req.getParameter("cost").trim() == "" ? null : Integer.parseInt(req.getParameter("cost"));
-		Double duration = Double.parseDouble(req.getParameter("duration"));
-		Integer capacity = Integer.parseInt(req.getParameter("capacity"));
+		Double duration = Double.parseDouble(req.getParameter("tiempo_atraccion"));
+		Integer capacity = Integer.parseInt(req.getParameter("cupos_atraccion"));
 
-		Atraccion attraction = attractionService.update(id, name, cost, duration, capacity);
+		Atraccion attraction = attractionService.update(name, cost, duration, capacity);
 
 		if (attraction.isValid()) {
-			resp.sendRedirect("/turismo/attractions/index.do");
+//TODO mensaje de todo bien
+			resp.sendRedirect("/AP_parte3_webv02/administrador/modificar.do");
 		} else {
 			req.setAttribute("attraction", attraction);
-
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/edit.jsp");
+//TODO mensaje de todo mal
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AP_parte3_webv02/administrador/modificar.do");
 			dispatcher.forward(req, resp);
 		}
 	}

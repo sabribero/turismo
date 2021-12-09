@@ -116,6 +116,24 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 		}
 	}
 	
+	public int modificar(Atraccion atraccion) {
+		try {
+			String sql = "UPDATE atracciones SET valor = ?, tiempo = ? ,usos_disponibles = ? WHERE nombre = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, atraccion.getValor());
+			statement.setDouble(2, atraccion.getTiempoDeUso());
+			statement.setInt(3, atraccion.getUsosDisponibles());
+			statement.setString(4, atraccion.getNombre());
+			int rows = statement.executeUpdate();
+			
+			return rows;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
 	public int delete(Atraccion atraccion) {
 		try {
 			String sql = "DELETE FROM atracciones WHERE nombre = ?";
