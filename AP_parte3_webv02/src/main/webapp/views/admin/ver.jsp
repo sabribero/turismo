@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -39,15 +40,15 @@
 				      	<table class="table table-hover">
 				      		<thead>
 				      			<tr>
-				      				<th class="col-3">ID</th>
 				      				<th class="col-6">Nombre</th>
 				      			</tr>
 				      		</thead>
 				      		<tbody>
-				      			<tr>
-				      				<td>1</td>
-				      				<td>Tipos sacados de bdd</td>
-				      			</tr>
+				      			<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
+				      				<tr>
+					      				<td><c:out value="${tipoDeAtraccion}"></c:out></td>
+				      				</tr>
+					      		</c:forEach>
 				      		</tbody>
 				      	</table>
 				      </div>
@@ -64,7 +65,6 @@
 			      		<table class="table table-hover">
 				      		<thead>
 				      			<tr>
-				      				<th class="col-1">ID</th>
 				      				<th class="col-2">Nombre</th>
 				      				<th class="col-2">Costo</th>
 				      				<th class="col-2">Duración</th>
@@ -73,14 +73,17 @@
 				      			</tr>
 				      		</thead>
 				      		<tbody>
-				      			<tr>
-				      				<td>1</td>
-				      				<td>Atraccion1</td>
-				      				<td>5 monedas</td>
-				      				<td>2 horas</td>
-				      				<td>30</td>
-				      				<td>Aventura</td>
-				      			</tr>
+				      			<c:forEach items="${attractions}" var="atraccion">
+				      				<tr>
+				      				<c:if test="${atraccion.borrado eq 0}">
+						      				<td><c:out value="${atraccion.nombre}"></c:out></td>
+						      				<td><c:out value="${atraccion.valor}"></c:out> monedas</td>
+						      				<td><c:out value="${atraccion.tiempoDeUso}"></c:out> hora/s</td>
+						      				<td><c:out value="${atraccion.usosDisponibles}"></c:out></td>
+						      				<td><c:out value="${atraccion.tipo}"></c:out></td>
+						      		</c:if>
+				      				</tr>
+					      		</c:forEach>	
 				      		</tbody>
 				      	</table>
 			      </div>
