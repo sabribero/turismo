@@ -136,6 +136,10 @@ public class Atraccion {
 			errors.put("capacity", "Debe ser positivo");
 		}
 	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
+	}
 
 	//--------------equals y hashcode----------------
 

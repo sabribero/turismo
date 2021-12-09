@@ -29,15 +29,15 @@
 		</header>
 		<main class="contenido">
 			<div class="accordion accordion-flush" id="accordionFlushExample">
+<!-- comentado porque no conviene modificar tipos de atraccion
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-headingOne">
 			      <button class="accordion-button collapsed botonacordeon" id="tipos_de_atraccion" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-			        Tipos de Atracción
+			        Tipos de Atracci&oacute;n
 			      </button>
 			    </h2>
 			    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 				      <div class="accordion-body bodyacordeon">
-		<!-- En los formularios las opciones deberian ser autogeneradas con los datos de la base -->
 				      	<form method="post">
 				      		<label for="seleccion_tipo">Seleccione un tipo para modificar:</label>
 				      			<select name="seleccion_tipo" id="seleccion_tipo" required>
@@ -53,7 +53,7 @@
 				      	</form>
 				      </div>
 			    </div>
-			  </div>
+			  </div>  -->
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-headingTwo">
 			      <button class="accordion-button collapsed botonacordeon" id="atracciones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -63,7 +63,6 @@
 			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
 			      		<form action="/AP_parte3_webv02/attractions/edit.do" method="post">
-		<!-- hay que poner cada atraccion desde el backend -->
 				      		<label for="seleccion_atraccion">Seleccione una atracci&oacute;n para modificar:</label>
 				      			<select name="seleccion_atraccion" id="seleccion_atraccion">
 				      				<option value="" selected disabled>Cada atracci&oacute;n</option>

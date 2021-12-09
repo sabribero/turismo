@@ -29,6 +29,9 @@
 		</header>
 		<main class="contenido">
 			<div class="accordion accordion-flush" id="accordionFlushExample">
+			
+<!-- comentado porque eliminar un enum haria que se rompan varias atracciones	
+
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-headingOne">
 			      <button class="accordion-button collapsed botonacordeon" id="tipos_de_atraccion" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -49,7 +52,7 @@
 				      	</form>
 				      </div>
 			    </div>
-			  </div>
+			  </div> -->	
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-headingTwo">
 			      <button class="accordion-button collapsed botonacordeon" id="atracciones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -59,7 +62,6 @@
 			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
 			      		<form action="/AP_parte3_webv02/attractions/delete.do">
-		<!-- atracciones de bdd -->
 				      		<label for="atraccion_eliminar">Seleccione una atracción para eliminar:</label>
 				      			<select name="atraccion_eliminar" id="atraccion_eliminar" required>
 				      				<option value="" selected disabled>Atracciones:</option>
