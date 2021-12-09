@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -31,19 +32,18 @@
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-headingOne">
 			      <button class="accordion-button collapsed botonacordeon" id="tipos_de_atraccion" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-			        Tipos de Atracción
+			        Tipos de Atracci&oacute;n
 			      </button>
 			    </h2>
 			    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 				      <div class="accordion-body bodyacordeon">
 				      	<form method="post">
 				      		<label for="seleccion_tipo">Seleccione un tipo para eliminar:</label>
-		<!-- los tipos deberian salir de la bdd -->
 				      			<select name="seleccion_tipo" id="seleccion_tipo" required>
 				      				<option value="" selected disabled>Tipos:</option>
-				      				<option value="aventura">Aventura</option>
-				      				<option value="degustacion">DegustaciÃ³n</option>
-				      				<option value="paisaje">Paisaje</option>
+				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
+				      					<option value="${tipoDeAtraccion}"><c:out value="${tipoDeAtraccion}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
 				      			<input type="submit" value="Eliminar">
 				      	</form>
@@ -58,11 +58,14 @@
 			    </h2>
 			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form method="post">
+			      		<form action="/AP_parte3_webv02/attractions/delete.do">
 		<!-- atracciones de bdd -->
 				      		<label for="atraccion_eliminar">Seleccione una atracción para eliminar:</label>
 				      			<select name="atraccion_eliminar" id="atraccion_eliminar" required>
-				      				<option value="" selected disabled>Todas las atracciones</option>
+				      				<option value="" selected disabled>Atracciones:</option>
+				      				<c:forEach items="${attractions}" var="atraccion">
+				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
+				      				</c:forEach>
 				      			</select><br>
 				      			<input type="submit" value="Eliminar">
 				      	</form>

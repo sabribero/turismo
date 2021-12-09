@@ -22,7 +22,9 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 
 		List<Atraccion> atracciones = new LinkedList<Atraccion>();
 		while (resultados.next()) {
-			atracciones.add(toAtraccion(resultados));
+			if(resultados.getInt("borrado") == 0) {
+				atracciones.add(toAtraccion(resultados));
+			}
 		}
 		return atracciones;
 		} catch(Exception e) {
@@ -149,6 +151,21 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 		}
 	}
 	
+	public int borradoLogico(Atraccion atraccion) {
+		try {
+			String sql = "UPDATE atracciones SET borrado=1 WHERE nombre = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, atraccion.getNombre());
+			int rows = statement.executeUpdate();
+			
+			return rows;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		}
+		
+	}
 	
 	public Atraccion findByNombre(String nombre) {
 		try {

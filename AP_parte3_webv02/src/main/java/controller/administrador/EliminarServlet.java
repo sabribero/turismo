@@ -14,10 +14,10 @@ import model.TipoDeAtraccion;
 import services.AttractionService;
 import services.TipoDeAtraccionService;
 
-@WebServlet("/administrador/ver.do")
-public class VerServlet extends HttpServlet {
+@WebServlet("/administrador/eliminar.do")
+public class EliminarServlet extends HttpServlet {
 
-	private static final long serialVersionUID = -8965686857846420720L;
+	private static final long serialVersionUID = -3633941772706036477L;
 
 	private AttractionService atraccionService;
 	private TipoDeAtraccionService tipoDeAtraccionService;
@@ -38,7 +38,7 @@ public class VerServlet extends HttpServlet {
 		req.setAttribute("tiposDeAtraccion", tiposDeAtraccion);
 		
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/ver.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/eliminar.jsp");
 		dispatcher.forward(req, resp);
 
 	}

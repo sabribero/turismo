@@ -65,7 +65,9 @@ public class Atraccion {
 		return this.nombre;
 	}
 
-	
+	public boolean borrado() {
+		return this.borrado!=0;
+	}
 	//--------------------SETTERS----------------
 
 	protected void setTipo(TipoDeAtraccion tipo) {

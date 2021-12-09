@@ -23,11 +23,11 @@ public class DeleteAttractionServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id = Integer.parseInt(req.getParameter("id"));
+		String name = (String)(req.getParameter("atraccion_eliminar"));
 
-		attractionService.delete(id);
-
-		resp.sendRedirect("/turismo/attractions/index.do");
+		attractionService.delete(name);
+//TODO mostrar errores
+		resp.sendRedirect("/AP_parte3_webv02/administrador/eliminar.do");
 	}
 
 

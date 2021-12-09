@@ -21,7 +21,7 @@
 			<li class="nav-item"><a class="nav-link active" aria-current="page"  href="#">Modificar</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/agregar.do">Agregar</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/ver.do">Ver</a></li>
-			<li class="nav-item"><a class="nav-link" href="eliminar.jsp">Eliminar</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/eliminar.do">Eliminar</a></li>
 		</ul>
 		<header class="headercentrado">
 			<h1>BIENVENIDO ADMIN!</h1>

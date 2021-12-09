@@ -50,12 +50,12 @@ public class AttractionService {
 		return atr;
 	}
 
-	public void delete(Integer id) {
+	public void delete(String name) {
 		
-		Atraccion attraction = new Atraccion("", 0, 0, 0, null, 0);
+		Atraccion attraction = new Atraccion(name, 0, 0, 0, null, 0);
 
 		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
-		attractionDAO.delete(attraction);
+		attractionDAO.borradoLogico(attraction);
 	}
 
 	public Atraccion find(Integer id) {

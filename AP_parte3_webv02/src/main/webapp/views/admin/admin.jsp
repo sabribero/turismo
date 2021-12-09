@@ -23,7 +23,7 @@
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/modificar.do">Modificar</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/agregar.do">Agregar</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/ver.do">Ver</a></li>
-			<li class="nav-item"><a class="nav-link" href="eliminar.jsp">Eliminar</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/eliminar.do">Eliminar</a></li>
 		</ul>
 		<main class="contenido">
 			<div class="headercentrado">
