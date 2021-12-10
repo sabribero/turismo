@@ -25,14 +25,14 @@
 
 
 
-	<div class="container contenedor" style="color: black;"" backGroundColor="grey">
+	<div class="container contenedor" style="color: black;">
 		<ul class="nav nav-tabs nav-fill nav-dark">
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="sugeridor.jsp">Obtener sugerencias</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/visualizar.do">Ver Atracciones/Promociones</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/itinerario.do">Mi Itinerario</a></li>
 		</ul>
-		<header class="headercentrado">
+		 <header class="headercentrado"> 
 
 		¡Bienvenido, <c:out value="${user.nombre}" />!
 		<br>
@@ -55,7 +55,10 @@
 					<li>* Te quedan <c:out value="${user.tiempoDisponible}" /> horas libres.</li>
 					<li>* <a href="/AP_parte3_webv02/cambiarpass.jsp"> Cambiar contraseña</a></li> 
 			</ul>
-		</header>
+	</header> 
+	
+	
+
 		<div class="contenido">
 			<h2>¿Qué te gustaría hacer ahora?</h2>
 	
@@ -67,11 +70,25 @@
 				</ul>
 			</div>
 		</div>
-		<br> 
-		<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+		 
+		 
+		 </div>
 		
-		
-		<jsp:include page="../../partials/footer.jsp"></jsp:include>
-		
+
+			<jsp:include page="../../partials/footer.jsp"></jsp:include>
+				
 </body>
+		
+
+
 </html>

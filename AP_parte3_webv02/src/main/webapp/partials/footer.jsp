@@ -1,4 +1,4 @@
-	<footer style="width: 100%; margin-left: 0px;">
+	<footer style="width: 100%; margin-left: 0px; position:fixed;">
 
 
 		<div class="foot" style="background-color: #0d47a1;">

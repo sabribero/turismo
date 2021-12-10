@@ -13,11 +13,11 @@
 <jsp:include page="../../partials/head.jsp"></jsp:include>
 
 </head>
-<body>
+<body class="bg-general">
 
 	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 	
-	<div class="container contenedor">
+	<div class="container contenedor" style="color: black;">
 		<ul class="nav nav-tabs nav-fill">
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/modificar.do">Modificar</a></li>
@@ -81,15 +81,13 @@
 			</div>
 			<br>
 			<br>
-	
-			<div class="container">
-				<div class="row align-items-start excepciona">
-					<a href="../../index.jsp" class="btn btn-danger btn-lg">Salir</a>
-				</div>
-			</div>
 			
 			
 		</main>
 	</div>
+	
+	
+	
+				<jsp:include page="../../partials/footer.jsp"></jsp:include>
 </body>
 </html>
