@@ -87,6 +87,8 @@
 					<a href="../../index.jsp" class="btn btn-danger btn-lg">Salir</a>
 				</div>
 			</div>
+			
+			
 		</main>
 	</div>
 </body>

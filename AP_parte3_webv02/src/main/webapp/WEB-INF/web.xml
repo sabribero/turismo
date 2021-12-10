@@ -6,9 +6,15 @@
     version="5.0">
     
     
-    <error-page>
-  
-    </error-page>
+<servlet>
+    <servlet-name>/apisServlets/clima</servlet-name>  // nombre del servlet
+    <servlet-class>controller.apisServlets</servlet-class>  // clase del servlet
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>/apisServlets/clima</servlet-name>   // nombre del servlet
+    <url-pattern>/src/main/webapp/views/user/user.jsp</url-pattern>  // URL asignada al servlet
+</servlet-mapping>
 
 
 </web-app>

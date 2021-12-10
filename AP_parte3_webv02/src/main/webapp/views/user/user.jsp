@@ -14,8 +14,10 @@
 
 <jsp:include page="../../partials/head.jsp"></jsp:include>
 
+
+
 </head>
-<body>
+<body class="bg-general">
 
 	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 
@@ -23,8 +25,8 @@
 
 
 
-	<div class="container contenedor">
-		<ul class="nav nav-tabs nav-fill">
+	<div class="container contenedor" style="color: black;"" backGroundColor="grey">
+		<ul class="nav nav-tabs nav-fill nav-dark">
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="sugeridor.jsp">Obtener sugerencias</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/visualizar.do">Ver Atracciones/Promociones</a></li>
@@ -33,6 +35,15 @@
 		<header class="headercentrado">
 
 		¡Bienvenido, <c:out value="${user.nombre}" />!
+		<br>
+		
+				<div class="container">
+			<div class="container">
+				<div class="row align-items-start excepciona">
+					<a href="/AP_parte3_webv02/apisServlets/clima" class="btn btn-primary btn-lg">Clima</a>
+				</div>
+			</div>
+		Actualmenta en la tierra media: <c:out value="${clima.getTemperatura}" />
 									
 										
 	
@@ -59,12 +70,8 @@
 		<br> 
 		<br>
 		
-		<div class="container">
-			<div class="container">
-				<div class="row align-items-start excepciona">
-					<a href="../../index.jsp" class="btn btn-danger btn-lg">Salir</a>
-				</div>
-			</div>
-	</div>
+		
+		<jsp:include page="../../partials/footer.jsp"></jsp:include>
+		
 </body>
 </html>
