@@ -37,6 +37,17 @@
 							<li><a class="dropdown-item" href="#">Información</a></li>
 						</ul></li>
 						
+											<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Banco de Monedas </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/AP_parte3_webv02/apisServlets/moneda.do">Calcular Monedas</a></li>
+							<li><a class="dropdown-item" href="#">Comprar Monedas</a></li>
+
+
+						</ul></li>
+						
 						
 			<c:if test="${user.esAdmin}">
 
@@ -52,20 +63,7 @@
 						</ul></li>
 		</c:if>
 		
-					<c:if test="${!user.esAdmin}">
 
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Banco de Monedas </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="/AP_parte3_webv02/apisServlets/moneda.do">Calcular Monedas</a></li>
-							<li><a class="dropdown-item" href="#">Comprar Monedas</a></li>
-
-
-						</ul></li>
-		</c:if>
-						
 						
 						
 						
