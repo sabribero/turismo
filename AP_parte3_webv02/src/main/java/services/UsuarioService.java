@@ -49,4 +49,12 @@ public class UsuarioService {
 		return usuario;
 	}
 	
+	public void delete(String name) {
+		
+		Usuario usuario = new Usuario(name, null, 0, 0f, "", false, 0);
+
+		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
+		usuarioDAO.borradoLogico(usuario);
+	}
+	
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 import excepciones.MissingDataException;
 import jdbc.ConnectionProvider;
+import model.Atraccion;
 import model.TipoDeAtraccion;
 import model.Usuario;
 import model.nullobjects.NullUser;
@@ -149,6 +150,21 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		}
 	}
 	
+	public int borradoLogico(Usuario usuario) {
+		try {
+			String sql = "UPDATE usuarios SET borrado=1 WHERE nombre = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, usuario.getNombre());
+			int rows = statement.executeUpdate();
+			
+			return rows;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		}
+		
+	}
 	
 
 	public Usuario findByNombre(String nombre) {

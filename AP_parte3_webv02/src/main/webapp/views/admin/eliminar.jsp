@@ -104,11 +104,14 @@
 			    </h2>
 			    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form method="post">
+			      		<form action="/AP_parte3_webv02/usuarios/delete.do">
 		<!-- usuarios de bdd -->
 				      		<label for="usuario_eliminar">Seleccione un usuario para eliminar:</label>
 				      			<select name="usuario_eliminar" id="usuario_eliminar" required>
 				      				<option value="" selected disabled>Todos los usuarios</option>
+				      				<c:forEach items="${usuarios}" var="usuario">
+			      						<option value="${usuario.getNombre()}"><c:out value="${usuario.getNombre()}"></c:out></option>
+			      					</c:forEach>
 				      			</select><br>
 				      			<input type="submit" value="Eliminar">
 				      	</form>
