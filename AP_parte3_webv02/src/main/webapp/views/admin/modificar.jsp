@@ -28,6 +28,21 @@
 				<p>Seleccione una de las siguientes opciones:</p>
 		</header>
 		<main class="contenido">
+		
+		<c:if test="${flash != null && !flash.isValid2()}">
+			<div class="alert alert-danger">
+					<ul>
+						<c:forEach items="${flash.getErrors()}" var="entry">
+							<li><c:out value="${entry.getValue()}"></c:out></li>
+						</c:forEach>
+					</ul>
+			</div>
+		</c:if>
+		<c:if test="${flash!= null && flash.isValid2()}">
+			<div class="alert alert-success">
+				<p>¡Modificaci&oacute;n exitosa!</p>
+			</div>
+		</c:if>
 			<div class="accordion accordion-flush" id="accordionFlushExample">
 <!-- comentado porque no conviene modificar tipos de atraccion
 			  <div class="accordion-item">
@@ -148,14 +163,19 @@
 			    </h2>
 			    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form method="post">
+			      		<form action="/AP_parte3_webv02/usuarios/edit.do" method="post">
 			      		<label for="seleccion_usuario">Seleccione un usuario al que modificar:</label>
 			      			<select name="seleccion_usuario" id="seleccion_usuario">
 			      				<option value="" selected disabled>Todos los usuarios</option>
+			      				<c:forEach items="${usuarios}" var="usuario">
+			      					<option value="${usuario.getNombre()}"><c:out value="${usuario.getNombre()}"></c:out></option>
+			      				</c:forEach>
 			      			</select><br>
 		<!-- los valores default deberian cargarse desde la bdd -->
 				      		<label for="nombre_usuario">Nombre:</label>
 				      			<input type="text" name="nombre_usuario" id="nombre_usuario" required><br>
+				      		<label for="password_usuario">Contrase&ntilde;a:</label>
+				      			<input type="password" name="password_usuario" id="password_usuario" required><br>
 				      		<label for="seleccion_favorito_usuario">Seleccione un tipo de atracción favorito:</label>
 				      			<select name="seleccion_favorito_usuario" id="seleccion_favorito_usuario" required>
 				      				<option value="" selected disabled>Tipos:</option>
@@ -166,7 +186,12 @@
 				      		<label for="dinero_usuario">Monedas:</label>
 				      			<input type="number" name="dinero_usuario" id="dinero_usuario" min=0 required><br>
 				      		<label for="tiempo_usuario">Tiempo disponible:</label>
-				      			<input type="number" name="tiempo_usuario" id="tiempo_usuario" min=0 step=0.1 required><br>
+				      			<input type="number" name="tiempo_usuario" id="tiempo_usuario" min=0 step=0.5 required><br>
+				      		<p>Es administrador:</p>
+				      			<input type="radio" name="admin_usuario" id="no" value="no" checked>
+				      		<label for="no">No</label>
+				      			<input type="radio" name="admin_usuario" id="si" value="si">
+				      		<label for="si">Si</label>
 				      		<input type="submit" value="Aceptar">
 				      	</form>
 			      </div>

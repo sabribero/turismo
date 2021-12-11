@@ -12,9 +12,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import model.Promocion;
 import model.TipoDeAtraccion;
+import model.Usuario;
 import services.AttractionService;
 import services.PromocionService;
 import services.TipoDeAtraccionService;
+import services.UsuarioService;
 
 @WebServlet("/administrador/modificar.do")
 public class ModificarServlet extends HttpServlet {
@@ -24,6 +26,7 @@ public class ModificarServlet extends HttpServlet {
 	private AttractionService atraccionService;
 	private TipoDeAtraccionService tipoDeAtraccionService;
 	private PromocionService promocionService;
+	private UsuarioService usuarioService;
 	
 	@Override
 	public void init() throws ServletException {
@@ -31,6 +34,7 @@ public class ModificarServlet extends HttpServlet {
 		this.atraccionService = new AttractionService();
 		this.tipoDeAtraccionService= new TipoDeAtraccionService();
 		this.promocionService= new PromocionService();
+		this.usuarioService= new UsuarioService();
 	}
 	
 	@Override
@@ -44,9 +48,20 @@ public class ModificarServlet extends HttpServlet {
 		List<Promocion> promociones = promocionService.list();
 		req.setAttribute("promociones", promociones);
 
+		List<Usuario> usuarios = usuarioService.list();
+		req.setAttribute("usuarios", usuarios);
+
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/modificar.jsp");
 		dispatcher.forward(req, resp);
 
 	}
 
+	//doPost utiliza doGet ya que accedemos a el solo desde el request dispatcher de cualquier edit.do
+		@Override
+		public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+			req.setAttribute("flash", req.getAttribute("flash"));
+			
+			this.doGet(req, resp);
+		}
+	
 }

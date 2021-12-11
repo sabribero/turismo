@@ -17,7 +17,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 	public List<Usuario> findAll() {
 		try {
-		String sql = "SELECT * FROM usuarios";
+		String sql = "SELECT * FROM usuarios WHERE borrado=0";
 		Connection conn = ConnectionProvider.getConnection();
 		PreparedStatement statement = conn.prepareStatement(sql);
 		ResultSet resultados = statement.executeQuery();
@@ -35,7 +35,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 	public int countAll() {
 		try {
-			String sql = "SELECT count(1) AS 'total' FROM usuarios";
+			String sql = "SELECT count(1) AS 'total' FROM usuarios WHERE borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
@@ -80,6 +80,32 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			statement.setDouble(2, usuario.getTiempoDisponible());
 			statement.setBoolean(3, usuario.getEsAdmin());
 			statement.setString(4, usuario.getNombre());
+			int rows = statement.executeUpdate();
+
+			
+			return rows;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+	public int modificar(Usuario usuario, int id) {
+		try {
+			String sql = "UPDATE usuarios SET nombre= ?, monedas = ?, tiempo_libre = ?, ID_tipo_favorito=(SELECT ID FROM tipos_atraccion WHERE tipo_de_atraccion = ?), password=?, esAdmin = ? WHERE ID = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, usuario.getNombre());
+			statement.setInt(2, usuario.getPresupuesto());
+			statement.setDouble(3, usuario.getTiempoDisponible());
+			statement.setString(4, usuario.getNombreAtraccionFavorita());
+			statement.setString(5, usuario.getPassword());
+			if(usuario.getEsAdmin()) {
+				statement.setInt(6, 1);
+			} else {
+				statement.setInt(6, 0);
+			}
+			statement.setInt(7, id);
 			int rows = statement.executeUpdate();
 
 			

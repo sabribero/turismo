@@ -43,6 +43,11 @@ public class Usuario {
 		return presupuesto;
 	}
 
+	public void setPresupuesto(int monedas) {
+		this.presupuesto= monedas;
+		this.monedasIniciales=monedas;
+	}
+	
 	public List<Atraccion> getItinerario() {
 		return itinerario;
 	}
@@ -50,9 +55,17 @@ public class Usuario {
 	public float getTiempoDisponible() {
 		return tiempoDisponible;
 	}
+	
+	public void setTiempoDisponible(float tiempo) {
+		this.tiempoDisponible= tiempo;
+	}
 
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre= nombre;
 	}
 
 	public String getNombreAtraccionFavorita() {
@@ -63,6 +76,9 @@ public class Usuario {
 		return this.atraccionFavorita;
 	}
 	
+	public void setTipoFavorito(TipoDeAtraccion tipo) {
+		this.atraccionFavorita= tipo;
+	}
 	
 	public int getId() {
 		return id;
@@ -82,6 +98,10 @@ public class Usuario {
 	
 	public boolean getEsAdmin() {
 		return esAdmin;
+	}
+	
+	public void setAdmin(boolean admin) {
+		this.esAdmin= admin;
 	}
 
 //-------------------------------METODOS----------------------------
@@ -110,6 +130,11 @@ public class Usuario {
 		return errors.isEmpty();
 	}
 	
+	public boolean isValid2() {
+		validate2();
+		return errors.isEmpty();
+	}
+	
 	public void validate() {
 		errors = new HashMap<String, String>();
 
@@ -125,6 +150,30 @@ public class Usuario {
 			if(this.nombre.equals(usuarios.get(i).getNombre())) {
 				errors.put("nombre", "Nombre repetido, ingrese un nombre nuevo");
 			}
+		}
+	}
+	//validador para cuando el usuario ya esta en la base de datos
+	public void validate2() {
+		errors = new HashMap<String, String>();
+
+		if (this.presupuesto <= 0) {
+			errors.put("monedas", "Cantidad de monedas no debe ser negativa ni cero");
+		}
+		if (this.tiempoDisponible <= 0) {
+			errors.put("tiempo", "Tiempo no debe ser negativo ni cero");
+		}
+		//recorro todos los usuarios
+		List<Usuario> usuarios=DAOFactory.getUsuarioDAO().findAll();
+		//acumulador que cuenta cuando encuentra el mismo nombre en la base de datos,
+		//si se encuentra mas de una vez, es decir esta repetido, da error
+		int repeticiones=0;
+		for(Usuario usuario : usuarios) {
+			if(this.nombre.equals(usuario.getNombre())) {
+				repeticiones++;
+			}
+		}
+		if(repeticiones>1) {
+			errors.put("nombre", "Nombre repetido, ingrese un nombre nuevo");
 		}
 	}
 	

@@ -28,7 +28,7 @@
 		</header>
 		<main class="contenido">
 		
-		<c:if test="${usuario != null && !usuario.isValid()}">
+		<c:if test="${usuario != null && !usuario.isValid2()}">
 			<div class="alert alert-danger">
 					<ul>
 						<c:forEach items="${usuario.getErrors()}" var="entry">
@@ -37,7 +37,7 @@
 					</ul>
 			</div>
 		</c:if>
-		<c:if test="${usuario!= null && usuario.getErrors().isEmpty()}">
+		<c:if test="${usuario!= null && usuario.isValid2()}">
 			<div class="alert alert-success">
 				<p>Usuario agregado correctamente.</p>
 			</div>

@@ -6,6 +6,7 @@ import model.TipoDeAtraccion;
 import model.Usuario;
 import persistence.dao.DAOFactory;
 import persistence.dao.UsuarioDAO;
+import persistence.dao.UsuarioDAOImpl;
 
 public class UsuarioService {
 
@@ -21,6 +22,27 @@ public class UsuarioService {
 		if (usuario.isValid()) {
 			UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
 			usuarioDAO.insert(usuario);
+			// XXX: si no devuelve "1", es que hubo más errores
+		}
+
+		return usuario;
+	}
+	
+	public Usuario update(String original, String nombre, String password, TipoDeAtraccion tipo, int monedas, float tiempo, boolean esAdmin) {
+
+		UsuarioDAOImpl usuarioDAO = DAOFactory.getUsuarioDAO();
+		Usuario usuario = usuarioDAO.findByNombre(original);
+		int id= usuarioDAO.findIDByNombre(original);
+
+		usuario.setNombre(nombre);
+		usuario.setPassword(password);
+		usuario.setTipoFavorito(tipo);
+		usuario.setPresupuesto(monedas);
+		usuario.setTiempoDisponible(tiempo);
+		usuario.setAdmin(esAdmin);
+
+		if (usuario.isValid()) {
+			usuarioDAO.modificar(usuario, id);
 			// XXX: si no devuelve "1", es que hubo más errores
 		}
 
