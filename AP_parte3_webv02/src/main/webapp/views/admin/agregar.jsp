@@ -16,7 +16,7 @@
 	
 	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">
-			<li class="nav-item"><a class="nav-link" href="admin.jsp">Inicio</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/views/admin/admin.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/modificar.do">Modificar</a></li>
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Agregar</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/ver.do">Ver</a></li>
@@ -28,20 +28,18 @@
 		</header>
 		<main class="contenido">
 		
-		<c:if test="${flash != null}">
+		<c:if test="${usuario != null && !usuario.isValid()}">
 			<div class="alert alert-danger">
 					<ul>
-						<c:forEach items="${flash}" var="entry">
+						<c:forEach items="${usuario.getErrors()}" var="entry">
 							<li><c:out value="${entry.getValue()}"></c:out></li>
 						</c:forEach>
 					</ul>
 			</div>
 		</c:if>
-		<c:if test="${correcto != null}">
+		<c:if test="${usuario!= null && usuario.getErrors().isEmpty()}">
 			<div class="alert alert-success">
-				<p>
-					<c:out value="${correcto}"></c:out>
-				</p>
+				<p>Usuario agregado correctamente.</p>
 			</div>
 		</c:if>
 			<div class="accordion accordion-flush" id="accordionFlushExample">
@@ -148,9 +146,11 @@
 			    </h2>
 			    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form method="post">
+			      		<form action="/AP_parte3_webv02/usuarios/create.do" method="post">
 				      		<label for="nombre_usuario">Nombre:</label>
 				      			<input type="text" name="nombre_usuario" id="nombre_usuario"><br>
+				      		<label for="password_usuario">Contrase&ntilde;a:</label>
+				      			<input type="password" name="password_usuario" id="password_usuario"><br>
 				      		<label for="favorito_usuario">Tipo de atracción favorito:</label>
 				      			<select name="favorito_usuario" id="favorito_usuario" required>
 		<!-- extraer tipos de atraccion de bdd -->
@@ -163,6 +163,12 @@
 				      			<input type="number" name="monedas_usuario" id="monedas_usuario" min=0 required><br>
 				      		<label for="tiempo_usuario">Tiempo disponible:</label>
 				      			<input type="number" name="tiempo_usuario" id="tiempo_usuario" min=0 step=0.5 required>
+				      		<br>
+				      		<p>Es administrador:</p>
+				      				<input type="radio" name="admin_usuario" id="no" value="no" checked>
+				      			<label for="no">No</label>
+				      				<input type="radio" name="admin_usuario" id="si" value="si">
+				      			<label for="si">S&iacute;</label>
 				      		<br>
 				      		<input type="submit" value="Crear">
 				      	</form>

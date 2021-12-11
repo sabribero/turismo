@@ -17,7 +17,7 @@
 	
 	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">
-			<li class="nav-item"><a class="nav-link" href="admin.jsp">Inicio</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/views/admin/admin.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/modificar.do">Modificar</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/agregar.do">Agregar</a></li>
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Ver</a></li>
@@ -75,13 +75,11 @@
 				      		<tbody>
 				      			<c:forEach items="${attractions}" var="atraccion">
 				      				<tr>
-				      				<c:if test="${atraccion.borrado eq 0}">
-						      				<td><c:out value="${atraccion.nombre}"></c:out></td>
-						      				<td><c:out value="${atraccion.valor}"></c:out> monedas</td>
-						      				<td><c:out value="${atraccion.tiempoDeUso}"></c:out> hora/s</td>
-						      				<td><c:out value="${atraccion.usosDisponibles}"></c:out></td>
-						      				<td><c:out value="${atraccion.tipo}"></c:out></td>
-						      		</c:if>
+						      			<td><c:out value="${atraccion.nombre}"></c:out></td>
+						      			<td><c:out value="${atraccion.valor}"></c:out> monedas</td>
+						      			<td><c:out value="${atraccion.tiempoDeUso}"></c:out> hora/s</td>
+						      			<td><c:out value="${atraccion.usosDisponibles}"></c:out></td>
+						      			<td><c:out value="${atraccion.tipo}"></c:out></td>
 				      				</tr>
 					      		</c:forEach>	
 				      		</tbody>
@@ -140,7 +138,6 @@
 			      		<table class="table table-hover">
 				      		<thead>
 				      			<tr>
-				      				<th class="col-1">ID</th>
 				      				<th class="col-2">Nombre</th>
 				      				<th class="col-2">Tipo preferido</th>
 				      				<th class="col-2">Dinero</th>
@@ -148,13 +145,14 @@
 				      			</tr>
 				      		</thead>
 				      		<tbody>
-				      			<tr>
-				      				<td>1</td>
-				      				<td>Un nombre</td>
-				      				<td>Aventura</td>
-				      				<td>15 monedas</td>
-				      				<td>15 horas</td>
-				      			</tr>
+				      			<c:forEach items="${usuarios}" var="usuario">
+					      			<tr>
+					      				<td>${usuario.getNombre()}</td>
+					      				<td>${usuario.getNombreAtraccionFavorita().toString()}</td>
+					      				<td>${usuario.getPresupuesto()}</td>
+					      				<td>${usuario.getTiempoDisponible()}</td>
+					      			</tr>
+					      		</c:forEach>
 				      		</tbody>
 				      	</table>
 			      </div>

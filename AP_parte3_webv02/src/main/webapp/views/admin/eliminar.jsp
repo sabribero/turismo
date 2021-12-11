@@ -17,7 +17,7 @@
 	
 	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">
-			<li class="nav-item"><a class="nav-link" href="admin.jsp">Inicio</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/views/admin/admin.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/modificar.do">Modificar</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/agregar.do">Agregar</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/ver.do">Ver</a></li>

@@ -12,9 +12,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import model.Promocion;
 import model.TipoDeAtraccion;
+import model.Usuario;
 import services.AttractionService;
 import services.PromocionService;
 import services.TipoDeAtraccionService;
+import services.UsuarioService;
 
 @WebServlet("/administrador/ver.do")
 public class VerServlet extends HttpServlet {
@@ -24,6 +26,7 @@ public class VerServlet extends HttpServlet {
 	private AttractionService atraccionService;
 	private TipoDeAtraccionService tipoDeAtraccionService;
 	private PromocionService promocionService;
+	private UsuarioService usuarioService;
 	
 	@Override
 	public void init() throws ServletException {
@@ -31,6 +34,7 @@ public class VerServlet extends HttpServlet {
 		this.atraccionService = new AttractionService();
 		this.tipoDeAtraccionService= new TipoDeAtraccionService();
 		this.promocionService= new PromocionService();
+		this.usuarioService= new UsuarioService();
 	}
 	
 	@Override
@@ -43,6 +47,9 @@ public class VerServlet extends HttpServlet {
 		
 		List<Promocion> promociones = promocionService.list();
 		req.setAttribute("promociones", promociones);
+		
+		List<Usuario> usuarios = usuarioService.list();
+		req.setAttribute("usuarios", usuarios);
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/ver.jsp");
 		dispatcher.forward(req, resp);

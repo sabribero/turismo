@@ -36,9 +36,16 @@ public class AgregarServlet extends HttpServlet {
 		List<TipoDeAtraccion> tiposDeAtraccion = tipoDeAtraccionService.list();
 		req.setAttribute("tiposDeAtraccion", tiposDeAtraccion);
 		
-
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/agregar.jsp");
 		dispatcher.forward(req, resp);
 
+	}
+	
+//doPost utiliza doGet ya que accedemos a el solo desde el request dispatcher de cualquier create.do
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		req.setAttribute("usuario", req.getAttribute("usuario"));
+		
+		this.doGet(req, resp);
 	}
 }

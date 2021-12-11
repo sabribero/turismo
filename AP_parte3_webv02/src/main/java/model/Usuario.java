@@ -1,7 +1,11 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import persistence.dao.DAOFactory;
 import utils.Crypt;
 
 
@@ -15,6 +19,8 @@ public class Usuario {
 	private float tiempoDisponible, tiempoDisponibleOriginal;
 	private int id;
 	private boolean esAdmin;
+
+	private HashMap<String, String> errors;
 	
 	public Usuario(String nombre, TipoDeAtraccion atraccionFavorita, int monedas, float tiempoLibre, String password, boolean esAdmin, int id) {
 		this.nombre = nombre;
@@ -99,7 +105,32 @@ public class Usuario {
 		return retorno;
 	}
 	
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
 	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (this.presupuesto <= 0) {
+			errors.put("monedas", "Cantidad de monedas no debe ser negativa ni cero");
+		}
+		if (this.tiempoDisponible <= 0) {
+			errors.put("tiempo", "Tiempo no debe ser negativo ni cero");
+		}
+		//recorro todos menos el ultimo ya que si recorre al ultimo puede recorrerse a si mismo
+		List<Usuario> usuarios=DAOFactory.getUsuarioDAO().findAll();
+		for(int i=0; i< usuarios.size()-1; i++) {
+			if(this.nombre.equals(usuarios.get(i).getNombre())) {
+				errors.put("nombre", "Nombre repetido, ingrese un nombre nuevo");
+			}
+		}
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
+	}
 	
 	@Override
 	public String toString() {
