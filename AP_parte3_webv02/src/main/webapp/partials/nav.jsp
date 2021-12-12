@@ -22,7 +22,7 @@
 				
 				
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/AP_parte3_webv02/index.jsp">Home</a></li>
+						aria-current="page" href="/AP_parte3_webv02/views/user/user.jsp">Home</a></li>
 						
 						
 						
@@ -47,6 +47,18 @@
 
 
 						</ul></li>
+						
+															<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Ver Pronostico </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/AP_parte3_webv02/apisServlets/clima.do">Mañana</a></li>
+							<li><a class="dropdown-item" href="#">Pasado Mañana</a></li>
+
+
+						</ul></li>						
+
 						
 						
 			<c:if test="${user.esAdmin}">

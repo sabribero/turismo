@@ -17,16 +17,20 @@
 
 
 
-<!-- Hasta aca el codigo de formato de pagina -->
+
 
 </head>
 <body class="bg-general">
 
-	<jsp:include page="partials/nav.jsp"></jsp:include>
+
 
 	<div id="index">
 		<div class="row justify-content-center headercentrado">
 			<div class="col-8">
+			
+			
+			
+			
 				<!-- 
 				<h1>Bienvenido a la tierra media</h1>
 				
