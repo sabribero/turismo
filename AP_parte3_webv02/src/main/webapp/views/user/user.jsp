@@ -28,7 +28,7 @@
 	<div class="container contenedor" style="color: black;">
 		<ul class="nav nav-tabs nav-fill nav-dark">
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
-			<li class="nav-item"><a class="nav-link" href="sugeridor.jsp">Obtener sugerencias</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/user/ofertador.do">Obtener sugerencias</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/visualizar.do">Ver Atracciones/Promociones</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/itinerario.do">Mi Itinerario</a></li>
 		</ul>
@@ -37,13 +37,12 @@
 		¡Bienvenido, <c:out value="${user.nombre}" />!
 		<br>
 		
-				<div class="container">
 			<div class="container">
 				<div class="row align-items-start excepciona">
 					<a href="/AP_parte3_webv02/apisServlets/clima" class="btn btn-primary btn-lg">Clima</a>
 				</div>
 			</div>
-		Actualmenta en la tierra media: <c:out value="${clima.getTemperatura}" />
+		Actualmente en la tierra media: <c:out value="${clima.getTemperatura}" />
 									
 										
 	
