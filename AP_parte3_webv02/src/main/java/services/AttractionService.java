@@ -42,7 +42,7 @@ public class AttractionService {
 		atr.setTiempoDeUso(duration);
 		atr.setUsosDisponibles(capacity);
 
-		if (atr.isValid()) {
+		if (atr.isValid2()) {
 			attractionDAO.modificar(atr);
 			// XXX: si no devuelve "1", es que hubo más errores
 		}

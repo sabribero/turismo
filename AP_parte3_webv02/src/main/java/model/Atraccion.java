@@ -1,7 +1,10 @@
 package model;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import persistence.dao.DAOFactory;
 
 public class Atraccion {
 
@@ -123,6 +126,11 @@ public class Atraccion {
 		return errors.isEmpty();
 	}
 	
+	public boolean isValid2() {
+		validate2();
+		return errors.isEmpty();
+	}
+	
 	public void validate() {
 		errors = new HashMap<String, String>();
 
@@ -134,6 +142,42 @@ public class Atraccion {
 		}
 		if (this.usosDisponibles <= 0) {
 			errors.put("capacity", "Debe ser positivo");
+		}
+
+		List<Atraccion> atracciones=DAOFactory.getAtraccionDAO().findAll();
+		int repeticiones=0;
+		for(Atraccion atraccion: atracciones) {
+			if(this.nombre.equals(atraccion.getNombre())) {
+				repeticiones++;
+			}
+		}
+		if(repeticiones>0) {
+			errors.put("nombre", "Nombre repetido, ingrese un nombre nuevo");
+		}
+	}
+	//para modificacion, acepta que el nombre ya este 1 vez en la base de datos
+	public void validate2() {
+		errors = new HashMap<String, String>();
+
+		if ( valor<= 0) {
+			errors.put("cost", "Debe ser positivo");
+		}
+		if (this.tiempoDeUso <= 0) {
+			errors.put("duration", "Debe ser positivo");
+		}
+		if (this.usosDisponibles <= 0) {
+			errors.put("capacity", "Debe ser positivo");
+		}
+
+		List<Atraccion> atracciones=DAOFactory.getAtraccionDAO().findAll();
+		int repeticiones=0;
+		for(Atraccion atraccion: atracciones) {
+			if(this.nombre.equals(atraccion.getNombre())) {
+				repeticiones++;
+			}
+		}
+		if(repeticiones>1) {
+			errors.put("nombre", "Nombre repetido, ingrese un nombre nuevo");
 		}
 	}
 	

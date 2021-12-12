@@ -34,14 +34,8 @@ public class ModificarPromocionesServlet extends HttpServlet {
 
 		Promocion promo = promocionService.update(name, cost, atr1, atr2, atr3);
 
-		if (promo.isValid()) {
-//TODO mensaje de todo bien
-			resp.sendRedirect("/AP_parte3_webv02/administrador/modificar.do");
-		} else {
-			req.setAttribute("promocion", promo);
-//TODO mensaje de todo mal
+			req.setAttribute("flash", promo);
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/administrador/modificar.do");
 			dispatcher.forward(req, resp);
-		}
 	}
 }

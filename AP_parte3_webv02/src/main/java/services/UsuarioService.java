@@ -41,7 +41,7 @@ public class UsuarioService {
 		usuario.setTiempoDisponible(tiempo);
 		usuario.setAdmin(esAdmin);
 
-		if (usuario.isValid()) {
+		if (usuario.isValid2()) {
 			usuarioDAO.modificar(usuario, id);
 			// XXX: si no devuelve "1", es que hubo más errores
 		}

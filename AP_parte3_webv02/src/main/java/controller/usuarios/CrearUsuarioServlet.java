@@ -46,20 +46,13 @@ public class CrearUsuarioServlet extends HttpServlet {
 		}
 
 		Usuario usuario= usuarioService.create(nombre, tipo, monedas, tiempo, password, admin);
-		if (usuario.isValid()) {
-			req.setAttribute("usuario", usuario);
-
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/administrador/agregar.do");
-			dispatcher.forward(req, resp);
-		} else {
-			req.setAttribute("usuario", usuario);
+		//envio el usuario de todas maneras para juzgar si es adecuado o no desde el mensaje
+			req.setAttribute("flash", usuario);
 
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/administrador/agregar.do");
 			dispatcher.forward(req, resp);
 			
-		}
 
 	}
 }

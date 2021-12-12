@@ -28,18 +28,18 @@
 		</header>
 		<main class="contenido">
 		
-		<c:if test="${usuario != null && !usuario.isValid2()}">
+		<c:if test="${flash != null && !flash.getErrors().isEmpty()}">
 			<div class="alert alert-danger">
 					<ul>
-						<c:forEach items="${usuario.getErrors()}" var="entry">
+						<c:forEach items="${flash.getErrors()}" var="entry">
 							<li><c:out value="${entry.getValue()}"></c:out></li>
 						</c:forEach>
 					</ul>
 			</div>
 		</c:if>
-		<c:if test="${usuario!= null && usuario.isValid2()}">
+		<c:if test="${flash != null && flash.getErrors().isEmpty()}">
 			<div class="alert alert-success">
-				<p>Usuario agregado correctamente.</p>
+				<p>Elemento agregado con &eacute;xito.</p>
 			</div>
 		</c:if>
 			<div class="accordion accordion-flush" id="accordionFlushExample">

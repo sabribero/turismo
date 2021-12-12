@@ -40,15 +40,12 @@ public class CreateAttractionServlet extends HttpServlet {
 		TipoDeAtraccion tipo= TipoDeAtraccion.valueOf(req.getParameter("seleccion_tipo_atraccion"));
 
 		Atraccion attraction = attractionService.create(name, cost, duration, capacity, tipo);
-		if (attraction.isValid()) {
-			resp.sendRedirect("/AP_parte3_webv02/administrador/agregar.do");
-		} else {
-			req.setAttribute("attraction", attraction);
+		
+			req.setAttribute("flash", attraction);
 
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/administrador/agregar.do");
 			dispatcher.forward(req, resp);
-		}
 
 	}
 

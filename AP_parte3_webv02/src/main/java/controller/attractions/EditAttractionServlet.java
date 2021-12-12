@@ -44,14 +44,9 @@ public class EditAttractionServlet extends HttpServlet {
 
 		Atraccion attraction = attractionService.update(name, cost, duration, capacity);
 
-		if (attraction.isValid()) {
-//TODO mensaje de todo bien
-			resp.sendRedirect("/AP_parte3_webv02/administrador/modificar.do");
-		} else {
-			req.setAttribute("attraction", attraction);
-//TODO mensaje de todo mal
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AP_parte3_webv02/administrador/modificar.do");
+		
+			req.setAttribute("flash", attraction);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/administrador/modificar.do");
 			dispatcher.forward(req, resp);
-		}
 	}
 }

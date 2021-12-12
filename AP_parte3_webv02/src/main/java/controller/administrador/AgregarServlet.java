@@ -44,7 +44,7 @@ public class AgregarServlet extends HttpServlet {
 //doPost utiliza doGet ya que accedemos a el solo desde el request dispatcher de cualquier create.do
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		req.setAttribute("usuario", req.getAttribute("usuario"));
+		req.setAttribute("flash", req.getAttribute("flash"));
 		
 		this.doGet(req, resp);
 	}

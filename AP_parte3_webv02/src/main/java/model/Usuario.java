@@ -144,12 +144,15 @@ public class Usuario {
 		if (this.tiempoDisponible <= 0) {
 			errors.put("tiempo", "Tiempo no debe ser negativo ni cero");
 		}
-		//recorro todos menos el ultimo ya que si recorre al ultimo puede recorrerse a si mismo
 		List<Usuario> usuarios=DAOFactory.getUsuarioDAO().findAll();
-		for(int i=0; i< usuarios.size()-1; i++) {
-			if(this.nombre.equals(usuarios.get(i).getNombre())) {
-				errors.put("nombre", "Nombre repetido, ingrese un nombre nuevo");
+		int repeticiones=0;
+		for(Usuario usuario : usuarios) {
+			if(this.nombre.equals(usuario.getNombre())) {
+				repeticiones++;
 			}
+		}
+		if(repeticiones>0) {
+			errors.put("nombre", "Nombre repetido, ingrese un nombre nuevo");
 		}
 	}
 	//validador para cuando el usuario ya esta en la base de datos

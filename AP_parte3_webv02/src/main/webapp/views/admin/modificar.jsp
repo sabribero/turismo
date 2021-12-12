@@ -29,7 +29,7 @@
 		</header>
 		<main class="contenido">
 		
-		<c:if test="${flash != null && !flash.isValid2()}">
+		<c:if test="${flash != null && !flash.getErrors().isEmpty()}">
 			<div class="alert alert-danger">
 					<ul>
 						<c:forEach items="${flash.getErrors()}" var="entry">
@@ -38,9 +38,9 @@
 					</ul>
 			</div>
 		</c:if>
-		<c:if test="${flash!= null && flash.isValid2()}">
+		<c:if test="${flash != null && flash.getErrors().isEmpty()}">
 			<div class="alert alert-success">
-				<p>¡Modificaci&oacute;n exitosa!</p>
+				<p>Modificaci&oacute;n realizada con &eacute;xito.</p>
 			</div>
 		</c:if>
 			<div class="accordion accordion-flush" id="accordionFlushExample">

@@ -105,7 +105,7 @@ public class Promocion {
 			errors.put("atr2", "Atraccion 2 no puede ser null");
 		}
 		if (this.getAtraccionesEnPromocion().get(0).getTipo() != this.getAtraccionesEnPromocion().get(1).getTipo()) {
-			errors.put("tipos", "Discrepancia de tipos");
+			errors.put("tipos", "Discrepancia de tipos con la segunda atraccion");
 		}
 		if(this.getAtraccionesEnPromocion().size()==3) {
 			if(this.getAtraccionesEnPromocion().get(1).getTipo() != this.getAtraccionesEnPromocion().get(2).getTipo()) {

@@ -41,19 +41,11 @@ public class CrearPromocionesServlet extends HttpServlet {
 		
 		Promocion promocion = promocionService.create(tipo,valor, atr1, atr2, atr3);
 
-		if (promocion != null) {
-			req.setAttribute("correcto", "La promocion fue agregada correctamente.");
+			req.setAttribute("flash", promocion);
     		
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/administrador/agregar.do");
 			dispatcher.forward(req, resp);
-		} else {
-			req.setAttribute("flash", "Error en la creacion de la promocion, ingrese datos validos.");
-    		
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/administrador/agregar.do");
-			dispatcher.forward(req, resp);
-		}
 
 	}
 }

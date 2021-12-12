@@ -50,18 +50,13 @@ public class PromocionService {
 		
 		}
 
-		int actualizacion=0;
 		
 		if (promo.isValid()) {
 			PromocionDAOImpl promocionDAO = DAOFactory.getPromocionDAO();
-			actualizacion= promocionDAO.insert(promo);
+			promocionDAO.insert(promo);
 			// XXX: si no devuelve "1", es que hubo más errores
 		}
-		if(actualizacion == 1) {
-			return promo;
-		} else {
-			return null;
-		}
+		return promo;
 	}
 	
 	public Promocion update(String nombre, int valor, String atr1, String atr2, String atr3) {
