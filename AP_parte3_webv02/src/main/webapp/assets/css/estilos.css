@@ -57,3 +57,24 @@ footer {
 	
 }
 
+
+.texto-encima{
+    position: absolute !important;;
+    top: 10px;
+    left: 10px;
+    color: rgb(110,0,7);
+}
+.centrado{
+    position: absolute !important;;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+        color: rgb(10,0,200);
+}
+
+.contenedor {
+    position: relative !important;
+    display: inline-block;
+    text-align: center;
+}
+

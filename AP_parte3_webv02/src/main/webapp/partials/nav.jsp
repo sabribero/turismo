@@ -92,15 +92,30 @@
 						<ul class="navbar-nav">
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					
+					
+					<img src="../assets/engranaje.png" align="left" width="30" height="30">
+					
+					&nbsp;&nbsp;
 						<c:out value="${user.nombre}"></c:out>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-end"
 						aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item disabled" style="color: black;">
-							<i title="monedas" style="color: gold;" class="bi bi-coin"></i> Monedas:  <c:out value="${user.presupuesto}"></c:out>
+						
+											<img src="../assets/monedaoro.png" align="left" width="30" height="30">
+					
+					&nbsp;&nbsp;
+						
+							 Monedas:  <c:out value="${user.presupuesto}"></c:out>
 						</a></li>
 						<li><a class="dropdown-item disabled" style="color: black;">
-							<i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i>Tiempo:  <c:out value="${user.tiempoDisponible}h"></c:out>
+						
+											<img src="../assets/reloj.png" align="left" width="30" height="30">
+					
+					&nbsp;&nbsp;
+						
+							Tiempo:  <c:out value="${user.tiempoDisponible}h"></c:out>
 						</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a href="/AP_parte3_webv02//logout" class="dropdown-item">Salir</a></li>
