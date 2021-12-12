@@ -235,9 +235,14 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			ResultSet resultadoDos = statement.executeQuery();
 			//lo guardo en variable
 			String tipoAtraccion= resultadoDos.getString("tipo_de_atraccion");
-			//retorno el objeto
-			return new Usuario(resultado.getString("nombre"), TipoDeAtraccion.valueOf(tipoAtraccion),
+			Usuario usuario=new Usuario(resultado.getString("nombre"), TipoDeAtraccion.valueOf(tipoAtraccion),
 					resultado.getInt("monedas"), resultado.getFloat("tiempo_libre"), resultado.getString("password"), resultado.getBoolean("esAdmin"), resultado.getInt("ID"));
+			//le cargo su itinerario
+			
+			List<Atraccion> itinerario= DAOFactory.getAtraccionDAO().findItinerarioById(resultado.getInt("ID"));
+			usuario.setItinerario(itinerario);
+			//retorno el objeto
+			return usuario;
 		} catch(Exception e) {
 			throw new MissingDataException(e);
 		}

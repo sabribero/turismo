@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Promocion {
-	protected int valor;
+	protected int valor, id;
 	protected double tiempoPromo;
 	protected TipoDeAtraccion tipoAtraccion;
 	protected TipoDePromo tipo;
@@ -15,8 +15,8 @@ public class Promocion {
 
 	protected Map<String, String> errors;
 
-	public Promocion(List<Atraccion> atraccionesEnPromo) {
-
+	public Promocion(int id, List<Atraccion> atraccionesEnPromo) {
+		this.id=id;
 		this.atraccionesEnPromocion = atraccionesEnPromo;
 		this.setTiempo();
 	}
@@ -26,6 +26,10 @@ public class Promocion {
 
 	public List<Atraccion> getAtraccionesEnPromocion() {
 		return atraccionesEnPromocion;
+	}
+	
+	public int getId() {
+		return this.id;
 	}
 	
 	public String getNombre() {

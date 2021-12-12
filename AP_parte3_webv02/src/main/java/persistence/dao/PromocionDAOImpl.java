@@ -208,6 +208,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 			//si hay una tercera atraccion la tomo, si no no
 			//selecciona los nombres de atraccion de los id que se le pasen,
 			//y obtiene el tipo de promo a partir del id de la promocion que se le pase.
+			int id=resultado.getInt("ID");
 			String sql;
 			if(resultado.getString("id_atr3") != null) {
 				sql="SELECT (SELECT nombre FROM atracciones WHERE id= ? ) AS 'atr1',"
@@ -285,7 +286,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 						
 						atracciones.add(atr3);
 					}
-					retorno= new PromoAbsoluta(atracciones, valorPromo);
+					retorno= new PromoAbsoluta(id, atracciones, valorPromo);
 					break;
 				case PORCENTUAL:
 					if(resultado.getString("id_atr3") != null) {
@@ -300,7 +301,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 						
 						atracciones.add(atr3);
 					}
-					retorno= new PromoPorcentual(atracciones, valorPromo);
+					retorno= new PromoPorcentual(id, atracciones, valorPromo);
 					break;
 				case AxB:
 					if(resultado.getString("id_atr3") != null) {
@@ -315,7 +316,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 						
 						atracciones.add(atr3);
 					}
-					retorno= new PromoAxB(atracciones);
+					retorno= new PromoAxB(id, atracciones);
 					break;
 				case DEFAULT:
 					retorno= null;

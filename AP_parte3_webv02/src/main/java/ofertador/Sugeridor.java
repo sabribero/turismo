@@ -12,7 +12,7 @@ public class Sugeridor {
 
 	
 //metodos synchronized para que no quede ninguna transaccion a la mitad	
-	private synchronized static void agregarYPagarPromo(Usuario unUsuario, Promocion unaPromocion) {
+	public synchronized static void agregarYPagarPromo(Usuario unUsuario, Promocion unaPromocion) {
 		for (Atraccion cadaAtraccion : unaPromocion.getAtraccionesEnPromocion()) {
 			
 			cadaAtraccion.reservarLugar(unUsuario);
@@ -20,16 +20,19 @@ public class Sugeridor {
 			
 		}
 		unUsuario.pagar(unaPromocion);
+		
 		DAOFactory.getPromocionDAO().updateAtracciones(unaPromocion);
+		DAOFactory.getUsuarioDAO().update(unUsuario);
 	}
 	
-	private synchronized static void agregarYPagar(Usuario unUsuario, Atraccion unaAtraccion) {
+	public synchronized static void agregarYPagar(Usuario unUsuario, Atraccion unaAtraccion) {
 		
 		unaAtraccion.reservarLugar(unUsuario);
 		DAOFactory.getItinerarioDAO().cargarAtraccion(unaAtraccion, unUsuario);
 		unUsuario.pagar(unaAtraccion);
 		
 		DAOFactory.getAtraccionDAO().update(unaAtraccion);
+		DAOFactory.getUsuarioDAO().update(unUsuario);
 	}
 	//boolean favorito para determinar si tiene que sugerir los tipos favoritos o no 
 	protected static List<Promocion> sugerirPromos(Usuario unUsuario, List<Promocion> unasPromociones, boolean favorito) {

@@ -9,8 +9,8 @@ public class PromoPorcentual extends Promocion {
 	 * Descuenta un porcentaje del valor total (suma) de todas las atracciones incluidas en la promo.
 	 */
 
-	public PromoPorcentual(List<Atraccion> atraccionesEnPromo, int valorDescuento) {
-		super(atraccionesEnPromo);
+	public PromoPorcentual(int id, List<Atraccion> atraccionesEnPromo, int valorDescuento) {
+		super(id, atraccionesEnPromo);
 		this.atraccionesEnPromocion=atraccionesEnPromo;
 		
 		this.tipoAtraccion = atraccionesEnPromo.get(0).getTipo();

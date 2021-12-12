@@ -9,8 +9,8 @@ public class PromoAbsoluta extends Promocion {
  */
 	
 	
-	public PromoAbsoluta(List<Atraccion> atraccionesEnPromo, int valorPromo) {
-		super(atraccionesEnPromo);
+	public PromoAbsoluta(int id, List<Atraccion> atraccionesEnPromo, int valorPromo) {
+		super(id, atraccionesEnPromo);
 		this.atraccionesEnPromocion=atraccionesEnPromo;
 		this.valor= valorPromo;
 		this.tipoAtraccion = atraccionesEnPromo.get(0).getTipo();

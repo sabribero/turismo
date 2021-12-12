@@ -36,16 +36,16 @@ public class PromocionService {
 		
 		switch(tipo) {
 			case ABSOLUTA:
-				promo = new PromoAbsoluta(atracciones, valor);
+				promo = new PromoAbsoluta(0,atracciones, valor);
 				break;
 			case PORCENTUAL:
-				promo = new PromoPorcentual(atracciones, valor);
+				promo = new PromoPorcentual(0,atracciones, valor);
 				break;
 			case AxB:
-				promo = new PromoAxB(atracciones);
+				promo = new PromoAxB(0,atracciones);
 				break;
 			default:
-				promo= new Promocion(null);
+				promo= new Promocion(0,null);
 			
 		
 		}
@@ -72,7 +72,7 @@ public class PromocionService {
 			atracciones.add(attraction);
 			
 		}
-		Promocion promoOriginal = new Promocion(atracciones);
+		Promocion promoOriginal = new Promocion(0,atracciones);
 
 		//promocion nueva
 		
@@ -112,7 +112,7 @@ public class PromocionService {
 			attractions.add(attraction);
 			
 		}
-		Promocion promocion = new Promocion(attractions);
+		Promocion promocion = new Promocion(0,attractions);
 
 		PromocionDAOImpl promocionDAO = DAOFactory.getPromocionDAO();
 		promocionDAO.borradoLogico(promocion);

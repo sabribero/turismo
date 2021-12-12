@@ -103,20 +103,10 @@ public class Atraccion {
 	public void reservarLugar(Usuario unUsuario) {
 		this.usosDisponibles-=1;
 		unUsuario.agregarAtraccion(this);
-		
-		
 	}
 	
 	public boolean podesRecibir() {
-		
-		if(this.usosDisponibles>=1) {
-			
-			return true;
-		}else {
-			
-			return false;
-		}
-		
+		return this.usosDisponibles>=1;
 	}
 	
 	

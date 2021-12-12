@@ -1,7 +1,6 @@
 package controller.user;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
@@ -49,11 +48,11 @@ public class OfertadorServlet extends HttpServlet {
 		int contador= promocionesFavoritas.size() + atraccionesFavoritas.size() + promocionesNoFavoritas.size() + atraccionesNoFavoritas.size() ;
 		
 		req.setAttribute("cantidad", contador);
+		req.setAttribute("usuario", usuario);
 		req.setAttribute("promocionesFavoritas", promocionesFavoritas);
 		req.setAttribute("atraccionesFavoritas", atraccionesFavoritas);
 		req.setAttribute("promocionesNoFavoritas", promocionesNoFavoritas);
 		req.setAttribute("atraccionesNoFavoritas", atraccionesNoFavoritas);
-		
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/user/sugeridor.jsp");
 		dispatcher.forward(req, resp);

@@ -8,8 +8,8 @@ public class PromoAxB extends Promocion {
 	 * Suma el valor de cada atraccion de la lista sin tener en cuenta el valor de la ultima. 
 	 */
 
-	public PromoAxB(List<Atraccion> atraccionesEnPromo) {
-		super(atraccionesEnPromo);
+	public PromoAxB(int id, List<Atraccion> atraccionesEnPromo) {
+		super(id, atraccionesEnPromo);
 		this.atraccionesEnPromocion=atraccionesEnPromo;
 		this.setValor();
 		this.tipoAtraccion = atraccionesEnPromo.get(0).getTipo();

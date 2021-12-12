@@ -23,7 +23,25 @@
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/itinerario.do">Mi Itinerario</a></li>
 		</ul>
 	
-	<!-- el container se puede cambiar para que ocupe mas o menos espacio -->
+	<c:if test="${flash != null}">
+					<c:if test="${errors != null}">
+						<div class="alert alert-danger">
+							<c:out value="${flash}" />
+							<ul>
+								<c:forEach items="${errors}" var="entry">
+									<li><c:out value="${entry.getValue()}"></c:out></li>
+								</c:forEach>
+							</ul>
+						</div>
+					</c:if>
+					<c:if test="${errors == null}">
+						<div class="alert alert-success">
+							<c:out value="${flash}"></c:out>
+						</div>
+					</c:if>
+		</c:if>
+	
+	
 		<div class="contenido contenidocarousel">
 			<div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-interval="false">
 				<div class="carousel-indicators">
@@ -48,7 +66,8 @@
 								<p><c:out value="${promo.getNombre()}"></c:out></p>
 								<p>Costo: <c:out value="${promo.getValorPromo()}"></c:out> monedas<br>
 									Duraci&oacute;n: <c:out value="${promo.getTiempoDeUso()}"></c:out> hora/s</p>
-								<a href="#" class="btn btn-lg btn-primary excepciona">Comprar</a>
+								<a href="/AP_parte3_webv02/promociones/buy.do?id=${promo.getId()}"
+									class="btn btn-success rounded excepciona" role="button">Comprar</a>
 							</div>
 						</div>
 					</c:forEach>
@@ -60,7 +79,8 @@
 								<h5><c:out value="${atraccion.getNombre()}"></c:out></h5>
 								<p>Costo: <c:out value="${atraccion.getValor()}"></c:out> monedas<br>
 									Duraci&oacute;n: <c:out value="${atraccion.getTiempoDeUso()}"></c:out> hora/s</p>
-								<a href="#" class="btn btn-lg btn-primary excepciona">Comprar</a>
+								<a href="/AP_parte3_webv02/attractions/buy.do?nombre=${atraccion.getNombre().replace(' ','%')}"
+									class="btn btn-success rounded excepciona" role="button">Comprar</a>
 							</div>
 						</div>
 					</c:forEach>
@@ -73,7 +93,8 @@
 								<p><c:out value="${promocion.getNombre()}"></c:out></p>
 								<p>Costo: <c:out value="${promocion.getValorPromo()}"></c:out> monedas<br>
 									Duraci&oacute;n: <c:out value="${promocion.getTiempoDeUso()}"></c:out> hora/s</p>
-								<a href="#" class="btn btn-lg btn-primary excepciona">Comprar</a>
+								<a href="/AP_parte3_webv02/promociones/buy.do?id=${promocion.getId()}"
+									class="btn btn-success rounded excepciona" role="button">Comprar</a>
 							</div>
 						</div>
 					</c:forEach>
@@ -85,7 +106,9 @@
 								<h5><c:out value="${atraccionN.getNombre()}"></c:out></h5>
 								<p>Costo: <c:out value="${atraccionN.getValor()}"></c:out> monedas<br>
 									Duraci&oacute;n: <c:out value="${atraccionN.getTiempoDeUso()}"></c:out> hora/s</p>
-								<a href="#" class="btn btn-lg btn-primary excepciona">Comprar</a>
+								<a href="/AP_parte3_webv02/attractions/buy.do?nombre=${atraccionN.getNombre().replace(' ','%')}"
+									class="btn btn-success rounded excepciona" role="button">Comprar</a>
+									
 							</div>
 						</div>
 					</c:forEach>

@@ -1,4 +1,4 @@
-package controller.attractions;
+package controller.promociones;
 
 import java.io.IOException;
 import java.util.Map;
@@ -11,26 +11,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Usuario;
 import persistence.dao.DAOFactory;
-import services.BuyAttractionService;
+import services.ComprarPromocionService;
 
-@WebServlet("/attractions/buy.do")
-public class BuyAttractionServlet extends HttpServlet {
+@WebServlet("/promociones/buy.do")
+public class ComprarPromocionServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 3455721046062278592L;
-	private BuyAttractionService buyAttractionService;
+	private static final long serialVersionUID = 1235790159126305127L;
+	private ComprarPromocionService comprarPromocionService;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		this.buyAttractionService = new BuyAttractionService();
+		this.comprarPromocionService = new ComprarPromocionService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String attractionName = req.getParameter("nombre").replace("%", " ");
+		int id = Integer.parseInt(req.getParameter("id"));
+		
 		Usuario user = (Usuario) req.getSession().getAttribute("user");
-		Map<String, String> errors = buyAttractionService.buy(user.getNombre(), attractionName);
+		Map<String, String> errors = comprarPromocionService.buy(user.getNombre(), id);
 		
 		Usuario user2 = DAOFactory.getUsuarioDAO().findByNombre(user.getNombre());
 		req.getSession().setAttribute("user", user2);

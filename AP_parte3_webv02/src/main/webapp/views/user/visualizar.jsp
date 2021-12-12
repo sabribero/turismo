@@ -37,13 +37,10 @@
 								<p class="card-text">Duraci&oacute;n: <c:out value="${atraccion.tiempoDeUso}"></c:out> hora/s</p>
 								<p class="card-text">Cupos: <c:out value="${atraccion.usosDisponibles}"></c:out></p>
 								
-								<!--  -->
 							<c:choose>
-
 								<c:when
-								
 									test="${user.podesIrA(atraccion) && user.todaviaNoVasA(atraccion) && atraccion.podesRecibir()}">
-									<a href="/turismo/attractions/buy.do?id=${attraction.id}"
+									<a href="/AP_parte3_webv02/attractions/buy.do?id=${attraction.id}"
 										class="btn btn-success rounded" role="button">Comprar</a>
 								</c:when>
 								<c:otherwise>
@@ -52,7 +49,6 @@
 								</c:otherwise>
 							</c:choose>
 								
-								<!--  -->
 							</div>
 						</div>
 					</c:forEach>

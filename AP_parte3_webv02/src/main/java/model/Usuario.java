@@ -104,6 +104,9 @@ public class Usuario {
 		this.esAdmin= admin;
 	}
 
+	public void setItinerario(List<Atraccion> nuevoItinerario) {
+		this.itinerario = nuevoItinerario;
+	}
 //-------------------------------METODOS----------------------------
 	
 	
@@ -225,9 +228,7 @@ public class Usuario {
 
 		return this.presupuesto >= atraccion.getValor() 
 				&& this.tiempoDisponible >= atraccion.getTiempoDeUso() 
-				&& todaviaNoVasA(atraccion);								// agrego el m�todo todaviaNoVasA() a este m�todo para
-																			// simplificar el la forma de evaluar si el usuario 
-																			//puede ir a una atraccion.  
+				&& todaviaNoVasA(atraccion);								  
 	}
 	
 	public boolean podesIrA(Promocion promocion) {
@@ -240,7 +241,7 @@ public class Usuario {
 	// parametro, da true --> Verdad, todavia no voy a .....
 	public boolean todaviaNoVasA(Atraccion unaAtraccion) {
 
-		for (Atraccion misAtracciones : itinerario) {
+		for (Atraccion misAtracciones : this.itinerario) {
 			if (misAtracciones.getNombre().equals(unaAtraccion.getNombre())) {
 				return false;
 			}
