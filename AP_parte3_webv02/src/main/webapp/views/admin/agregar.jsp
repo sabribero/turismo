@@ -46,7 +46,7 @@
 			</div>
 		</c:if>
 			<div class="accordion accordion-flush" id="accordionFlushExample">
-<!-- comentado porque por ahi no es buena idea meterse en lo de agregar enums			  
+			  
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-headingOne">
 			      <button class="accordion-button collapsed botonacordeon" id="tipos_de_atraccion" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -55,14 +55,14 @@
 			    </h2>
 			    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 				      <div class="accordion-body bodyacordeon">
-				      	<form action="/AP_parte3_webv02/tiposdeatraccion/create.do" method="post">
+				      	<form action="/AP_parte3_webv02/tipos/create.do" method="post">
 				      		<label for="nuevo_tipo">Ingrese un nuevo tipo de atracción:</label>
 				      			<input type="text" name="nuevo_tipo" id="nuevo_tipo" required><br>
 				      		<input type="submit" value="Crear">
 				      	</form>
 				      </div>
 			    </div>
-			  </div> -->
+			  </div>
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-headingTwo">
 			      <button class="accordion-button collapsed botonacordeon" id="atracciones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">

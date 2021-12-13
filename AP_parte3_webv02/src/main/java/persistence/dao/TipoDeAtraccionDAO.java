@@ -8,5 +8,9 @@ import model.TipoDeAtraccion;
 public interface TipoDeAtraccionDAO {
 
 	public List<TipoDeAtraccion> findAll();
+	public List<TipoDeAtraccion> findAllConBorrados();
+	public int insert(TipoDeAtraccion tipo);
+	public int modificar(TipoDeAtraccion tipo, String original);
+	public TipoDeAtraccion findByNombre(String nombre);
 	public TipoDeAtraccion toTipoDeAtraccion(ResultSet resultado);
 }
