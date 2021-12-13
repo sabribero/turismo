@@ -14,7 +14,7 @@
 </head>
 <body>
 	
-	<jsp:include page="../../partials/nav.jsp"></jsp:include>
+	<jsp:include page="../../partials/nav2.jsp"></jsp:include>
 	
 	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">

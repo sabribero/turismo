@@ -15,7 +15,7 @@
 </head>
 <body class="bg-general">
 
-	<jsp:include page="../../partials/nav.jsp"></jsp:include>
+	<jsp:include page="../../partials/nav2.jsp"></jsp:include>
 	
 	<div class="container contenedor" style="color: black;">
 		<ul class="nav nav-tabs nav-fill">
