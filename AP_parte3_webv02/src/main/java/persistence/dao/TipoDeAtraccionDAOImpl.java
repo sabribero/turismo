@@ -14,7 +14,7 @@ public class TipoDeAtraccionDAOImpl {
 
 	public List<TipoDeAtraccion> findAll() {
 		try {
-		String sql = "SELECT * FROM tipos_atraccion";
+		String sql = "SELECT * FROM tipos_atraccion WHERE borrado=0";
 		Connection conn = ConnectionProvider.getConnection();
 		PreparedStatement statement = conn.prepareStatement(sql);
 		ResultSet resultados = statement.executeQuery();
@@ -33,9 +33,31 @@ public class TipoDeAtraccionDAOImpl {
 		}
 	}
 	
+	public TipoDeAtraccion findByNombre(String nombre) {
+		try {
+			String sql = "SELECT * FROM tipos_atraccion WHERE tipo_de_atraccion = ? AND borrado=0";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, nombre);
+			ResultSet resultados = statement.executeQuery();
+
+			TipoDeAtraccion tipo;
+
+			if (resultados.next()) {
+				tipo = this.toTipoDeAtraccion(resultados);
+			} else {
+				tipo=null;
+			}
+			return tipo;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+
+		}
+	}
+	
 	public TipoDeAtraccion toTipoDeAtraccion(ResultSet resultado) {
 		try {
-			return TipoDeAtraccion.valueOf(resultado.getString("tipo_de_atraccion"));
+			return new TipoDeAtraccion(resultado.getInt("ID"),resultado.getString("tipo_de_atraccion"),false);
 		} catch(Exception e) {
 			throw new MissingDataException(e);
 		}

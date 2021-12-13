@@ -14,9 +14,11 @@ public class UsuarioService {
 		return DAOFactory.getUsuarioDAO().findAll();
 	}
 	
-	public Usuario create(String nombre, TipoDeAtraccion tipo, int monedas, float tiempo, String password, boolean esAdmin) {
+	public Usuario create(String nombre, String tipo, int monedas, float tiempo, String password, boolean esAdmin) {
 
-		Usuario usuario = new Usuario(nombre, tipo, monedas, tiempo, password, esAdmin, 0);
+		TipoDeAtraccion tipoDeAtraccion= DAOFactory.getTipoDeAtraccionDAO().findByNombre(tipo);
+		
+		Usuario usuario = new Usuario(nombre, tipoDeAtraccion, monedas, tiempo, password, esAdmin, 0);
 		usuario.setPassword(password);
 
 		if (usuario.isValid()) {
@@ -28,15 +30,16 @@ public class UsuarioService {
 		return usuario;
 	}
 	
-	public Usuario update(String original, String nombre, String password, TipoDeAtraccion tipo, int monedas, float tiempo, boolean esAdmin) {
+	public Usuario update(String original, String nombre, String password, String tipo, int monedas, float tiempo, boolean esAdmin) {
 
 		UsuarioDAOImpl usuarioDAO = DAOFactory.getUsuarioDAO();
 		Usuario usuario = usuarioDAO.findByNombre(original);
+		TipoDeAtraccion tipoDeAtraccion= DAOFactory.getTipoDeAtraccionDAO().findByNombre(tipo);
 		int id= usuarioDAO.findIDByNombre(original);
 
 		usuario.setNombre(nombre);
 		usuario.setPassword(password);
-		usuario.setTipoFavorito(tipo);
+		usuario.setTipoFavorito(tipoDeAtraccion);
 		usuario.setPresupuesto(monedas);
 		usuario.setTiempoDisponible(tiempo);
 		usuario.setAdmin(esAdmin);

@@ -25,7 +25,31 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 		List<Usuario> usuarios = new LinkedList<Usuario>();
 		while (resultados.next()) {
-			usuarios.add(toUsuario(resultados));
+			Usuario usuario= toUsuario(resultados);
+			if(usuario!=null) {
+				usuarios.add(usuario);
+			}
+		}
+
+		return usuarios;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	//para validaciones
+	public List<Usuario> findAllConBorrados() {
+		try {
+		String sql = "SELECT * FROM usuarios";
+		Connection conn = ConnectionProvider.getConnection();
+		PreparedStatement statement = conn.prepareStatement(sql);
+		ResultSet resultados = statement.executeQuery();
+
+		List<Usuario> usuarios = new LinkedList<Usuario>();
+		while (resultados.next()) {
+			Usuario usuario= toUsuario(resultados);
+			if(usuario!=null) {
+				usuarios.add(usuario);
+			}
 		}
 
 		return usuarios;
@@ -60,7 +84,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			statement.setString(1, usuario.getNombre());
 			statement.setInt(2, usuario.getPresupuesto());
 			statement.setDouble(3, usuario.getTiempoDisponible());
-			statement.setString(4, usuario.getAtraccionFavorita().getNombreDeTipo());
+			statement.setString(4, usuario.getAtraccionFavorita().getNombre());
 			statement.setString(5,usuario.getPassword());
 			statement.setBoolean(6, usuario.getEsAdmin());
 			int rows = statement.executeUpdate();
@@ -169,7 +193,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 	public Usuario findByNombre(String nombre) {
 		try {
-			String sql = "SELECT * FROM usuarios WHERE nombre = ?";
+			String sql = "SELECT * FROM usuarios WHERE nombre = ? AND borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, nombre);
@@ -190,7 +214,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	
 	public Usuario findByID(int ID) {
 		try {
-			String sql = "SELECT * FROM usuarios WHERE ID = ?";
+			String sql = "SELECT * FROM usuarios WHERE ID = ? AND borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setLong(1, ID);
@@ -211,7 +235,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	
 	public int findIDByNombre(String nombre) {
 		try {
-			String sql = "SELECT ID FROM usuarios WHERE nombre = ?";
+			String sql = "SELECT ID FROM usuarios WHERE nombre = ? AND borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, nombre);
@@ -228,14 +252,24 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	public Usuario toUsuario(ResultSet resultado) {
 		try {
 			//primero obtengo el valor de tipo de atraccion para pasarlo a String, ya que en la tabla es una FK
-			String sql = "SELECT tipo_de_atraccion FROM tipos_atraccion a JOIN usuarios u ON a.id=u.ID_tipo_favorito WHERE u.id = ?";
+			String sql = "SELECT a.ID, tipo_de_atraccion, a.borrado FROM tipos_atraccion a JOIN usuarios u ON a.id=u.ID_tipo_favorito WHERE u.id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, resultado.getInt("ID"));
 			ResultSet resultadoDos = statement.executeQuery();
 			//lo guardo en variable
-			String tipoAtraccion= resultadoDos.getString("tipo_de_atraccion");
-			Usuario usuario=new Usuario(resultado.getString("nombre"), TipoDeAtraccion.valueOf(tipoAtraccion),
+			boolean estado=false;
+			if(resultadoDos.getInt("borrado")==1) {
+				estado=true;
+			}
+			
+			TipoDeAtraccion tipoAtraccion= new TipoDeAtraccion(resultadoDos.getInt("ID") ,resultadoDos.getString("tipo_de_atraccion"), estado);
+			
+			if(tipoAtraccion.getBorrado()) {
+				return null;
+			}
+			
+			Usuario usuario=new Usuario(resultado.getString("nombre"), tipoAtraccion,
 					resultado.getInt("monedas"), resultado.getFloat("tiempo_libre"), resultado.getString("password"), resultado.getBoolean("esAdmin"), resultado.getInt("ID"));
 			//le cargo su itinerario
 			

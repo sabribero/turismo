@@ -50,7 +50,7 @@
 				      		<tbody>
 				      			<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
 				      				<tr>
-					      				<td><c:out value="${tipoDeAtraccion}"></c:out></td>
+					      				<td><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></td>
 				      				</tr>
 					      		</c:forEach>
 				      		</tbody>
@@ -83,7 +83,7 @@
 						      			<td><c:out value="${atraccion.valor}"></c:out> monedas</td>
 						      			<td><c:out value="${atraccion.tiempoDeUso}"></c:out> hora/s</td>
 						      			<td><c:out value="${atraccion.usosDisponibles}"></c:out></td>
-						      			<td><c:out value="${atraccion.tipo}"></c:out></td>
+						      			<td><c:out value="${atraccion.getTipo().getNombre()}"></c:out></td>
 				      				</tr>
 					      		</c:forEach>	
 				      		</tbody>
@@ -152,7 +152,7 @@
 				      			<c:forEach items="${usuarios}" var="usuario">
 					      			<tr>
 					      				<td>${usuario.getNombre()}</td>
-					      				<td>${usuario.getNombreAtraccionFavorita().toString()}</td>
+					      				<td>${usuario.getNombreAtraccionFavorita()}</td>
 					      				<td>${usuario.getPresupuesto()}</td>
 					      				<td>${usuario.getTiempoDisponible()}</td>
 					      			</tr>

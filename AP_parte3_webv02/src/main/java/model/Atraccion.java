@@ -39,7 +39,7 @@ public class Atraccion {
 
 	//constructor por defecto
 	public Atraccion() {
-		this(" ", 0, 0,0, TipoDeAtraccion.DEFAULT,0);
+		this(" ", 0, 0,0, null,0);
 	}
 
 //--------------------------GETTERS----------------------------------
@@ -60,7 +60,7 @@ public class Atraccion {
 	}
 	
 	public String getNombreTipo() {
-		return this.tipo.getNombreDeTipo();
+		return this.tipo.getNombre();
 	}
 
 
@@ -134,7 +134,7 @@ public class Atraccion {
 			errors.put("capacity", "Debe ser positivo");
 		}
 
-		List<Atraccion> atracciones=DAOFactory.getAtraccionDAO().findAll();
+		List<Atraccion> atracciones=DAOFactory.getAtraccionDAO().findAllConBorrados();
 		int repeticiones=0;
 		for(Atraccion atraccion: atracciones) {
 			if(this.nombre.equals(atraccion.getNombre())) {
@@ -159,7 +159,7 @@ public class Atraccion {
 			errors.put("capacity", "Debe ser positivo");
 		}
 
-		List<Atraccion> atracciones=DAOFactory.getAtraccionDAO().findAll();
+		List<Atraccion> atracciones=DAOFactory.getAtraccionDAO().findAllConBorrados();
 		int repeticiones=0;
 		for(Atraccion atraccion: atracciones) {
 			if(this.nombre.equals(atraccion.getNombre())) {

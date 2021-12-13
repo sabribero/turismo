@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
-import model.TipoDeAtraccion;
 import services.AttractionService;
 
 @WebServlet("/attractions/create.do")
@@ -37,7 +36,7 @@ public class CreateAttractionServlet extends HttpServlet {
 		Integer cost = Integer.parseInt(req.getParameter("valor_atraccion"));
 		Double duration = Double.parseDouble(req.getParameter("tiempo_atraccion"));
 		Integer capacity = Integer.parseInt(req.getParameter("cupos_atraccion"));
-		TipoDeAtraccion tipo= TipoDeAtraccion.valueOf(req.getParameter("seleccion_tipo_atraccion"));
+		String tipo= req.getParameter("seleccion_tipo_atraccion");
 
 		Atraccion attraction = attractionService.create(name, cost, duration, capacity, tipo);
 		

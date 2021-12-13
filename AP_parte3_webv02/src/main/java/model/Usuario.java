@@ -35,7 +35,7 @@ public class Usuario {
 	}
 
 	public Usuario() {
-		this(" ", TipoDeAtraccion.DEFAULT, 0, 0,"",false, 0);
+		this(" ", null, 0, 0,"",false, 0);
 	}
 
 	//----------------------------GETTERS---------------------------------------------------
@@ -69,7 +69,7 @@ public class Usuario {
 	}
 
 	public String getNombreAtraccionFavorita() {
-		return this.atraccionFavorita.getNombreDeTipo();
+		return this.atraccionFavorita.getNombre();
 	}
 
 	public TipoDeAtraccion getAtraccionFavorita() {

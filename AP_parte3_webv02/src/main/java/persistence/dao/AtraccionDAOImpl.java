@@ -15,15 +15,16 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 	
 	public List<Atraccion> findAll() {
 		try {
-		String sql = "SELECT * FROM atracciones";
+		String sql = "SELECT * FROM atracciones WHERE borrado=0";
 		Connection conn = ConnectionProvider.getConnection();
 		PreparedStatement statement = conn.prepareStatement(sql);
 		ResultSet resultados = statement.executeQuery();
 
 		List<Atraccion> atracciones = new LinkedList<Atraccion>();
 		while (resultados.next()) {
-			if(resultados.getInt("borrado") == 0) {
-				atracciones.add(toAtraccion(resultados));
+			Atraccion atraccion= toAtraccion(resultados);
+			if(atraccion!=null) {
+				atracciones.add(atraccion);
 			}
 		}
 		return atracciones;
@@ -32,6 +33,25 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 		} 
 	}
 	
+	public List<Atraccion> findAllConBorrados() {
+		try {
+		String sql = "SELECT * FROM atracciones";
+		Connection conn = ConnectionProvider.getConnection();
+		PreparedStatement statement = conn.prepareStatement(sql);
+		ResultSet resultados = statement.executeQuery();
+
+		List<Atraccion> atracciones = new LinkedList<Atraccion>();
+		while (resultados.next()) {
+			Atraccion atraccion= toAtraccion(resultados);
+			if(atraccion!=null) {
+				atracciones.add(atraccion);
+			}
+		}
+		return atracciones;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		} 
+	}
 	
 	public List<Atraccion> findItinerarioById(int id) {
 		try {
@@ -43,7 +63,7 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 
 		List<Atraccion> atracciones = new LinkedList<Atraccion>();
 		
-		Atraccion atr = new Atraccion();  
+		//Atraccion atr = new Atraccion();  
 		String sql2 = "SELECT * FROM atracciones WHERE ID= ?";
 		
 
@@ -70,7 +90,7 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 	
 	public int countAll() {
 		try {
-			String sql = "SELECT count(1) AS 'total' FROM atracciones";
+			String sql = "SELECT count(1) AS 'total' FROM atracciones WHERE borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
@@ -169,7 +189,7 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 	
 	public Atraccion findByNombre(String nombre) {
 		try {
-			String sql = "SELECT * FROM atracciones WHERE nombre = ?";
+			String sql = "SELECT * FROM atracciones WHERE nombre = ? AND borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, nombre);
@@ -189,7 +209,7 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 	
 	public Atraccion findByID(int ID) {
 		try {
-			String sql = "SELECT * FROM atracciones WHERE ID  = ?";
+			String sql = "SELECT * FROM atracciones WHERE ID  = ? AND borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setLong(1, ID);
@@ -210,7 +230,7 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 	
 	public int findIDByNombre(String nombre) {
 		try {
-			String sql = "SELECT ID FROM atracciones WHERE nombre = ?";
+			String sql = "SELECT ID FROM atracciones WHERE nombre = ? AND borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, nombre);
@@ -227,17 +247,25 @@ public class AtraccionDAOImpl implements AtraccionDAO{
 	public Atraccion toAtraccion(ResultSet resultado) {
 		try {
 			//primero obtengo el valor de tipo de atraccion para pasarlo a String, ya que en la tabla es una FK
-			String sql = "SELECT tipo_de_atraccion FROM tipos_atraccion ta JOIN atracciones a ON ta.id=a.ID_tipo_atraccion WHERE a.id = ?";
+			String sql = "SELECT ta.ID, tipo_de_atraccion, ta.borrado FROM tipos_atraccion ta LEFT JOIN atracciones a ON ta.id=a.ID_tipo_atraccion WHERE a.id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, resultado.getInt("ID"));
 			ResultSet resultadoDos = statement.executeQuery();
-			//lo guardo en variable
-			String tipoAtraccion= resultadoDos.getString("tipo_de_atraccion");
 			
+			boolean estado=false;
+			if(resultadoDos.getInt("borrado")==1) {
+				estado=true;
+			}
+			TipoDeAtraccion tipoAtraccion= new TipoDeAtraccion(resultadoDos.getInt("ID"), resultadoDos.getString("tipo_de_atraccion"), estado);
+			
+			if(!tipoAtraccion.getBorrado()) {
 			//retorno el objeto
 			return new Atraccion(resultado.getString("nombre"), resultado.getInt("valor"), resultado.getDouble("tiempo"), 
-					resultado.getInt("usos_disponibles"), TipoDeAtraccion.valueOf(tipoAtraccion), resultado.getInt("borrado"));
+					resultado.getInt("usos_disponibles"), tipoAtraccion, resultado.getInt("borrado"));
+			} else {
+				return null;
+			}
 			
 		} catch(Exception e) {
 			throw new MissingDataException(e);

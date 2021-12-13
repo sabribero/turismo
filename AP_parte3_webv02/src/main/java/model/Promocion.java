@@ -108,11 +108,11 @@ public class Promocion {
 		if (this.getAtraccionesEnPromocion().get(1) == null) {
 			errors.put("atr2", "Atraccion 2 no puede ser null");
 		}
-		if (this.getAtraccionesEnPromocion().get(0).getTipo() != this.getAtraccionesEnPromocion().get(1).getTipo()) {
+		if (!this.getAtraccionesEnPromocion().get(0).getTipo().getNombre().equals(this.getAtraccionesEnPromocion().get(1).getTipo().getNombre())) {
 			errors.put("tipos", "Discrepancia de tipos con la segunda atraccion");
 		}
 		if(this.getAtraccionesEnPromocion().size()==3) {
-			if(this.getAtraccionesEnPromocion().get(1).getTipo() != this.getAtraccionesEnPromocion().get(2).getTipo()) {
+			if(!this.getAtraccionesEnPromocion().get(1).getTipo().getNombre().equals(this.getAtraccionesEnPromocion().get(2).getTipo().getNombre())) {
 				errors.put("tipos3", "Discrepancia de tipos con la tercer atraccion");
 			}
 		}

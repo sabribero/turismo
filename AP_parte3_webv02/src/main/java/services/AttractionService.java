@@ -20,9 +20,11 @@ public class AttractionService {
 	}
 	
 
-	public Atraccion create(String name, Integer cost, Double duration, Integer capacity, TipoDeAtraccion tipo) {
+	public Atraccion create(String name, Integer cost, Double duration, Integer capacity, String tipo) {
 
-		Atraccion atr = new Atraccion(name, cost, duration, capacity, tipo, 0);
+		TipoDeAtraccion tipoDeAtraccion= DAOFactory.getTipoDeAtraccionDAO().findByNombre(tipo);
+		
+		Atraccion atr = new Atraccion(name, cost, duration, capacity, tipoDeAtraccion, 0);
 
 		if (atr.isValid()) {
 			AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();

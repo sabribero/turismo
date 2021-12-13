@@ -8,7 +8,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.TipoDeAtraccion;
 import model.Usuario;
 import services.UsuarioService;
 
@@ -36,7 +35,7 @@ public class ModificarUsuarioServlet extends HttpServlet {
 		String original= req.getParameter("seleccion_usuario");
 		String nombre = req.getParameter("nombre_usuario");
 		String password= req.getParameter("password_usuario");
-		TipoDeAtraccion tipo = TipoDeAtraccion.valueOf(req.getParameter("seleccion_favorito_usuario"));
+		String tipo =req.getParameter("seleccion_favorito_usuario");
 		int monedas = Integer.parseInt(req.getParameter("dinero_usuario"));
 		float tiempo = Float.parseFloat(req.getParameter("tiempo_usuario"));
 		String esAdmin= req.getParameter("admin_usuario");

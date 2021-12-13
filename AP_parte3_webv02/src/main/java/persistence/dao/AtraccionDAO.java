@@ -7,6 +7,7 @@ import model.Atraccion;
 
 public interface AtraccionDAO extends GenericDAO<Atraccion>{
 	
+	public List<Atraccion> findAllConBorrados();
 	public Atraccion findByNombre(String nombre);
 	public Atraccion findByID(int ID);
 	public int modificar(Atraccion atraccion);

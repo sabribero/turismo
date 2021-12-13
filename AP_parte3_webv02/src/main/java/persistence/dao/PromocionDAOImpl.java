@@ -15,16 +15,14 @@ public class PromocionDAOImpl implements PromocionDAO{
 
 	public List<Promocion> findAll(List<Atraccion> atraccionesImportadas) {
 		try {
-		String sql = "SELECT * FROM promociones";
+		String sql = "SELECT * FROM promociones WHERE borrado=0";
 		Connection conn = ConnectionProvider.getConnection();
 		PreparedStatement statement = conn.prepareStatement(sql);
 		ResultSet resultados = statement.executeQuery();
 
 		List<Promocion> promociones = new LinkedList<Promocion>();
 		while (resultados.next()) {
-			if(resultados.getInt("borrado") == 0) {
-				promociones.add(toPromocion(resultados, atraccionesImportadas));
-			}
+			promociones.add(toPromocion(resultados, atraccionesImportadas));
 		}
 
 		return promociones;
@@ -35,7 +33,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 	
 	public int countAll() {
 		try {
-			String sql = "SELECT count(1) AS 'total' FROM promociones";
+			String sql = "SELECT count(1) AS 'total' FROM promociones WHERE borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
@@ -93,11 +91,11 @@ public class PromocionDAOImpl implements PromocionDAO{
 			String sql;
 			if(atracciones.size()< 3) {
 				sql="SELECT ID FROM promociones WHERE id_atr1= (SELECT ID FROM atracciones WHERE nombre LIKE ? ) AND "
-						+ "id_atr2=(SELECT ID FROM atracciones WHERE nombre LIKE ? )";
+						+ "id_atr2=(SELECT ID FROM atracciones WHERE nombre LIKE ? ) AND borrado=0";
 			} else {
 				sql="SELECT ID FROM promociones WHERE id_atr1= (SELECT ID FROM atracciones WHERE nombre LIKE ? ) AND "
 						+ "id_atr2=(SELECT ID FROM atracciones WHERE nombre LIKE ? ) AND "
-						+ "id_atr3=(SELECT ID FROM atracciones WHERE nombre LIKE ? )";
+						+ "id_atr3=(SELECT ID FROM atracciones WHERE nombre LIKE ? ) AND borrado=0";
 			}
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -122,7 +120,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 	
 	public Promocion findById(Integer id, List<Atraccion> atraccionesImportadas) {
 		try {
-			String sql="SELECT * FROM promociones WHERE id= ? ";
+			String sql="SELECT * FROM promociones WHERE id= ? AND borrado=0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, id);
@@ -190,7 +188,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, this.findByAtraccionesList(promocion.getAtraccionesEnPromocion()));
+			statement.setInt(1, promocion.getId());
 			int rows = statement.executeUpdate();
 			
 			return rows;

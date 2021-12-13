@@ -10,7 +10,7 @@ public class NullUser extends Usuario {
 	}
 	
 	public NullUser() {
-		super("", TipoDeAtraccion.DEFAULT , 0, 0,"",false, 0);
+		super("", null , 0, 0,"",false, 0);
 	}
 	
 	public boolean isNull() {

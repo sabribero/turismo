@@ -183,7 +183,7 @@
 				      			<select name="seleccion_favorito_usuario" id="seleccion_favorito_usuario" required>
 				      				<option value="" selected disabled>Tipos:</option>
 				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
-				      					<option value="${tipoDeAtraccion}"><c:out value="${tipoDeAtraccion}"></c:out></option>
+				      					<option value="${tipoDeAtraccion.getNombre()}"><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
 				      		<label for="dinero_usuario">Monedas:</label>
