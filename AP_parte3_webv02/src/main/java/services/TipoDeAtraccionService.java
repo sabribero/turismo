@@ -39,4 +39,12 @@ public class TipoDeAtraccionService {
 
 		return tipo;
 	}
+	
+	public void delete(String name) {
+		
+		TipoDeAtraccion tipo = new TipoDeAtraccion(0, name, false);
+
+		TipoDeAtraccionDAOImpl tipoDeAtraccionDAO = DAOFactory.getTipoDeAtraccionDAO();
+		tipoDeAtraccionDAO.borradoLogico(tipo);
+	}
 }

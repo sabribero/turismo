@@ -86,6 +86,22 @@ public class TipoDeAtraccionDAOImpl {
 		}
 	}
 	
+	public int borradoLogico(TipoDeAtraccion tipo) {
+		try {
+			String sql = "UPDATE tipos_atraccion SET borrado=1 WHERE tipo_de_atraccion = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, tipo.getNombre());
+			int rows = statement.executeUpdate();
+			
+			return rows;
+		} catch(Exception e) {
+			throw new MissingDataException(e);
+		}
+		
+	}
+	
 	public TipoDeAtraccion findByNombre(String nombre) {
 		try {
 			String sql = "SELECT * FROM tipos_atraccion WHERE tipo_de_atraccion = ? AND borrado=0";

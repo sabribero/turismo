@@ -22,7 +22,10 @@ public class PromocionDAOImpl implements PromocionDAO{
 
 		List<Promocion> promociones = new LinkedList<Promocion>();
 		while (resultados.next()) {
-			promociones.add(toPromocion(resultados, atraccionesImportadas));
+			Promocion promocion= toPromocion(resultados, atraccionesImportadas);
+			if(promocion!=null) {
+				promociones.add(promocion);
+			}
 		}
 
 		return promociones;
@@ -237,6 +240,10 @@ public class PromocionDAOImpl implements PromocionDAO{
 			Atraccion aux1= DAOFactory.getAtraccionDAO().findByNombre(resultadoDos.getString("atr1"));
 			Atraccion aux2= DAOFactory.getAtraccionDAO().findByNombre(resultadoDos.getString("atr2"));
 			
+			if(aux1==null || aux2==null) {
+				return null;
+			}
+			
 			Atraccion atr1=aux1;
 			Atraccion atr2=aux2;
 			
@@ -275,6 +282,11 @@ public class PromocionDAOImpl implements PromocionDAO{
 					if(resultado.getString("id_atr3") != null) {
 						Atraccion aux3= DAOFactory.getAtraccionDAO().findByNombre(resultadoDos.getString("atr3"));
 						Atraccion atr3=aux3;
+						
+						if(atr3==null) {
+							return null;
+						}
+						
 						//misma busqueda que para los casos anteriores
 						for(Atraccion atraccion: atraccionesImportadas) {
 							if(atraccion.equals(aux3)) {
@@ -291,6 +303,10 @@ public class PromocionDAOImpl implements PromocionDAO{
 						Atraccion aux3= DAOFactory.getAtraccionDAO().findByNombre(resultadoDos.getString("atr3"));
 						Atraccion atr3=aux3;
 						
+						if(atr3==null) {
+							return null;
+						}
+						
 						for(Atraccion atraccion: atraccionesImportadas) {
 							if(atraccion.equals(aux3)) {
 								atr3=atraccion;
@@ -305,6 +321,10 @@ public class PromocionDAOImpl implements PromocionDAO{
 					if(resultado.getString("id_atr3") != null) {
 						Atraccion aux3= DAOFactory.getAtraccionDAO().findByNombre(resultadoDos.getString("atr3"));
 						Atraccion atr3=aux3;
+						
+						if(atr3==null) {
+							return null;
+						}
 						
 						for(Atraccion atraccion: atraccionesImportadas) {
 							if(atraccion.equals(aux3)) {

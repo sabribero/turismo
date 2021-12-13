@@ -32,8 +32,6 @@
 		</header>
 		<main class="contenido">
 			<div class="accordion accordion-flush" id="accordionFlushExample">
-			
-<!-- comentado porque eliminar un enum haria que se rompan varias atracciones	
 
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-headingOne">
@@ -43,19 +41,22 @@
 			    </h2>
 			    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 				      <div class="accordion-body bodyacordeon">
-				      	<form method="post">
+				      <div class="alert alert-danger">
+								<strong>ADVERTENCIA: Borrar un tipo de atracci&oacute;n har&aacute; que no aparezcan los usuarios, atracciones y promociones que lo utilicen.</strong>
+						</div>
+				      	<form action="/AP_parte3_webv02/tipos/delete.do">
 				      		<label for="seleccion_tipo">Seleccione un tipo para eliminar:</label>
 				      			<select name="seleccion_tipo" id="seleccion_tipo" required>
 				      				<option value="" selected disabled>Tipos:</option>
 				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
-				      					<option value="${tipoDeAtraccion}"><c:out value="${tipoDeAtraccion}"></c:out></option>
+				      					<option value="${tipoDeAtraccion.getNombre()}"><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
 				      			<input type="submit" value="Eliminar">
 				      	</form>
 				      </div>
 			    </div>
-			  </div> -->	
+			  </div>	
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-headingTwo">
 			      <button class="accordion-button collapsed botonacordeon" id="atracciones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">

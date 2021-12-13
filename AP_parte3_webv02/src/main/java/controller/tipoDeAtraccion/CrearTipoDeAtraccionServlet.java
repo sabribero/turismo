@@ -12,7 +12,7 @@ import model.TipoDeAtraccion;
 import services.TipoDeAtraccionService;
 
 @WebServlet("/tipos/create.do")
-public class CrearTipoDeAtraccion extends HttpServlet {
+public class CrearTipoDeAtraccionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -7616014167463346271L;
 	private TipoDeAtraccionService tipoDeAtraccionService;

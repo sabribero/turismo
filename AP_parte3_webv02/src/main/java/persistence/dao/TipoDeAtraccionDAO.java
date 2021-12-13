@@ -11,6 +11,7 @@ public interface TipoDeAtraccionDAO {
 	public List<TipoDeAtraccion> findAllConBorrados();
 	public int insert(TipoDeAtraccion tipo);
 	public int modificar(TipoDeAtraccion tipo, String original);
+	public int borradoLogico(TipoDeAtraccion tipo);
 	public TipoDeAtraccion findByNombre(String nombre);
 	public TipoDeAtraccion toTipoDeAtraccion(ResultSet resultado);
 }
