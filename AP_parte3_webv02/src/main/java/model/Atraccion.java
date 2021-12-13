@@ -3,6 +3,7 @@ package model;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import persistence.dao.DAOFactory;
 
@@ -175,20 +176,12 @@ public class Atraccion {
 		return errors;
 	}
 
-	//--------------equals y hashcode----------------
 
+	//--------------equals y hashcode----------------	
+	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(tiempoDeUso);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
-		result = prime * result + usosDisponibles;
-		result = prime * result + valor;
-		return result;
+		return Objects.hash(borrado, nombre, tiempoDeUso, tipo, valor);
 	}
 
 	@Override
@@ -200,21 +193,13 @@ public class Atraccion {
 		if (getClass() != obj.getClass())
 			return false;
 		Atraccion other = (Atraccion) obj;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		if (Double.doubleToLongBits(tiempoDeUso) != Double.doubleToLongBits(other.tiempoDeUso))
-			return false;
-		if (tipo != other.tipo)
-			return false;
-		if (usosDisponibles != other.usosDisponibles)
-			return false;
-		if (valor != other.valor)
-			return false;
-		return true;
-	}   
+		return borrado == other.borrado && Objects.equals(nombre, other.nombre)
+				&& Double.doubleToLongBits(tiempoDeUso) == Double.doubleToLongBits(other.tiempoDeUso)
+				&& Objects.equals(tipo, other.tipo) && valor == other.valor;
+	}
+
+
+	  
 	
 	
 }

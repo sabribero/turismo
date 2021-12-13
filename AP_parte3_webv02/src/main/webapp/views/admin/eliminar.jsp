@@ -88,7 +88,7 @@
 			      <div class="accordion-body bodyacordeon">
 			      		<form action="/AP_parte3_webv02/promociones/delete.do">
 				      		<label for="seleccion_promo">Seleccione una promoci&oacute;n para eliminar:</label>
-				      			<select name="seleccion_promo" id="seleccion_promo">
+				      			<select name="seleccion_promo" id="seleccion_promo" required>
 				      				<option value="" selected disabled>Cada promoci&oacute;n</option>
 				      				<c:forEach items="${promociones}" var="promocion">
 				      					<option value="${promocion.getNombre()}"><c:out value="${promocion.getClass().getSimpleName().replace('Promo', '')}"></c:out>, 

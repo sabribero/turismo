@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class Promocion {
 	protected int valor, id;
@@ -108,6 +109,9 @@ public class Promocion {
 		if (this.getAtraccionesEnPromocion().get(1) == null) {
 			errors.put("atr2", "Atraccion 2 no puede ser null");
 		}
+		if(this.getAtraccionesEnPromocion().get(0).equals(this.getAtraccionesEnPromocion().get(1))) {
+			errors.put("repetida", "Las atracciones no deben repetirse");
+		}
 		if (!this.getAtraccionesEnPromocion().get(0).getTipo().getNombre().equals(this.getAtraccionesEnPromocion().get(1).getTipo().getNombre())) {
 			errors.put("tipos", "Discrepancia de tipos con la segunda atraccion");
 		}
@@ -115,25 +119,20 @@ public class Promocion {
 			if(!this.getAtraccionesEnPromocion().get(1).getTipo().getNombre().equals(this.getAtraccionesEnPromocion().get(2).getTipo().getNombre())) {
 				errors.put("tipos3", "Discrepancia de tipos con la tercer atraccion");
 			}
+			if(this.getAtraccionesEnPromocion().get(0).equals(this.getAtraccionesEnPromocion().get(2)) || this.getAtraccionesEnPromocion().get(1).equals(this.getAtraccionesEnPromocion().get(2))) {
+				errors.put("repetida", "Las atracciones no deben repetirse");
+			}
 		}
 	}
 	public Map<String, String> getErrors() {
 		return errors;
 	}
 
-	//--------equals y hashcode---------------------------
+	
+	//--------equals y hashcode---------------------------	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((atraccionesEnPromocion == null) ? 0 : atraccionesEnPromocion.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(tiempoPromo);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
-		result = prime * result + ((tipoAtraccion == null) ? 0 : tipoAtraccion.hashCode());
-		result = prime * result + valor;
-		return result;
+		return Objects.hash(atraccionesEnPromocion, id, tiempoPromo, tipo, tipoAtraccion, valor);
 	}
 
 	@Override
@@ -145,22 +144,10 @@ public class Promocion {
 		if (getClass() != obj.getClass())
 			return false;
 		Promocion other = (Promocion) obj;
-		if (atraccionesEnPromocion == null) {
-			if (other.atraccionesEnPromocion != null)
-				return false;
-		} else if (!atraccionesEnPromocion.equals(other.atraccionesEnPromocion))
-			return false;
-		if (Double.doubleToLongBits(tiempoPromo) != Double.doubleToLongBits(other.tiempoPromo))
-			return false;
-		if (tipo != other.tipo)
-			return false;
-		if (tipoAtraccion != other.tipoAtraccion)
-			return false;
-		if (valor != other.valor)
-			return false;
-		return true;
+		return Objects.equals(atraccionesEnPromocion, other.atraccionesEnPromocion) && id == other.id
+				&& Double.doubleToLongBits(tiempoPromo) == Double.doubleToLongBits(other.tiempoPromo)
+				&& tipo == other.tipo && Objects.equals(tipoAtraccion, other.tipoAtraccion) && valor == other.valor;
 	}
-	
 	
 
 }

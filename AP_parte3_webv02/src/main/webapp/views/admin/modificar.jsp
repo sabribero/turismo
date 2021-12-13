@@ -82,7 +82,7 @@
 			      <div class="accordion-body bodyacordeon">
 			      		<form action="/AP_parte3_webv02/attractions/edit.do" method="post">
 				      		<label for="seleccion_atraccion">Seleccione una atracci&oacute;n para modificar:</label>
-				      			<select name="seleccion_atraccion" id="seleccion_atraccion">
+				      			<select name="seleccion_atraccion" id="seleccion_atraccion" required>
 				      				<option value="" selected disabled>Cada atracci&oacute;n</option>
 				      				<c:forEach items="${attractions}" var="atraccion">
 				      					<option value="${atraccion}"><c:out value="${atraccion}"></c:out></option>
@@ -95,14 +95,6 @@
 				      			<input type="number" name="tiempo_atraccion" id="tiempo_atraccion" min=0 step=0.5 required><br>
 				      		<label for="cupos_atraccion">Cupos:</label>
 				      			<input type="number" name="cupos_atraccion" id="cupos_atraccion" min=0 required><br>
-		<!-- comentado porque quiza no esta bueno que puedan cambiar el tipo de atraccion, puede romper alguna promocion -->
-				      		<!--<label for="seleccion_tipo_atraccion">Seleccione el tipo de atracción:</label>
-				      			<select name="seleccion_tipo_atraccion" id="seleccion_tipo_atraccion" required>
-									<option value="" selected disabled>Tipos:</option>
-				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
-				      					<option value="${tipoDeAtraccion}"><c:out value="${tipoDeAtraccion}"></c:out></option>
-				      				</c:forEach>
-				      			</select>-->
 				      		<br>
 				      		<input type="submit" value="Aceptar">
 				      	</form>
@@ -120,7 +112,7 @@
 			      		<form action="/AP_parte3_webv02/promociones/edit.do" method="post">
 		<!-- cada promocion puede estar representada como Tipo, Valor, Atraccion1, Atraccion2, Atraccion3 -->
 				      		<label for="seleccion_promo">Seleccione una promoción para modificar:</label>
-				      			<select name="seleccion_promo" id="seleccion_promo">
+				      			<select name="seleccion_promo" id="seleccion_promo" required>
 		<!-- extraer promociones de bdd -->
 				      				<option value="" selected disabled>Cada promoción</option>
 				      				<c:forEach items="${promociones}" var="promocion">
@@ -168,7 +160,7 @@
 			      <div class="accordion-body bodyacordeon">
 			      		<form action="/AP_parte3_webv02/usuarios/edit.do" method="post">
 			      		<label for="seleccion_usuario">Seleccione un usuario al que modificar:</label>
-			      			<select name="seleccion_usuario" id="seleccion_usuario">
+			      			<select name="seleccion_usuario" id="seleccion_usuario" required>
 			      				<option value="" selected disabled>Todos los usuarios</option>
 			      				<c:forEach items="${usuarios}" var="usuario">
 			      					<option value="${usuario.getNombre()}"><c:out value="${usuario.getNombre()}"></c:out></option>

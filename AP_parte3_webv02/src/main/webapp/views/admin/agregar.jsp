@@ -129,7 +129,7 @@
 				      				</c:forEach>
 				      			</select><br>
 				      		<label for="atr3_promo">Atracci&oacute;n 3:</label>
-				      			<select name="atr3_promo" id="atr3_promo">
+				      			<select name="atr3_promo" id="atr3_promo" required>
 				      				<option value="" selected disabled>Todas las atracciones</option>
 				      				<c:forEach items="${attractions}" var="atraccion">
 				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
@@ -151,9 +151,9 @@
 			      <div class="accordion-body bodyacordeon">
 			      		<form action="/AP_parte3_webv02/usuarios/create.do" method="post">
 				      		<label for="nombre_usuario">Nombre:</label>
-				      			<input type="text" name="nombre_usuario" id="nombre_usuario"><br>
+				      			<input type="text" name="nombre_usuario" id="nombre_usuario" required><br>
 				      		<label for="password_usuario">Contrase&ntilde;a:</label>
-				      			<input type="password" name="password_usuario" id="password_usuario"><br>
+				      			<input type="password" name="password_usuario" id="password_usuario" required><br>
 				      		<label for="favorito_usuario">Tipo de atracción favorito:</label>
 				      			<select name="favorito_usuario" id="favorito_usuario" required>
 		<!-- extraer tipos de atraccion de bdd -->

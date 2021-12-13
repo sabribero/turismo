@@ -3,6 +3,7 @@ package model;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import persistence.dao.DAOFactory;
 
@@ -85,5 +86,25 @@ public class TipoDeAtraccion {
 	public Map<String, String> getErrors() {
 		return errors;
 	}
+	
+	//----------------EQUALS Y HASHCODE-----------------
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(borrado, id, tipoDeAtraccion);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TipoDeAtraccion other = (TipoDeAtraccion) obj;
+		return borrado == other.borrado && id == other.id && Objects.equals(tipoDeAtraccion, other.tipoDeAtraccion);
+	}
+	
 
 }
