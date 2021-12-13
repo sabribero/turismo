@@ -11,11 +11,11 @@
 <jsp:include page="../../partials/head.jsp"></jsp:include>
 
 </head>
-<body>
+<body class="bg-general">
 
 	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 	
-	<div class="container contenedor">
+	<div class="container contenedor" style="color: black;">
 		<ul class="nav nav-tabs nav-fill">
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/views/admin/admin.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/modificar.do">Modificar</a></li>
@@ -24,7 +24,11 @@
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/administrador/eliminar.do">Eliminar</a></li>
 		</ul>
 		<header class="headercentrado">
-			<h1>BIENVENIDO ADMIN!</h1>
+				<div class="headercentrado">
+				<h1>Bienvenido <c:out value="${user.nombre}" />!</h1>
+				<br>
+				</div>
+				
 			<p>Seleccione una de las siguientes opciones:</p>
 		</header>
 		<main class="contenido">

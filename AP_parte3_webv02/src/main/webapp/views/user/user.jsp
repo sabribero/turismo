@@ -34,22 +34,17 @@
 		</ul>
 		 <header class="headercentrado"> 
 
+
+
+<h3>
+
 		¡Bienvenido, <c:out value="${user.nombre}" />!
 		<br>
-		
-			<div class="container">
-				<div class="row align-items-start excepciona">
-					<a href="/AP_parte3_webv02/apisServlets/clima" class="btn btn-primary btn-lg">Clima</a>
-				</div>
-			</div>
-		Actualmente en la tierra media: <c:out value="${clima.getTemperatura}" />
+</h3>
 									
 										
 	
 			<ul class="centrado recuadro">
-					<li>* Tu <a href="itinerario.jsp">itinerario</a> actual cuenta con X atracciones.</li>
-					<li>* Has gastado X cantidad de monedas. </li>
-					<li>* Vas a pasar X horas en tierra media.</li>
 					<li>* Te quedan <c:out value="${user.presupuesto}" /> monedas.</li>
 					<li>* Te quedan <c:out value="${user.tiempoDisponible}" /> horas libres.</li>
 					<li>* <a href="/AP_parte3_webv02/cambiarpass.jsp"> Cambiar contraseña</a></li> 
@@ -57,6 +52,10 @@
 	</header> 
 	
 	
+<!-- 
+
+Codigo redundante
+
 
 		<div class="contenido">
 			<h2>¿Qué te gustaría hacer ahora?</h2>
@@ -69,6 +68,13 @@
 				</ul>
 			</div>
 		</div>
+
+
+
+
+
+ -->
+
 
 <br>
 <br>

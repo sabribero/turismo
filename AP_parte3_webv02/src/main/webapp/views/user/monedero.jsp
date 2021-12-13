@@ -28,7 +28,7 @@
 	<br>
 
 
-	<div class="container">
+	<div class="container" style="background-color:#474B4E" >
 		<div class="row">
 			<div class="col-md-2">
 			<br> Cambio oficial*
@@ -56,7 +56,7 @@
 
 
 				<!-- <div class="row"> -->
-				<div class="col-md-4 offset-md-1">
+				<div class="col-md-4 offset-md-1" >
 
 						Ingresa una moneda:
 
@@ -118,6 +118,7 @@
 
 
 		<div class="col-md-4 offset-md-3">
+
 
 
 

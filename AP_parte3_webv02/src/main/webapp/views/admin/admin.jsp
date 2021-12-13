@@ -27,7 +27,7 @@
 		</ul>
 		<main class="contenido">
 			<div class="headercentrado">
-				<h1>BIENVENIDO <c:out value="${user.nombre}" />!</h1>
+				<h1>Bienvenido <c:out value="${user.nombre}" />!</h1>
 				<br>
 				
 

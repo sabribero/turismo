@@ -18,7 +18,7 @@
 </head>
 <body>
 
-	<jsp:include page="partials/nav.jsp"></jsp:include>
+	<jsp:include page="partials/nav3.jsp"></jsp:include>
 
 
 	<div class="container contenedor">
