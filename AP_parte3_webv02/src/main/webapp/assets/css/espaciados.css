@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 .contenedor{
-	margin: auto;
-	margin-top: 30px;
+	margin: 30px auto;
 	width: 90%;
+	padding-bottom:30px;
 }
 .contenido{
 	margin:20px 30px;
-	padding:20px;
+	padding: 20px;
 }
 
 .centrado{
@@ -60,7 +60,7 @@
 	text-align:center;
 }
 #titulo1{
-	margin-top:0;
+	margin-top:30px;
 }
 .recuadro li{
 	width:auto;
@@ -69,4 +69,30 @@
 	width:auto;
 	margin:20px 25%;
 	padding:20px;
+}
+
+.contenidocarousel{
+	margin:auto;
+	padding:30px;
+	max-width:60%;
+}
+.contenidocarousel img{
+	max-width:80%;
+	margin:auto;
+}
+
+.card{
+	margin:auto;
+}
+
+.contenedorcard{
+	margin: 30px auto;
+	width: 90%;
+}
+.cuerpocard{
+	padding-bottom:40px;
+}
+
+footer a{
+	margin:40px;
 }

@@ -1,9 +1,8 @@
-	<footer style="width: 100%; margin-left: 0px; position:fixed;">
+	<footer>
 
 
 		<div class="foot" style="background-color: #0d47a1;">
-			<div class="container-fluid"
-				style="background-color: #0d47a1; color: #bbdefb;">Tierra
+			<div class="container-fluid">Tierra
 				Media - Argentina Programa - Grupo Ameba</div>
 		</div>
 

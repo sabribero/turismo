@@ -12,8 +12,6 @@
 <jsp:include page="../../partials/head.jsp"></jsp:include>
 
 
-<link rel="stylsheet" type="text/css" href="/AP_parte3_webv02/assets/css/estilos.css" />
-
 </head>
 <body class="bg-general">
 
@@ -21,7 +19,7 @@
 	
 	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 	
-	<div class="container contenedor" style="color: black;">
+	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/views/user/user.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/user/ofertador.do">Obtener sugerencias</a></li>
@@ -36,17 +34,17 @@
 				
 				
 					<c:forEach items="${attractions}" var="atraccion">
-						<div class="card col">
+						<div class="card col" id="${atraccion.nombre.replace(' ','')}">
 						
-						
-						<div class="contenedor">
-							<img src="../assets/atraccion.png" class="card-img-top" alt="...">
-
+							<div class="contenedorcard">
+								<img src="../assets/atraccion.png" class="card-img-top" alt="...">
 							</div>
+								<h5 class="card-title titulocard"><c:out value="${atraccion.nombre}"></c:out></h5>
+							
 
 							 
-							<div class="card-body">
-								<h5 class="card-title" id="${atraccion.nombre.replace(' ','')}"><c:out value="${atraccion.nombre}"></c:out></h5>
+							<div class="card-body cuerpocard">
+								
 								<h6 class="card-text"><c:out value="${atraccion.tipo.getNombre()}"></c:out></h6>
 								<p class="card-text">Costo: <c:out value="${atraccion.valor}"></c:out> monedas</p>
 								<p class="card-text">Duraci&oacute;n: <c:out value="${atraccion.tiempoDeUso}"></c:out> hora/s</p>
@@ -73,13 +71,13 @@
 				<c:forEach items="${promociones}" var="promocion">
 					<div class="card col">
 					
-							<div class="contenedor">
+							<div class="contenedorcard">
 								<img src="../assets/promocion.png" class="card-img-top" alt="...">
- 
 							</div>		
+							
+							<h5 class="card-title titulocard"><c:out value="${promocion.tipo}"></c:out></h5>
 						
-						<div class="card-body">
-							<h5 class="card-title"><c:out value="${promocion.tipo}"></c:out></h5>
+						<div class="card-body cuerpocard">
 							<p class="card-text">
 								<c:forEach items="${promocion.atraccionesEnPromocion}" var="attraction">
 									<a href="#${attraction.nombre.replace(' ','')}"><c:out value="${attraction.nombre}"></c:out></a><br>

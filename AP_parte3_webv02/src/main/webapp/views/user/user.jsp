@@ -19,13 +19,10 @@
 </head>
 <body class="bg-general">
 
-	<jsp:include page="../../partials/nav2.jsp"></jsp:include>
+	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 
 
-
-
-
-	<div class="container contenedor" style="color: black;">
+	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill nav-dark">
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/user/ofertador.do">Obtener sugerencias</a></li>
@@ -36,11 +33,10 @@
 
 
 
-<h3>
-
-		¡Bienvenido, <c:out value="${user.nombre}" />!
-		<br>
-</h3>
+		<h3>
+				¡Bienvenido, <c:out value="${user.nombre}" />!
+				<br>
+		</h3>
 									
 										
 	
@@ -50,45 +46,8 @@
 					<li>* <a href="/AP_parte3_webv02/cambiarpass.jsp"> Cambiar contraseña</a></li> 
 			</ul>
 	</header> 
-	
-	
-<!-- 
-
-Codigo redundante
-
-
-		<div class="contenido">
-			<h2>¿Qué te gustaría hacer ahora?</h2>
-	
-			<div class="row align-items-start">
-				<ul>
-					<li><a href="sugeridor.jsp">Obtener sugerencias</a></li>
-					<li><a href="visualizar.jsp">Ver todas las atracciones/promociones</a></li>
-					<li><a href="itinerario.jsp">Ver mi itinerario</a></li>
-				</ul>
-			</div>
-		</div>
-
-
-
-
-
- -->
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 		 
-		 
-		 </div>
-		
+	 </div>
 
 			<jsp:include page="../../partials/footer.jsp"></jsp:include>
 				

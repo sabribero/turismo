@@ -15,7 +15,7 @@
 </head>
 <body class="bg-general">
 
-	<jsp:include page="../../partials/nav2.jsp"></jsp:include>
+	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 	
 	<div class="container contenedor" style="color: black;">
 		<ul class="nav nav-tabs nav-fill">
@@ -34,7 +34,7 @@
 		
 		
 		<br>
-				<p>* <a href="/AP_parte3_webv02/cambiarpass.jsp"> Cambiar contraseña</a></p>
+				<p><a href="/AP_parte3_webv02/cambiarpass.jsp"> Cambiar contraseña</a></p>
 				<p>Seleccione una de las siguientes opciones:</p>
 			</div>
 			<br>
@@ -44,37 +44,37 @@
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Tipos de atracción</h5>
 						<ul class="separarli">
-							<li><a href="modificar.jsp#tipos_de_atraccion">Modificar</a></li>
-							<li><a href="agregar.jsp#tipos_de_atraccion">Agregar</a></li>
-							<li><a href="ver.jsp#tipos_de_atraccion">Ver</a></li>
-							<li><a href="eliminar.jsp#tipos_de_atraccion">Eliminar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/modificar.do#tipos_de_atraccion">Modificar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/agregar.do#tipos_de_atraccion">Agregar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/ver.do#tipos_de_atraccion">Ver</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/eliminar.do#tipos_de_atraccion">Eliminar</a></li>
 						</ul>
 					</div>
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Atracciones</h5>
 						<ul class="separarli">
-							<li><a href="modificar.jsp#atracciones">Modificar</a></li>
-							<li><a href="agregar.jsp#atracciones">Agregar</a></li>
-							<li><a href="ver.jsp#atracciones">Ver</a></li>
-							<li><a href="eliminar.jsp#atracciones">Eliminar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/modificar.do#atracciones">Modificar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/agregar.do#atracciones">Agregar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/ver.do#atracciones">Ver</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/eliminar.do#atracciones">Eliminar</a></li>
 						</ul>
 					</div>
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Promociones</h5>
 						<ul class="separarli">
-							<li><a href="modificar.jsp#promociones">Modificar</a></li>
-							<li><a href="agregar.jsp#promociones">Agregar</a></li>
-							<li><a href="ver.jsp#promociones">Ver</a></li>
-							<li><a href="eliminar.jsp#promociones">Eliminar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/modificar.do#promociones">Modificar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/agregar.do#promociones">Agregar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/ver.do#promociones">Ver</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/eliminar.do#promociones">Eliminar</a></li>
 						</ul>
 					</div>
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Usuarios</h5>
 						<ul class="separarli">
-							<li><a href="modificar.jsp#usuarios">Modificar</a></li>
-							<li><a href="agregar.jsp#usuarios">Agregar</a></li>
-							<li><a href="ver.jsp#usuarios">Ver</a></li>
-							<li><a href="eliminar.jsp#usuarios">Eliminar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/modificar.do#usuarios">Modificar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/agregar.do#usuarios">Agregar</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/ver.do#usuarios">Ver</a></li>
+							<li><a href="/AP_parte3_webv02/administrador/eliminar.do#usuarios">Eliminar</a></li>
 						</ul>
 					</div>
 				</div>
@@ -85,9 +85,6 @@
 			
 		</main>
 	</div>
-	
-	
-	
-				<jsp:include page="../../partials/footer.jsp"></jsp:include>
+	<jsp:include page="../../partials/footer.jsp"></jsp:include>
 </body>
 </html>

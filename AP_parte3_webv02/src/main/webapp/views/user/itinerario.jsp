@@ -14,9 +14,9 @@
 </head>
 <body class="bg-general">
 	
-	<jsp:include page="../../partials/nav2.jsp"></jsp:include>
+	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 	
-	<div class="container contenedor" style="color: black;">
+	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/views/user/user.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/user/ofertador.do">Obtener sugerencias</a></li>
@@ -24,8 +24,9 @@
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Mi Itinerario</a></li>
 		</ul>
 		
-		<h3>Mi Itinerario</h3>
-
+		<div class="headercentrado">
+			<h3>Mi Itinerario</h3>
+		</div>
 
 		
 		<div class="contenido">

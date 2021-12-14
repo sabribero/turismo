@@ -15,13 +15,17 @@
 	
 	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 
-	<div class="container contenedor" style="color: black;">
+	<div class="container contenedor">
 		<ul class="nav nav-tabs nav-fill">
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/views/user/user.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Obtener sugerencias</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/visualizar.do">Ver Atracciones/Promociones</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/itinerario.do">Mi Itinerario</a></li>
 		</ul>
+	
+		<div class="headercentrado">
+			<h2>Sugerencias para vos</h2>	
+		</div>
 	
 	<c:if test="${flash != null}">
 					<c:if test="${errors != null}">
@@ -53,15 +57,15 @@
 				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="https://http2.mlstatic.com/D_NQ_NP_947787-MLA43560609530_092020-O.jpg" class="d-block w-100" alt="...">
-						<div class="carousel-caption d-none d-md-block">
+						<img src="https://i1.wp.com/elanillounico.com/wp-content/uploads/2015/11/Tierra-Media-vintage-Juan-M.-VillaSD-copia.jpg?fit=1200%2C1172&ssl=1" class="d-block" alt="...">
+						<div class="carousel-caption d-none d-md-block descripcion">
 							<h3>Comencemos!</h3>
 						</div>
 					</div>
 					<c:forEach items="${promocionesFavoritas}" var="promo">
 						<div class="carousel-item">
-							<img src="https://http2.mlstatic.com/D_NQ_NP_947787-MLA43560609530_092020-O.jpg" class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
+							<img src="https://i1.wp.com/elanillounico.com/wp-content/uploads/2015/11/Tierra-Media-vintage-Juan-M.-VillaSD-copia.jpg?fit=1200%2C1172&ssl=1" class="d-block" alt="...">
+							<div class="carousel-caption d-none d-md-block descripcion">
 								<h5>Promoci&oacute;n</h5>
 								<p><c:out value="${promo.getNombre()}"></c:out></p>
 								<p>Costo: <c:out value="${promo.getValorPromo()}"></c:out> monedas<br>
@@ -74,8 +78,8 @@
 					
 					<c:forEach items="${atraccionesFavoritas}" var="atraccion">
 						<div class="carousel-item">
-							<img src="https://http2.mlstatic.com/D_NQ_NP_947787-MLA43560609530_092020-O.jpg" class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
+							<img src="https://i1.wp.com/elanillounico.com/wp-content/uploads/2015/11/Tierra-Media-vintage-Juan-M.-VillaSD-copia.jpg?fit=1200%2C1172&ssl=1" class="d-block" alt="...">
+							<div class="carousel-caption d-none d-md-block descripcion">
 								<h5><c:out value="${atraccion.getNombre()}"></c:out></h5>
 								<p>Costo: <c:out value="${atraccion.getValor()}"></c:out> monedas<br>
 									Duraci&oacute;n: <c:out value="${atraccion.getTiempoDeUso()}"></c:out> hora/s</p>
@@ -87,8 +91,8 @@
 					
 					<c:forEach items="${promocionesNoFavoritas}" var="promocion">
 						<div class="carousel-item">
-							<img src="https://http2.mlstatic.com/D_NQ_NP_947787-MLA43560609530_092020-O.jpg" class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
+							<img src="https://i1.wp.com/elanillounico.com/wp-content/uploads/2015/11/Tierra-Media-vintage-Juan-M.-VillaSD-copia.jpg?fit=1200%2C1172&ssl=1" class="d-block" alt="...">
+							<div class="carousel-caption d-none d-md-block descripcion">
 								<h5>Promoci&oacute;n</h5>
 								<p><c:out value="${promocion.getNombre()}"></c:out></p>
 								<p>Costo: <c:out value="${promocion.getValorPromo()}"></c:out> monedas<br>
@@ -101,8 +105,8 @@
 					
 					<c:forEach items="${atraccionesNoFavoritas}" var="atraccionN">
 						<div class="carousel-item">
-							<img src="https://http2.mlstatic.com/D_NQ_NP_947787-MLA43560609530_092020-O.jpg" class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
+							<img src="https://i1.wp.com/elanillounico.com/wp-content/uploads/2015/11/Tierra-Media-vintage-Juan-M.-VillaSD-copia.jpg?fit=1200%2C1172&ssl=1" class="d-block" alt="...">
+							<div class="carousel-caption d-none d-md-block descripcion">
 								<h5><c:out value="${atraccionN.getNombre()}"></c:out></h5>
 								<p>Costo: <c:out value="${atraccionN.getValor()}"></c:out> monedas<br>
 									Duraci&oacute;n: <c:out value="${atraccionN.getTiempoDeUso()}"></c:out> hora/s</p>

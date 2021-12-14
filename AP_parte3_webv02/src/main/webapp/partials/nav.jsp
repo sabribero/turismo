@@ -22,7 +22,7 @@
 				
 				
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/AP_parte3_webv02/views/user/user.jsp">			<img src="../assets/header.png" align="left" width="100" height="40"></a></li>
+						aria-current="page" href="/AP_parte3_webv02/views/user/user.jsp">			<img src="/AP_parte3_webv02/assets/header.png" align="left" width="100" height="40"></a></li>
 						
 						
 						
@@ -94,7 +94,7 @@
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					
 					
-					<img src="../assets/engranaje.png" align="left" width="30" height="30">
+					<img src="/AP_parte3_webv02/assets/engranaje.png" align="left" width="30" height="30">
 					
 					&nbsp;&nbsp;
 						<c:out value="${user.nombre}"></c:out>
@@ -103,7 +103,7 @@
 						aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item disabled" style="color: black;">
 						
-											<img src="../assets/monedaoro.png" align="left" width="30" height="30">
+											<img src="/AP_parte3_webv02/assets/monedaoro.png" align="left" width="30" height="30">
 					
 					&nbsp;&nbsp;
 						
@@ -111,7 +111,7 @@
 						</a></li>
 						<li><a class="dropdown-item disabled" style="color: black;">
 						
-											<img src="../assets/reloj.png" align="left" width="30" height="30">
+											<img src="/AP_parte3_webv02/assets/reloj.png" align="left" width="30" height="30">
 					
 					&nbsp;&nbsp;
 						

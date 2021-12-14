@@ -4,7 +4,7 @@
 .contenedor, .contenido, .bodyacordeon{
 	background-color:LightGoldenrodYellow;
 }
-.botonacordeon{
+.botonacordeon, .card{
 	background-color:DarkKhaki;
 }
 .botonacordeon:not(.collapsed){
@@ -12,7 +12,7 @@
 	color:Khaki;
 }
 .botonacordeon:focus{
-	box-shadow:0 0 0 .25rem rgba(240, 230, 140,0.25);
+	box-shadow:0 0 0 .25rem rgba(240, 230, 140, 0.6);
 }
 .contenedor a{
 	color:SaddleBrown;
@@ -26,9 +26,6 @@
 .excepciona, .excepciona:visited{
 	color:white !important;
 }
-.contenidocarousel{
-	padding:50px;
-}
 
 .recuadro{
 	border:solid SaddleBrown 4px;
@@ -36,4 +33,20 @@
 
 .color-azul{
 	color: blue;
+}
+
+.descripcion{
+	background-color:rgba(255,255,255,0.5);
+}
+.contenidocarousel, .contenidocarousel img{
+	border: solid black 2px;
+}
+
+.card{
+	color:white;
+}
+
+.foot{
+	background-color: #0d47a1; 
+	color: #bbdefb !important;
 }
