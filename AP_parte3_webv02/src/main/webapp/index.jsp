@@ -33,7 +33,7 @@
 				 -->
 
 				<img src="/AP_parte3_webv02/assets/welcome.png" />
-				<p>Ingresar como nombre cualquiera de los usuarios
+				<p id="pindex">Ingresar como nombre cualquiera de los usuarios
 						del proyecto (Sam, Frodo, etc.) y como contraseña se repite el mismo nombre.</p>
 
 			</div>
@@ -43,14 +43,14 @@
 		<main>
 
 			<c:if test="${flash != null}">
-				<div class="alert alert-danger">
+				<div class="alert alert-danger alertcentrado">
 					<p>
 						<c:out value="${flash}" />
 					</p>
 				</div>
 			</c:if>
 
-			<form action="/AP_parte3_webv02/login" method="post">
+			<form action="/AP_parte3_webv02/login" method="post" class="formcentrado">
 
 				<div class="mb-3">
 					<label for="username" class="form-label">Usuario</label> <input
@@ -63,7 +63,7 @@
 				</div>
 
 				<div class="d-grid gap-2">
-					<button type="submit" class="btn btn-lg btn-primary">Ingresar</button>
+					<button type="submit" class="btn btn-lg btn-primary" id="botonindex">Ingresar</button>
 				</div>
 			</form>
 

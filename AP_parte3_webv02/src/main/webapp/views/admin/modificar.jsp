@@ -56,18 +56,18 @@
 			    </h2>
 			    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 				      <div class="accordion-body bodyacordeon">
-				      	<form action="/AP_parte3_webv02/tipos/edit.do" method="post">
+				      	<form action="/AP_parte3_webv02/tipos/edit.do" method="post" class="adminform">
 				      		<label for="seleccion_tipo">Seleccione un tipo para modificar:</label>
-				      			<select name="seleccion_tipo" id="seleccion_tipo" required>
+				      			<select name="seleccion_tipo" id="seleccion_tipo" class="form-select" required>
 				      				<option value="" selected disabled>Tipos:</option>
 				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
 				      					<option value="${tipoDeAtraccion.getNombre()}"><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
 				      		<label for="nombre_tipo">Modifique el nombre:</label>
-				      			<input type="text" name="nombre_tipo" id="nombre_tipo" required><br>
+				      			<input type="text" name="nombre_tipo" id="nombre_tipo" class="form-control" required><br>
 				      		<label></label>
-				      			<input type="submit" value="Aceptar">
+				      			<input type="submit" value="Aceptar" class="btn btn-success rounded excepciona">
 				      	</form>
 				      </div>
 			    </div>
@@ -80,23 +80,22 @@
 			    </h2>
 			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form action="/AP_parte3_webv02/attractions/edit.do" method="post">
+			      		<form action="/AP_parte3_webv02/attractions/edit.do" method="post" class="adminform">
 				      		<label for="seleccion_atraccion">Seleccione una atracci&oacute;n para modificar:</label>
-				      			<select name="seleccion_atraccion" id="seleccion_atraccion" required>
+				      			<select name="seleccion_atraccion" id="seleccion_atraccion" class="form-select" required>
 				      				<option value="" selected disabled>Cada atracci&oacute;n</option>
 				      				<c:forEach items="${attractions}" var="atraccion">
 				      					<option value="${atraccion}"><c:out value="${atraccion}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
-		<!-- estaria bueno que los input trayeran en el value la informacion que YA hay en la base de datos -->
 				      		<label for="valor_atraccion">Valor:</label>
-				      			<input type="number" name="valor_atraccion" id="valor_atraccion" min=0 required><br>
+				      			<input type="number" name="valor_atraccion" id="valor_atraccion" class="form-control" min=0 required><br>
 				      		<label for="tiempo_atraccion">Duración:</label>
-				      			<input type="number" name="tiempo_atraccion" id="tiempo_atraccion" min=0 step=0.5 required><br>
+				      			<input type="number" name="tiempo_atraccion" id="tiempo_atraccion" class="form-control" min=0 step=0.5 required><br>
 				      		<label for="cupos_atraccion">Cupos:</label>
-				      			<input type="number" name="cupos_atraccion" id="cupos_atraccion" min=0 required><br>
+				      			<input type="number" name="cupos_atraccion" id="cupos_atraccion" class="form-control" min=0 required><br>
 				      		<br>
-				      		<input type="submit" value="Aceptar">
+				      		<input type="submit" value="Aceptar" class="btn btn-success rounded excepciona">
 				      	</form>
 			      </div>
 			    </div>
@@ -109,11 +108,9 @@
 			    </h2>
 			    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form action="/AP_parte3_webv02/promociones/edit.do" method="post">
-		<!-- cada promocion puede estar representada como Tipo, Valor, Atraccion1, Atraccion2, Atraccion3 -->
+			      		<form action="/AP_parte3_webv02/promociones/edit.do" method="post" class="adminform">
 				      		<label for="seleccion_promo">Seleccione una promoción para modificar:</label>
-				      			<select name="seleccion_promo" id="seleccion_promo" required>
-		<!-- extraer promociones de bdd -->
+				      			<select name="seleccion_promo" id="seleccion_promo" class="form-select" required>
 				      				<option value="" selected disabled>Cada promoción</option>
 				      				<c:forEach items="${promociones}" var="promocion">
 				      					<option value="${promocion.getNombre()}"><c:out value="${promocion.getClass().getSimpleName().replace('Promo', '')}"></c:out>, 
@@ -121,31 +118,30 @@
 				      				</c:forEach>
 				      			</select><br>
 				     		<label for="valor_promo">Valor de promoci&oacute;n: (Si la promoci&oacute;n es AxB el valor se desestima)</label>
-				     			<input type="number" name="valor_promo" id="valor_promo" min=0 required><br>
-		<!-- aca tambien idealmente se traerian las atracciones que ya estan por default -->
+				     			<input type="number" name="valor_promo" id="valor_promo" class="form-control" min=0 required><br>
 							<label for="seleccion_atr1_promo">Atracci&oacute;n 1:</label>
-				      			<select name="seleccion_atr1_promo" id="seleccion_atr1_promo" required>
+				      			<select name="seleccion_atr1_promo" id="seleccion_atr1_promo" class="form-select" required>
 				      				<option value="" selected disabled>Cada atracci&oacute;n</option>
 				      				<c:forEach items="${attractions}" var="atraccion">
 				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
 				      		<label for="seleccion_atr2_promo">Atracci&oacute;n 2:</label>
-				      			<select name="seleccion_atr2_promo" id="seleccion_atr2_promo" required>
+				      			<select name="seleccion_atr2_promo" id="seleccion_atr2_promo" class="form-select" required>
 				      				<option value="" selected disabled>Cada atracci&oacute;n</option>
 				      				<c:forEach items="${attractions}" var="atraccion">
 				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
 				      		<label for="seleccion_atr3_promo">Atracci&oacute;n 3:</label>
-				      			<select name="seleccion_atr3_promo" id="seleccion_atr3_promo" required>
+				      			<select name="seleccion_atr3_promo" id="seleccion_atr3_promo" class="form-select" required>
 				      				<option value="" selected disabled>Cada atracci&oacute;n</option>
 				      				<c:forEach items="${attractions}" var="atraccion">
 				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
 				      				</c:forEach>
 				      				<option value="-">-</option>
 				      			</select><br>
-				      		<input type="submit" value="Aceptar">
+				      		<input type="submit" value="Aceptar" class="btn btn-success rounded excepciona">
 				      	</form>
 			      </div>
 			    </div>
@@ -158,36 +154,35 @@
 			    </h2>
 			    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form action="/AP_parte3_webv02/usuarios/edit.do" method="post">
+			      		<form action="/AP_parte3_webv02/usuarios/edit.do" method="post" class="adminform">
 			      		<label for="seleccion_usuario">Seleccione un usuario al que modificar:</label>
-			      			<select name="seleccion_usuario" id="seleccion_usuario" required>
+			      			<select name="seleccion_usuario" id="seleccion_usuario" class="form-select" required>
 			      				<option value="" selected disabled>Todos los usuarios</option>
 			      				<c:forEach items="${usuarios}" var="usuario">
 			      					<option value="${usuario.getNombre()}"><c:out value="${usuario.getNombre()}"></c:out></option>
 			      				</c:forEach>
 			      			</select><br>
-		<!-- los valores default deberian cargarse desde la bdd -->
 				      		<label for="nombre_usuario">Nombre:</label>
-				      			<input type="text" name="nombre_usuario" id="nombre_usuario" required><br>
+				      			<input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control" required><br>
 				      		<label for="password_usuario">Contrase&ntilde;a:</label>
-				      			<input type="password" name="password_usuario" id="password_usuario" required><br>
+				      			<input type="password" name="password_usuario" id="password_usuario" class="form-control" required><br>
 				      		<label for="seleccion_favorito_usuario">Seleccione un tipo de atracción favorito:</label>
-				      			<select name="seleccion_favorito_usuario" id="seleccion_favorito_usuario" required>
+				      			<select name="seleccion_favorito_usuario" id="seleccion_favorito_usuario" class="form-select" required>
 				      				<option value="" selected disabled>Tipos:</option>
 				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
 				      					<option value="${tipoDeAtraccion.getNombre()}"><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
 				      		<label for="dinero_usuario">Monedas:</label>
-				      			<input type="number" name="dinero_usuario" id="dinero_usuario" min=0 required><br>
+				      			<input type="number" name="dinero_usuario" id="dinero_usuario" class="form-control" min=0 required><br>
 				      		<label for="tiempo_usuario">Tiempo disponible:</label>
-				      			<input type="number" name="tiempo_usuario" id="tiempo_usuario" min=0 step=0.5 required><br>
+				      			<input type="number" name="tiempo_usuario" id="tiempo_usuario" class="form-control" min=0 step=0.5 required><br>
 				      		<p>Es administrador:</p>
 				      			<input type="radio" name="admin_usuario" id="no" value="no" checked>
 				      		<label for="no">No</label>
 				      			<input type="radio" name="admin_usuario" id="si" value="si">
-				      		<label for="si">Si</label>
-				      		<input type="submit" value="Aceptar">
+				      		<label for="si">Si</label><br>
+				      		<input type="submit" value="Aceptar" class="btn btn-success rounded excepciona">
 				      	</form>
 			      </div>
 			    </div>

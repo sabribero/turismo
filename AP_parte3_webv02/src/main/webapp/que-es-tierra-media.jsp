@@ -9,16 +9,16 @@
 
 <jsp:include page="partials/head.jsp"></jsp:include>
 </head>
-<body>
+<body class="bg-general">
 
 	<jsp:include page="partials/nav.jsp"></jsp:include>
 
-	<div class="contenedor container container-qetm">
+	<div class="contenedor container" id="tierramedia">
 		<h1>¿Qué es Tierra Media?</h1>
 		
 		<p class="parrafo-qetm">
-			Tierra Media es el parque tematico mas incleible que nunca existio. El nombre Tierra Media es una traducción literal del término anglosajón middangeard (midgard), 
-			refiriéndose a este mundo, las tierras habitables del hombre. 
+			Tierra Media es el parque tem&aacute;tico mas incre&iacute;ble que nunca existi&oacute;. El nombre Tierra Media es una traducci&oacute;n literal del t&eacute;rmino anglosaj&oacute;n middangeard (midgard), 
+			refiri&eacute;ndose a este mundo, las tierras habitables del hombre. 
 		</p>
 	</div>
 

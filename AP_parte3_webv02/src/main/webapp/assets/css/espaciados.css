@@ -93,6 +93,23 @@
 	padding-bottom:40px;
 }
 
+.formcentrado, .alertcentrado{
+	width:50%;
+	margin:auto;
+}
+
+#pindex{
+	margin:50px;
+}
+
+#botonindex{
+	margin-bottom:50px;
+}
+
+#tierramedia{
+	padding:50px;
+}
+
 footer a{
 	margin:40px;
 }

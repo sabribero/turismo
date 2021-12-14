@@ -43,8 +43,9 @@
 			<ul class="centrado recuadro">
 					<li>* Te quedan <c:out value="${user.presupuesto}" /> monedas.</li>
 					<li>* Te quedan <c:out value="${user.tiempoDisponible}" /> horas libres.</li>
-					<li>* <a href="/AP_parte3_webv02/cambiarpass.jsp"> Cambiar contraseña</a></li> 
 			</ul>
+			
+					<p><a href="/AP_parte3_webv02/cambiarpass.jsp"> Cambiar contraseña</a></p> 
 	</header> 
 		 
 	 </div>

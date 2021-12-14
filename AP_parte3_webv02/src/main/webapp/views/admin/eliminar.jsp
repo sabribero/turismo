@@ -44,15 +44,15 @@
 				      <div class="alert alert-danger">
 								<strong>ADVERTENCIA: Borrar un tipo de atracci&oacute;n har&aacute; que no aparezcan los usuarios, atracciones y promociones que lo utilicen.</strong>
 						</div>
-				      	<form action="/AP_parte3_webv02/tipos/delete.do">
+				      	<form action="/AP_parte3_webv02/tipos/delete.do" class="adminform">
 				      		<label for="seleccion_tipo">Seleccione un tipo para eliminar:</label>
-				      			<select name="seleccion_tipo" id="seleccion_tipo" required>
+				      			<select name="seleccion_tipo" id="seleccion_tipo" class="form-select" required>
 				      				<option value="" selected disabled>Tipos:</option>
 				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
 				      					<option value="${tipoDeAtraccion.getNombre()}"><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
-				      			<input type="submit" value="Eliminar">
+				      			<input type="submit" value="Eliminar" class="btn btn-danger rounded excepciona">
 				      	</form>
 				      </div>
 			    </div>
@@ -65,15 +65,15 @@
 			    </h2>
 			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form action="/AP_parte3_webv02/attractions/delete.do">
+			      		<form action="/AP_parte3_webv02/attractions/delete.do" class="adminform">
 				      		<label for="atraccion_eliminar">Seleccione una atracci&oacute;n para eliminar:</label>
-				      			<select name="atraccion_eliminar" id="atraccion_eliminar" required>
+				      			<select name="atraccion_eliminar" id="atraccion_eliminar" class="form-select" required>
 				      				<option value="" selected disabled>Atracciones:</option>
 				      				<c:forEach items="${attractions}" var="atraccion">
 				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
-				      			<input type="submit" value="Eliminar">
+				      			<input type="submit" value="Eliminar" class="btn btn-danger rounded excepciona">
 				      	</form>
 			      </div>
 			    </div>
@@ -86,16 +86,16 @@
 			    </h2>
 			    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form action="/AP_parte3_webv02/promociones/delete.do">
+			      		<form action="/AP_parte3_webv02/promociones/delete.do" class="adminform">
 				      		<label for="seleccion_promo">Seleccione una promoci&oacute;n para eliminar:</label>
-				      			<select name="seleccion_promo" id="seleccion_promo" required>
+				      			<select name="seleccion_promo" id="seleccion_promo" class="form-select" required>
 				      				<option value="" selected disabled>Cada promoci&oacute;n</option>
 				      				<c:forEach items="${promociones}" var="promocion">
 				      					<option value="${promocion.getNombre()}"><c:out value="${promocion.getClass().getSimpleName().replace('Promo', '')}"></c:out>, 
 				      					<c:out value="${promocion.getNombre()}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
-				      			<input type="submit" value="Eliminar">
+				      			<input type="submit" value="Eliminar" class="btn btn-danger rounded excepciona">
 				      	</form>
 			      </div>
 			    </div>
@@ -108,16 +108,16 @@
 			    </h2>
 			    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
 			      <div class="accordion-body bodyacordeon">
-			      		<form action="/AP_parte3_webv02/usuarios/delete.do">
+			      		<form action="/AP_parte3_webv02/usuarios/delete.do" class="adminform">
 		<!-- usuarios de bdd -->
 				      		<label for="usuario_eliminar">Seleccione un usuario para eliminar:</label>
-				      			<select name="usuario_eliminar" id="usuario_eliminar" required>
+				      			<select name="usuario_eliminar" id="usuario_eliminar" class="form-select" required>
 				      				<option value="" selected disabled>Todos los usuarios</option>
 				      				<c:forEach items="${usuarios}" var="usuario">
 			      						<option value="${usuario.getNombre()}"><c:out value="${usuario.getNombre()}"></c:out></option>
 			      					</c:forEach>
 				      			</select><br>
-				      			<input type="submit" value="Eliminar">
+				      			<input type="submit" value="Eliminar" class="btn btn-danger rounded excepciona">
 				      	</form>
 			      </div>
 			    </div>

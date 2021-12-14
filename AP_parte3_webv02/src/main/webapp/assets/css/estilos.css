@@ -73,3 +73,9 @@ footer {
 .descripcion{
 	display:block;
 }
+
+.adminform{
+	width:50%;
+	margin:auto;
+	text-align:left;
+}

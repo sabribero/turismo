@@ -16,9 +16,9 @@
 <link href="assets/css/estilos.css" rel="stylesheet" type="text/css">
 
 </head>
-<body>
+<body class="bg-general">
 
-	<jsp:include page="partials/nav3.jsp"></jsp:include>
+	<jsp:include page="partials/nav.jsp"></jsp:include>
 
 
 	<div class="container contenedor">
@@ -38,7 +38,7 @@
 			</div>
 		</c:if>
 
-		<form action="cambiarpass" method="post">
+		<form action="cambiarpass" method="post" class="formcentrado">
 
 			<div class="mb-3">
 				<label for="username" class="form-label">Contraseña Actual</label>
@@ -67,7 +67,7 @@
 		</form>
 
 		<form action="cambiarpass" " method="get">
-			<button type="submit" class="btn btn-lg btn-primary">Volver</button>
+			<button type="submit" class="btn btn-lg btn-success">Volver</button>
 		</form>
 
 	</div>
