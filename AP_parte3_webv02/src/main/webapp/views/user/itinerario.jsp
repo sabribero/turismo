@@ -24,12 +24,7 @@
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Mi Itinerario</a></li>
 		</ul>
 		
-		<h3>
-		
-				Este es tu itinerario, ${user.nombre}.
-		
-		
-		</h3>
+		<h3>Mi Itinerario</h3>
 
 
 		
@@ -37,74 +32,29 @@
 			<table class="table table-hover">
 				<thead class="table-dark">
 					<tr>
-						<th class="col-1">Elemento</th>
-						<th class="col-2">Atracción/es</th>
-						<th class="col-2">Costo</th>
+						<th class="col-2">Atracci&oacute;n/es</th>
 						<th class="col-2">Tiempo</th>
 					</tr>
 				</thead>
 				<tbody>
 				
-				
-				
-				
-				
-				
 					<c:forEach items="${attractions}" var="atraccion">
-						
-									<tr>
-						<td>1</td>
-						<td><c:out value="${atraccion.nombre}"></c:out>
-						<td>Costo: <c:out value="${atraccion.valor}"></c:out></td>
-						<td>Costo: <c:out value="${atraccion.valor}"></c:out></td>
-					</tr>		
-
-			
-				</c:forEach>
-						
-				<!-- 
-						<div class="card col">
-							<img src="https://martialartsplusinc.com/wp-content/uploads/2017/04/default-image-620x600.jpg" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title" id="${atraccion.nombre.replace(' ','')}"><c:out value="${atraccion.nombre}"></c:out></h5>
-								<h6 class="card-text"><c:out value="${atraccion.tipo}"></c:out></h6>
-								<p class="card-text">Costo: <c:out value="${atraccion.valor}"></c:out> monedas</p>
-								<p class="card-text">Costo: <c:out value="${atraccion.valor}"></c:out> hora/s</p>
-								<p class="card-text">Cupos: <c:out value="${atraccion.usosDisponibles}"></c:out></p>
-							</div>
-						</div>
-						
-						
-						
-						
-
-				
-				
-				 -->		
-						
-				
-
-
+						<tr>
+							<td><c:out value="${atraccion.nombre}"></c:out>
+							<td><c:out value="${atraccion.getTiempoDeUso()}"></c:out> hora/s</td>
+						</tr>
+					</c:forEach>	
 
 				</tbody>
 				<tfoot class="table-light">
 					<tr>
 						<td><b>Total</b></td>
-						<td>&nbsp;</td>
-						<td>25 monedas</td>
-						<td>5 horas</td>
+						<td><c:out value="${tiempoTotal}"></c:out> hora/s</td>
 					</tr>
 				</tfoot>
 			</table>
 		</div>
 	</div>
-	
-	
-	
-	
-
-	
-	
 	
 	
 </body>

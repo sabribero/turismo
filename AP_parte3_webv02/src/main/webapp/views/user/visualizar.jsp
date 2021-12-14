@@ -26,7 +26,7 @@
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/views/user/user.jsp">Inicio</a></li>
 			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/user/ofertador.do">Obtener sugerencias</a></li>
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Ver Atracciones/Promociones</a></li>
-			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/views/user/itinerario.jsp">Mi Itinerario</a></li>
+			<li class="nav-item"><a class="nav-link" href="/AP_parte3_webv02/attractions/itinerario.do">Mi Itinerario</a></li>
 		</ul>
 	
 		<div class="contenido">
@@ -47,7 +47,7 @@
 							 
 							<div class="card-body">
 								<h5 class="card-title" id="${atraccion.nombre.replace(' ','')}"><c:out value="${atraccion.nombre}"></c:out></h5>
-								<h6 class="card-text"><c:out value="${atraccion.tipo}"></c:out></h6>
+								<h6 class="card-text"><c:out value="${atraccion.tipo.getNombre()}"></c:out></h6>
 								<p class="card-text">Costo: <c:out value="${atraccion.valor}"></c:out> monedas</p>
 								<p class="card-text">Duraci&oacute;n: <c:out value="${atraccion.tiempoDeUso}"></c:out> hora/s</p>
 								<p class="card-text">Cupos: <c:out value="${atraccion.usosDisponibles}"></c:out></p>
@@ -55,11 +55,11 @@
 							<c:choose>
 								<c:when
 									test="${user.podesIrA(atraccion) && user.todaviaNoVasA(atraccion) && atraccion.podesRecibir()}">
-									<a href="/AP_parte3_webv02/attractions/buy.do?id=${attraction.id}"
-										class="btn btn-success rounded" role="button">Comprar</a>
+									<a href="/AP_parte3_webv02/attractions/buy.do?nombre=${atraccion.getNombre().replace(' ','%')}"
+										class="btn btn-success rounded excepciona" role="button">Comprar</a>
 								</c:when>
 								<c:otherwise>
-									<a href="#" class="btn btn-secondary rounded disabled"
+									<a href="" class="btn btn-secondary rounded disabled excepciona"
 										role="button">No se puede comprar</a>
 								</c:otherwise>
 							</c:choose>
@@ -73,15 +73,10 @@
 				<c:forEach items="${promociones}" var="promocion">
 					<div class="card col">
 					
-					
-					
-											<div class="contenedor">
-							<img src="../assets/promocion.png" class="card-img-top" alt="...">
+							<div class="contenedor">
+								<img src="../assets/promocion.png" class="card-img-top" alt="...">
  
 							</div>		
-						
-						
-						
 						
 						<div class="card-body">
 							<h5 class="card-title"><c:out value="${promocion.tipo}"></c:out></h5>
@@ -92,6 +87,18 @@
 							</p>
 							<p class="card-text">Costo: <c:out value="${promocion.getValorPromo()}"></c:out> monedas</p>
 							<p class="card-text">Duraci&oacute;n: <c:out value="${promocion.getTiempoDeUso()}"></c:out> hora/s</p>
+							
+							<c:choose>
+								<c:when
+									test="${user.podesIrA(promocion) && promocion.tieneCupos()}">
+									<a href="/AP_parte3_webv02//promociones/buy.do?id=${promocion.id}"
+										class="btn btn-success rounded excepciona" role="button">Comprar</a>
+								</c:when>
+								<c:otherwise>
+									<a href="" class="btn btn-secondary rounded disabled excepciona"
+										role="button">No se puede comprar</a>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 				</c:forEach>

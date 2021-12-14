@@ -23,13 +23,11 @@ public class ObtenerItinerarioServlet extends HttpServlet implements Servlet {
 
 		private static final long serialVersionUID = -8346640902238722429L;
 		private AttractionService attractionService;
-		private PromocionService promocionService;
 
 		@Override
 		public void init() throws ServletException {
 			super.init();
 			this.attractionService = new AttractionService();
-			this.promocionService = new PromocionService();
 		}
 
 		@Override
@@ -42,8 +40,13 @@ public class ObtenerItinerarioServlet extends HttpServlet implements Servlet {
 			List<Atraccion> attractions = attractionService.listItinerario(user.getId());
 			req.setAttribute("attractions", attractions);
 
-			
+			double acumulador=0;
+			for(Atraccion atraccion : attractions) {
+				acumulador+= atraccion.getTiempoDeUso();
+			}
 
+			req.setAttribute("tiempoTotal", acumulador);
+			
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/user/itinerario.jsp");
 			dispatcher.forward(req, resp);
 

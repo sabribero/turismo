@@ -13,12 +13,6 @@
 <title>Tierra Media</title>
 <jsp:include page="partials/head.jsp"></jsp:include>
 
-<link href="assets/css/estilos.css" rel="stylesheet" type="text/css">
-
-
-
-
-
 </head>
 <body class="bg-general">
 
@@ -39,10 +33,8 @@
 				 -->
 
 				<img src="/AP_parte3_webv02/assets/welcome.png" />
-				<p>
-					<strong>Ingresar como nombre cualquiera de los usuarios
-						del proyecto (Sam, Frodo, etc.) y como contraseña se repite el mismo nombre.</strong>
-				</p>
+				<p>Ingresar como nombre cualquiera de los usuarios
+						del proyecto (Sam, Frodo, etc.) y como contraseña se repite el mismo nombre.</p>
 
 			</div>
 		</div>
@@ -77,51 +69,6 @@
 
 		</main>
 	</div>
-
-
-
-
-	<!-- Probando un login 
-
-	<br>
-	<br> Aca voy a probar un formulario de login mas completo que el
-	de arriba. No detecta el servlet y si lo agrego en web.xml se rompe
-	todo el servidor.
-
-	<br>
-	<br>
-	<br>
-
-		<div class="row justify-content-center">
-			<div class="col-6">
-	<form action="login" method="POST">
-		<input type="text" name="username" value="usuario" /> <input
-			type="password" name="password" value="contraseña" /> <input
-			type="submit" value="Enviar" />
-	</form>
-
-			</div>
-		</div>
-
-
-	<form action="login" method="POST">
-		<input type="text" name="username" value="usuario" /> <input
-			type="password" name="password" value="contraseña" /> <input
-			type="submit" value="Enviar" />
-	</form>
-	
-	
-	
-	
--->
-	<br>
-	<br>
-	<br>
-
-
-
-
-
 
 
 </body>
