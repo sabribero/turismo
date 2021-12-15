@@ -83,7 +83,7 @@
 								<h5><c:out value="${atraccion.getNombre()}"></c:out></h5>
 								<p>Costo: <c:out value="${atraccion.getValor()}"></c:out> monedas<br>
 									Duraci&oacute;n: <c:out value="${atraccion.getTiempoDeUso()}"></c:out> hora/s</p>
-								<a href="/AP_parte3_webv02/attractions/buy.do?nombre=${atraccion.getNombre().replace(' ','%')}"
+								<a href="/AP_parte3_webv02/attractions/buy.do?nombre=${atraccion.getNombre().replace(' ','%20')}"
 									class="btn btn-success rounded excepciona" role="button">Comprar</a>
 							</div>
 						</div>
@@ -110,7 +110,7 @@
 								<h5><c:out value="${atraccionN.getNombre()}"></c:out></h5>
 								<p>Costo: <c:out value="${atraccionN.getValor()}"></c:out> monedas<br>
 									Duraci&oacute;n: <c:out value="${atraccionN.getTiempoDeUso()}"></c:out> hora/s</p>
-								<a href="/AP_parte3_webv02/attractions/buy.do?nombre=${atraccionN.getNombre().replace(' ','%')}"
+								<a href="/AP_parte3_webv02/attractions/buy.do?nombre=${atraccionN.getNombre().replace(' ','%20')}"
 									class="btn btn-success rounded excepciona" role="button">Comprar</a>
 									
 							</div>
