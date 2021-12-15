@@ -17,35 +17,71 @@
 
 
 </head>
-<body class="bg-general">
+<body class="bg-general" style="color: white">
 
 	<jsp:include page="../../partials/nav.jsp"></jsp:include>
 
+<div class="centrado">
 
+<h1> Banco de Monedas de la Tierra Media</h1>
+
+
+    </div>
 
 	<br>
 	<br>
 	<br>
+	
+	
+	
+	
 
 
-	<div class="container" style="background-color:#474B4E" >
+	<div class="container" style="background-color:#373B3E">
+	
+	
+	<table class="table" style="color: white">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Precio de cada moneda</th>
+      <th scope="col"></th>
+      <th scope="col">$ 200</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">#</th>
+      <td>Valor Dolar</td>
+      <td></td>
+      <td> $	<c:out value="${moneda.getARS()}" /></td>
+    </tr>
+    <tr>
+      <th scope="row">#</th>
+      <td>Valor Euro</td>
+      <td></td>
+      <td> $	<c:out value="${valoreuro}" /></td>
+    </tr>
+    <tr>
+      <th scope="row">#</th>
+      <td colspan="2">Valores actuales de freecurrencyapi.net</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+	
+	
+	
+	
 		<div class="row">
-			<div class="col-md-2">
-			<br> Cambio oficial*
-				<br> Valor Dolar:
-				<c:out value="${moneda.getARS()}" />
-				! <br> Valor Euro:
-				<c:out value="${valoreuro}" />
-				! <br>
-				 <br> (*freecurrencyapi.net)
-			</div>
+
 			<div class="col-md-4 offset-md-4">	<h2>Bienvenido humano, mi nombre es Gollum</h2>
 	
 	<h2>y voy a ayudarte a
 		conocer tu riqueza.</h2></div>
 		</div>
 		<div class="row">
-			<div class="col-md-3 offset-md-1">
+			<div class="col-md-3 offset-md-2">
 			
 			
 			
@@ -56,7 +92,7 @@
 
 
 				<!-- <div class="row"> -->
-				<div class="col-md-4 offset-md-1" >
+				<div  >
 
 						Ingresa una moneda:
 
@@ -95,7 +131,11 @@
 			</form>
 			
 			
-      <div id="result"><h1></h1></div>
+			
+     <h1>
+      <div id="result"></div>
+     
+     </h1>
 
 			
 			
@@ -168,7 +208,7 @@
 
 
 
-	</div>
+
 
 
 
