@@ -28,7 +28,7 @@ public class BuyAttractionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String attractionName = req.getParameter("nombre").replace("%", " ");
+		String attractionName = req.getParameter("nombre").replace("%20", " ");
 		Usuario user = (Usuario) req.getSession().getAttribute("user");
 		Map<String, String> errors = buyAttractionService.buy(user.getNombre(), attractionName);
 		
