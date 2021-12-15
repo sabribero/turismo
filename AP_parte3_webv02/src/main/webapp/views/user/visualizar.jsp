@@ -53,7 +53,7 @@
 							<c:choose>
 								<c:when
 									test="${user.podesIrA(atraccion) && user.todaviaNoVasA(atraccion) && atraccion.podesRecibir()}">
-									<a href="/AP_parte3_webv02/attractions/buy.do?nombre=${atraccion.getNombre().replace(' ','%')}"
+									<a href="/AP_parte3_webv02/attractions/buy.do?nombre=${atraccion.getNombre().replace(' ','%20')}"
 										class="btn btn-success rounded excepciona" role="button">Comprar</a>
 								</c:when>
 								<c:otherwise>
