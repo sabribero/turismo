@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+.centrado .separarli, .recuadro{
+	list-style-type:none;
+}
+
+.subrayado{
+	text-decoration:underline;
+}
+
+.separarli li a{
+	text-decoration:none;
+}
+
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+}
+
+
+footer {
+  min-height: 70px;
+  text-align:center;
+  background-color: #191919;
+  background-image: -moz-linear-gradient(top, #191919, #000000);
+  background-image: -o-linear-gradient(top, #191919, #000000);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #191919), color-stop(1, #000000));
+  background-image: -webkit-linear-gradient(#191919, #000000);
+  background-image: linear-gradient(top, #191919, #000000);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#191919', endColorStr='#000000');
+  border-top: 1px solid rgba(50, 50, 50, 0.3);
+  width: 100%;
+  margin-top:15%;
+  padding-bottom:30px; 
+  color:white;          
+}
+
+
+
+
+.bg-general{
+	
+	  background: #3D3C3A;
+	  
+	  
+	background-image: url("../mapa30p100.png");
+	
+	
+}
+
+
+.contenedor {
+    text-align: center;
+}
+
+
+.divcuadro{
+	background-color:#474B4E;
+	border-width:5px;
+	border-style:solid;
+	border-color:black;
+}
+
+.titulocard{
+	position:relative;
+	bottom: 70px;
+	color:white;
+}
+.descripcion{
+	display:block;
+}
+
+.adminform{
+	width:50%;
+	margin:auto;
+	text-align:left;
+}
