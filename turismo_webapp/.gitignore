@@ -1,3 +1,4 @@
 /target/
-tierra_media_basededatos.db
-tierra_media_basededatos.db.bak
+.settings
+.classpath
+.project
