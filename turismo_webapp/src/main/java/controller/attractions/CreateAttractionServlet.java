@@ -43,7 +43,7 @@ public class CreateAttractionServlet extends HttpServlet {
 			req.setAttribute("flash", attraction);
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/administrador/agregar.do");
+					.getRequestDispatcher("/administrador/atracciones.do");
 			dispatcher.forward(req, resp);
 
 	}

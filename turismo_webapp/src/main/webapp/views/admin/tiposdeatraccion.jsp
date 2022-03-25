@@ -24,7 +24,7 @@
 			<li class="nav-item"><a class="nav-link" href="/turismo_webapp/administrador/usuarios.do">Usuarios</a></li>
 		</ul>
 		<header class="headercentrado">
-			<p>Seleccione una de las siguientes opciones:</p>
+			<h1>Tipos de atracci&oacute;n</h1>
 		</header>
 		<main class="contenido">
 		
@@ -42,7 +42,7 @@
 					<p>Modificaci&oacute;n realizada con &eacute;xito.</p>
 				</div>
 			</c:if>
-			<a class="btn btn-primary" role="button" data-bs-toggle="collapse" href="#addcolapsable"
+			<a class="btn btn-primary excepciona" role="button" data-bs-toggle="collapse" href="#addcolapsable"
 				aria-expanded="false" aria-controls="addcolapsable">Agregar nuevo tipo de atracci&oacute;n</a>
 				<!-- COLAPSABLE -->
 				<div class="collapse collapse-horizontal" id="addcolapsable">
@@ -50,9 +50,14 @@
 						<label for="nombre_tipo">Nombre del tipo de Atraccion:</label>
 						<input type="text" name="nombre_tipo" id="nombre_tipo">
 									
-						<button type="submit" class="btn btn-primary">Guardar</button>
+						<button type="submit" class="btn btn-primary excepciona">Guardar</button>
 					 </form>
 				</div>
+			
+			<div class="alert alert-danger" role="alert">
+			  <strong>Advertencia: Eliminar un Tipo de atracci&oacute;n har&aacute; que se dejen de estar disponibles los
+			  usuarios y atracciones que lo contengan.</strong>
+			</div>
 			<table class="table table-stripped table-hover">
 				<thead>
 					<tr>
@@ -62,12 +67,12 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${tiposDeAtraccion}" var="tipo">
-						<tr class="parent">
+						<tr>
 							<td><c:out value="${tipo.getNombre()}"></c:out></td>
-							<td><a class="btn btn-primary" role="button" data-bs-toggle="collapse" href="#editcolapsable${tipo.getNombre()}"
+							<td><a class="btn btn-primary excepciona" role="button" data-bs-toggle="collapse" href="#editcolapsable${tipo.getNombre()}"
 									aria-expanded="false" aria-controls="editcolapsable${tipo.getNombre()}">Editar</a>
 								<a href="/turismo_webapp/tipos/delete.do?nombre_tipo=${tipo.getNombre()}"
-									class="btn btn-danger" role="button">Eliminar</a>
+									class="btn btn-danger excepciona" role="button">Eliminar</a>
 							</td>
 							
 						</tr>
@@ -80,7 +85,7 @@
 									<label for="nombre_tipo">Nombre del tipo de Atraccion:</label>
 									<input type="text" name="nombre_tipo" id="nombre_tipo" value="${tipo.getNombre()}">
 									
-									<button type="submit" class="btn btn-primary">Guardar</button>
+									<button type="submit" class="btn btn-primary excepciona">Guardar</button>
 								</form>
 							</div>
 							</td>

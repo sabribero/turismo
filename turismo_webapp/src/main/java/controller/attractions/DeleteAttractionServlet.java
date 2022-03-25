@@ -27,7 +27,7 @@ public class DeleteAttractionServlet extends HttpServlet {
 
 		attractionService.delete(name);
 //TODO mostrar errores
-		resp.sendRedirect("/turismo_webapp/administrador/eliminar.do");
+		resp.sendRedirect("/turismo_webapp/administrador/atracciones.do");
 	}
 
 

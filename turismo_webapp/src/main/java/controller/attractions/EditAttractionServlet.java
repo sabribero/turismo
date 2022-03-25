@@ -46,7 +46,7 @@ public class EditAttractionServlet extends HttpServlet {
 
 		
 			req.setAttribute("flash", attraction);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/administrador/modificar.do");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/administrador/atracciones.do");
 			dispatcher.forward(req, resp);
 	}
 }
