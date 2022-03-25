@@ -26,7 +26,7 @@ public class ModificarTipoDeAtraccionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/modificar.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/tiposdeatraccion.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
@@ -34,18 +34,19 @@ public class ModificarTipoDeAtraccionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String original = req.getParameter("seleccion_tipo");
 		String name = req.getParameter("nombre_tipo");
-
-		name= name.trim().replace("á", "a")
-						.replace("é", "e")
-						.replace("í", "i")
-						.replace("ó", "o")
-						.replace("ú", "u");
+		
+		name= name.trim().toLowerCase()
+				.replace("á", "a")
+				.replace("é", "e")
+				.replace("í", "i")
+				.replace("ó", "o")
+				.replace("ú", "u");
 		
 		TipoDeAtraccion tipo = tipoDeAtraccionService.update(name, original);
 
-	//mando el usuario y luego analizo si hay errores o no
+	//mando el tipo y luego analizo si hay errores o no
 			req.setAttribute("flash", tipo);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/administrador/modificar.do");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/administrador/tiposdeatraccion.do");
 			dispatcher.forward(req, resp);
 	}
 }

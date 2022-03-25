@@ -110,6 +110,10 @@
 	padding:50px;
 }
 
+td.hiddenRow{
+    padding: 0 !important;
+}
+
 footer a{
 	margin:40px;
 }

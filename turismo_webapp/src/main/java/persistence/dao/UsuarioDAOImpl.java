@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
 
-
 import excepciones.MissingDataException;
 import jdbc.ConnectionProvider;
 import model.Atraccion;
+import model.Itinerario;
 import model.TipoDeAtraccion;
 import model.Usuario;
 import model.nullobjects.NullUser;
@@ -274,7 +274,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			//le cargo su itinerario
 			
 			List<Atraccion> itinerario= DAOFactory.getAtraccionDAO().findItinerarioById(resultado.getInt("ID"));
-			usuario.setItinerario(itinerario);
+			usuario.setItinerario(new Itinerario(itinerario, usuario));
 			//retorno el objeto
 			return usuario;
 		} catch(Exception e) {

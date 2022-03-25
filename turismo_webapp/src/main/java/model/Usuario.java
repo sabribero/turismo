@@ -11,7 +11,7 @@ import utils.Crypt;
 
 public class Usuario {
 
-	private List<Atraccion> itinerario = new ArrayList<Atraccion>();
+	private Itinerario itinerario;
 
 	private String nombre, password;
 	private TipoDeAtraccion atraccionFavorita;
@@ -49,7 +49,7 @@ public class Usuario {
 	}
 	
 	public List<Atraccion> getItinerario() {
-		return itinerario;
+		return itinerario.getAtracciones();
 	}
 
 	public float getTiempoDisponible() {
@@ -104,23 +104,25 @@ public class Usuario {
 		this.esAdmin= admin;
 	}
 
-	public void setItinerario(List<Atraccion> nuevoItinerario) {
+	public void setItinerario(Itinerario nuevoItinerario) {
 		this.itinerario = nuevoItinerario;
 	}
 //-------------------------------METODOS----------------------------
 	
 	
 	public void vaciarItinerario() {
-		this.itinerario=new ArrayList<Atraccion>();
+		List<Atraccion> listaVacia=new ArrayList<Atraccion>();
+		this.itinerario= new Itinerario(listaVacia, this);
 	}
 	
 	public String itinerarioToString() {
 		String retorno="";
-		if(itinerario.size()<1) {
+		List<Atraccion>atracciones= this.itinerario.getAtracciones();
+		if(atracciones.size()<1) {
 			retorno="[vacio] \n";
 		} else {
-			for (int i = 0; i < itinerario.size(); i++) {
-				retorno += itinerario.get(i).getNombre();
+			for (int i = 0; i < atracciones.size(); i++) {
+				retorno += atracciones.get(i).getNombre();
 				retorno += "\n";
 			}
 		}
@@ -203,16 +205,23 @@ public class Usuario {
 	
 	// a usarse cuando el usuario clickea aceptar
 	public void agregarAtraccion(Atraccion unaAtraccion) {
-		this.itinerario.add(unaAtraccion);
+		this.itinerario.agregarAtraccion(unaAtraccion);
 		this.tiempoDisponible -= unaAtraccion.getTiempoDeUso();
 	}
 	
 	
-
+	//a usarse cuando se extrae el usuario con su itinerario desde la base de datos
+	
 	public void agregarAlItinerario(Atraccion unaAtraccion) {
-		this.itinerario.add(unaAtraccion);
+		this.itinerario.agregarAtraccion(unaAtraccion);
 	}
-
+	
+	public void agregarAlItinerario(List<Atraccion> atracciones) {
+		for(Atraccion unaAtraccion : atracciones) {
+			this.itinerario.agregarAtraccion(unaAtraccion);
+		}
+	}
+	
 	//paga dependiendo si es una promocion o atraccion
 	public void pagar(Promocion unaPromocion) {
 		this.presupuesto -= unaPromocion.getValorPromo();
@@ -241,7 +250,9 @@ public class Usuario {
 	// parametro, da true --> Verdad, todavia no voy a .....
 	public boolean todaviaNoVasA(Atraccion unaAtraccion) {
 
-		for (Atraccion misAtracciones : this.itinerario) {
+		List<Atraccion> atracciones= this.getItinerario();
+		
+		for (Atraccion misAtracciones : atracciones) {
 			if (misAtracciones.getNombre().equals(unaAtraccion.getNombre())) {
 				return false;
 			}
@@ -252,7 +263,7 @@ public class Usuario {
 	public boolean todaviaNoVasA(Promocion promocion) {
 
 		for(Atraccion atraccionPromo : promocion.getAtraccionesEnPromocion()) {
-			for (Atraccion misAtracciones : this.itinerario) {
+			for (Atraccion misAtracciones : this.getItinerario()) {
 				if(misAtracciones.getNombre().equals(atraccionPromo.getNombre())) {
 					return false;
 				}

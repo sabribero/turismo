@@ -46,43 +46,7 @@ public class Ofertador {
 		this.todasLasPromociones=promociones;
 
 	}
-/*
-	public void separarEnListas() {
 
-		for (int i = 0; i < this.todasLasAtracciones.size(); i++) {
-
-			if (this.todasLasAtracciones.get(i).getTipo() == TipoDeAtraccion.AVENTURA) {
-				atraccionesDeAventura.add(todasLasAtracciones.get(i));
-
-			} else if (this.todasLasAtracciones.get(i).getTipo() == TipoDeAtraccion.PAISAJE) {
-				atraccionesDePaisaje.add(todasLasAtracciones.get(i));
-
-			} else if (this.todasLasAtracciones.get(i).getTipo() == TipoDeAtraccion.DEGUSTACION) {
-				atraccionesDeDegustacion.add(todasLasAtracciones.get(i));
-
-			}
-		}
-
-		//separo las promociones
-		
-		for (int i = 0; i < todasLasPromociones.size(); i++) {
-
-			if (todasLasPromociones.get(i).getAtraccionesEnPromocion().get(0).getTipo() == TipoDeAtraccion.AVENTURA) {
-				promocionesDeAventura.add(todasLasPromociones.get(i));
-
-			} else if (todasLasPromociones.get(i).getAtraccionesEnPromocion().get(0).getTipo() == TipoDeAtraccion.PAISAJE) {
-				promocionesDePaisaje.add(todasLasPromociones.get(i));
-
-			} else if (todasLasPromociones.get(i).getAtraccionesEnPromocion().get(0).getTipo() == TipoDeAtraccion.DEGUSTACION) {
-				promocionesDeDegustacion.add(todasLasPromociones.get(i));
-
-			}
-		}
-		
-		ordenarListas();
-
-	}
-*/
 	
 	public void ordenarListas() {
 		todasLasAtracciones.sort(new ComparadorAtraccion().reversed());
@@ -114,53 +78,18 @@ public class Ofertador {
 		return this.atraccionesNoFavoritas;
 	}
 	
-//OBSOLETO EN VERSION WEB
-/*
-	public void ofrecerTodo(Usuario unUsuario) throws IOException {
-
-		switch(unUsuario.getAtraccionFavorita()) {
-			
-		case PAISAJE:
-			//luego de sugerir cada cosa actualiza los datos para que tengan los cupos al dia
-			Sugeridor.sugerirPromos(unUsuario, promocionesDePaisaje);
-			Sugeridor.sugerirAtracciones(unUsuario, atraccionesDePaisaje);
-			Sugeridor.sugerirPromosNoFavoritas(unUsuario, todasLasPromociones);
-			Sugeridor.sugerirAtraccionesNoFavoritas(unUsuario, todasLasAtracciones);
-			break;
-
-		case DEGUSTACION:
-			
-			Sugeridor.sugerirPromos(unUsuario, promocionesDeDegustacion);
-			Sugeridor.sugerirAtracciones(unUsuario, atraccionesDeDegustacion);
-			Sugeridor.sugerirPromosNoFavoritas(unUsuario, todasLasPromociones);
-			Sugeridor.sugerirAtraccionesNoFavoritas(unUsuario, todasLasAtracciones);
-			break;
-
-		case AVENTURA:
-			
-			Sugeridor.sugerirPromos(unUsuario, promocionesDeAventura);
-			Sugeridor.sugerirAtracciones(unUsuario, atraccionesDeAventura);
-			Sugeridor.sugerirPromosNoFavoritas(unUsuario, todasLasPromociones);
-			Sugeridor.sugerirAtraccionesNoFavoritas(unUsuario, todasLasAtracciones);
-			break;
-
-		case DEFAULT:
-			System.out.println("Hay una Atraccion cuyos datos no fueron correctamente ingresados.");
-		}
-
-	}
-	*/
-	public void separarItinerario(List<Usuario> todosLosUsuarios, List<Itinerario> todoElItinerario) {
+//metodo necesario para asignar a cada persona su itinerario ya que pueden estar separados
+	public void separarItinerario(List<Usuario> todosLosUsuarios, List<Itinerario> todosLosItinerarios) {
 
 		for (Usuario cadaUsuario : todosLosUsuarios) {
 
 			cadaUsuario.vaciarItinerario();
 
-			for (Itinerario cadaItinerario : todoElItinerario) {
+			for (Itinerario cadaItinerario : todosLosItinerarios) {
 
 				if (cadaUsuario.getNombre().equals(cadaItinerario.getUsuario().getNombre())) {
 
-					cadaUsuario.agregarAlItinerario(cadaItinerario.getAtraccion());
+					cadaUsuario.agregarAlItinerario(cadaItinerario.getAtracciones());
 
 				}
 

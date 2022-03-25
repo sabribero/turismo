@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Atraccion;
+import model.Itinerario;
 import model.Promocion;
 import model.Usuario;
 import persistence.dao.DAOFactory;
@@ -16,11 +17,12 @@ public class Sugeridor {
 		for (Atraccion cadaAtraccion : unaPromocion.getAtraccionesEnPromocion()) {
 			
 			cadaAtraccion.reservarLugar(unUsuario);
-			DAOFactory.getItinerarioDAO().cargarAtraccion(cadaAtraccion, unUsuario);
+			//DAOFactory.getItinerarioDAO().cargarAtraccion(cadaAtraccion, unUsuario);
 			
 		}
 		unUsuario.pagar(unaPromocion);
 		
+		DAOFactory.getItinerarioDAO().cargarItinerario(new Itinerario(unaPromocion.getAtraccionesEnPromocion(), unUsuario));
 		DAOFactory.getPromocionDAO().updateAtracciones(unaPromocion);
 		DAOFactory.getUsuarioDAO().update(unUsuario);
 	}
@@ -28,7 +30,12 @@ public class Sugeridor {
 	public synchronized static void agregarYPagar(Usuario unUsuario, Atraccion unaAtraccion) {
 		
 		unaAtraccion.reservarLugar(unUsuario);
-		DAOFactory.getItinerarioDAO().cargarAtraccion(unaAtraccion, unUsuario);
+		
+		//el Itinerario recibe una lista de atracciones
+		List<Atraccion> atraccionList= new ArrayList<Atraccion>();
+		atraccionList.add(unaAtraccion);
+		
+		DAOFactory.getItinerarioDAO().cargarItinerario(new Itinerario(atraccionList, unUsuario));
 		unUsuario.pagar(unaAtraccion);
 		
 		DAOFactory.getAtraccionDAO().update(unaAtraccion);

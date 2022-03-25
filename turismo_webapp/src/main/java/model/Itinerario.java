@@ -1,17 +1,18 @@
 package model;
 
+import java.util.List;
+
 public class Itinerario  {
 	
-	//clase cuya unica funcion es traducir los datos de la base de datos
+	//ojala no rompa nada cambiarlo de protected a private
+	private List<Atraccion> atracciones;
+	private Usuario usuario;
 	
 	
 	
-	protected Atraccion unaAtraccion;
-	protected Usuario unUsuario;
-	
-	public Itinerario(Atraccion unaAtraccion, Usuario unUsuario) {
-		this.unaAtraccion = unaAtraccion;
-		this.unUsuario= unUsuario;
+	public Itinerario(List<Atraccion> unasAtracciones, Usuario unUsuario) {
+		this.atracciones = unasAtracciones;
+		this.usuario= unUsuario;
 
 	}
 
@@ -21,15 +22,29 @@ public class Itinerario  {
 
 
 	public Usuario getUsuario() {
-		return this.unUsuario;
+		return this.usuario;
 	}
 	
 
 	
-	public Atraccion getAtraccion() {
-		return this.unaAtraccion;
+	public List<Atraccion> getAtracciones() {
+		return this.atracciones;
+	}
+
+	// -----------------------Metodos------------------------
+	
+	public void agregarAtraccion(Atraccion atraccion) {
+		this.atracciones.add(atraccion);
+	}
+
+
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.usuario.getNombre() + ", " + this.atracciones.toString();
 	}
 
 	
-
+	
 }

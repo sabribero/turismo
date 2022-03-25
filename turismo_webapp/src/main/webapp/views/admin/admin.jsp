@@ -20,10 +20,10 @@
 	<div class="container contenedor" style="color: black;">
 		<ul class="nav nav-tabs nav-fill">
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
-			<li class="nav-item"><a class="nav-link" href="/turismo_webapp/administrador/modificar.do">Modificar</a></li>
-			<li class="nav-item"><a class="nav-link" href="/turismo_webapp/administrador/agregar.do">Agregar</a></li>
-			<li class="nav-item"><a class="nav-link" href="/turismo_webapp/administrador/ver.do">Ver</a></li>
-			<li class="nav-item"><a class="nav-link" href="/turismo_webapp/administrador/eliminar.do">Eliminar</a></li>
+			<li class="nav-item"><a class="nav-link" href="/turismo_webapp/administrador/tiposdeatraccion.do">Tipos de atracci&oacute;n</a></li>
+			<li class="nav-item"><a class="nav-link" href="/turismo_webapp/administrador/atracciones.do">Atracciones</a></li>
+			<li class="nav-item"><a class="nav-link" href="/turismo_webapp/administrador/promociones.do">Promociones</a></li>
+			<li class="nav-item"><a class="nav-link" href="/turismo_webapp/administrador/usuarios.do">Usuarios</a></li>
 		</ul>
 		<main class="contenido">
 			<div class="headercentrado">

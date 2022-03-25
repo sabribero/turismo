@@ -26,15 +26,16 @@ public class CrearTipoDeAtraccionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/agregar.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/tiposdeatraccion.jsp");
 		dispatcher.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String name = req.getParameter("nuevo_tipo");
+		String name = req.getParameter("nombre_tipo");
 
-		name= name.trim().replace("á", "a")
+		name= name.trim().toLowerCase()
+						.replace("á", "a")
 						.replace("é", "e")
 						.replace("í", "i")
 						.replace("ó", "o")
@@ -45,7 +46,7 @@ public class CrearTipoDeAtraccionServlet extends HttpServlet {
 			req.setAttribute("flash", tipoDeAtraccion);
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/administrador/agregar.do");
+					.getRequestDispatcher("/administrador/tiposdeatraccion.do");
 			dispatcher.forward(req, resp);
 
 	}
