@@ -5,5 +5,3 @@
 <script src="/turismo_webapp/assets/js/bootstrap.min.js"></script>
 
 <link rel="shortcut icon" href="/turismo_webapp/assets/FAVICO-TMA.png" />
-
-<script type="text/javascript" src="/turismo_webapp/assets/js/script.js"></script>

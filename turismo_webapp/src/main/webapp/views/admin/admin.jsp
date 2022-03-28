@@ -35,7 +35,7 @@
 		
 		<br>
 				<p><a href="/turismo_webapp/cambiarpass.jsp"> Cambiar contraseña</a></p>
-				<p>Seleccione una de las siguientes opciones:</p>
+				<p>Opciones:</p>
 			</div>
 			<br>
 		
@@ -44,37 +44,37 @@
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Tipos de atracción</h5>
 						<ul class="separarli">
-							<li><a href="/turismo_webapp/administrador/modificar.do#tipos_de_atraccion">Modificar</a></li>
-							<li><a href="/turismo_webapp/administrador/agregar.do#tipos_de_atraccion">Agregar</a></li>
-							<li><a href="/turismo_webapp/administrador/ver.do#tipos_de_atraccion">Ver</a></li>
-							<li><a href="/turismo_webapp/administrador/eliminar.do#tipos_de_atraccion">Eliminar</a></li>
+							<li>>Modificar</li>
+							<li>Agregar</li>
+							<li>Ver</li>
+							<li>Eliminar</li>
 						</ul>
 					</div>
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Atracciones</h5>
 						<ul class="separarli">
-							<li><a href="/turismo_webapp/administrador/modificar.do#atracciones">Modificar</a></li>
-							<li><a href="/turismo_webapp/administrador/agregar.do#atracciones">Agregar</a></li>
-							<li><a href="/turismo_webapp/administrador/ver.do#atracciones">Ver</a></li>
-							<li><a href="/turismo_webapp/administrador/eliminar.do#atracciones">Eliminar</a></li>
+							<li>Modificar</li>
+							<li>Agregar</li>
+							<li>Ver</li>
+							<li>Eliminar</li>
 						</ul>
 					</div>
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Promociones</h5>
 						<ul class="separarli">
-							<li><a href="/turismo_webapp/administrador/modificar.do#promociones">Modificar</a></li>
-							<li><a href="/turismo_webapp/administrador/agregar.do#promociones">Agregar</a></li>
-							<li><a href="/turismo_webapp/administrador/ver.do#promociones">Ver</a></li>
-							<li><a href="/turismo_webapp/administrador/eliminar.do#promociones">Eliminar</a></li>
+							<li>Modificar</li>
+							<li>Agregar</li>
+							<li>Ver</li>
+							<li>Eliminar</li>
 						</ul>
 					</div>
 					<div class="col-lg-3 centrado">
 						<h5 class="subrayado">Usuarios</h5>
 						<ul class="separarli">
-							<li><a href="/turismo_webapp/administrador/modificar.do#usuarios">Modificar</a></li>
-							<li><a href="/turismo_webapp/administrador/agregar.do#usuarios">Agregar</a></li>
-							<li><a href="/turismo_webapp/administrador/ver.do#usuarios">Ver</a></li>
-							<li><a href="/turismo_webapp/administrador/eliminar.do#usuarios">Eliminar</a></li>
+							<li>Modificar</li>
+							<li>Agregar</li>
+							<li>Ver</li>
+							<li>Eliminar</li>
 						</ul>
 					</div>
 				</div>
