@@ -32,8 +32,8 @@ public class ModificarUsuarioServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String original= req.getParameter("seleccion_usuario");
-		String nombre = req.getParameter("nombre_usuario");
+		int id= Integer.parseInt(req.getParameter("seleccion_usuario"));
+		//String nombre = req.getParameter("nombre_usuario");
 		String password= req.getParameter("password_usuario");
 		String tipo =req.getParameter("seleccion_favorito_usuario");
 		int monedas = Integer.parseInt(req.getParameter("dinero_usuario"));
@@ -45,11 +45,11 @@ public class ModificarUsuarioServlet extends HttpServlet {
 			admin=true;
 		}
 
-		Usuario usuario = usuarioService.update(original,nombre, password,tipo, monedas, tiempo, admin);
+		Usuario usuario = usuarioService.update(id, password,tipo, monedas, tiempo, admin);
 
 	//mando el usuario y luego analizo si hay errores o no
 			req.setAttribute("flash", usuario);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/administrador/modificar.do");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/administrador/usuarios.do");
 			dispatcher.forward(req, resp);
 	}
 }

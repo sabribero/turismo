@@ -135,10 +135,10 @@ public class Usuario {
 		return errors.isEmpty();
 	}
 	
-	public boolean isValid2() {
+	/*public boolean isValid2() {
 		validate2();
 		return errors.isEmpty();
-	}
+	}*/
 	
 	public void validate() {
 		errors = new HashMap<String, String>();
@@ -149,19 +149,9 @@ public class Usuario {
 		if (this.tiempoDisponible <= 0) {
 			errors.put("tiempo", "Tiempo no debe ser negativo ni cero");
 		}
-		List<Usuario> usuarios=DAOFactory.getUsuarioDAO().findAll();
-		int repeticiones=0;
-		for(Usuario usuario : usuarios) {
-			if(this.nombre.equals(usuario.getNombre())) {
-				repeticiones++;
-			}
-		}
-		if(repeticiones>0) {
-			errors.put("nombre", "Nombre repetido, ingrese un nombre nuevo");
-		}
 	}
 	//validador para cuando el usuario ya esta en la base de datos
-	public void validate2() {
+	/*public void validate2() {
 		errors = new HashMap<String, String>();
 
 		if (this.presupuesto <= 0) {
@@ -183,7 +173,7 @@ public class Usuario {
 		if(repeticiones>1) {
 			errors.put("nombre", "Nombre repetido, ingrese un nombre nuevo");
 		}
-	}
+	}*/
 	
 	public Map<String, String> getErrors() {
 		return errors;

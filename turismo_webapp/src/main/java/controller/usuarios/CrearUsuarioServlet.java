@@ -49,7 +49,7 @@ public class CrearUsuarioServlet extends HttpServlet {
 			req.setAttribute("flash", usuario);
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/administrador/agregar.do");
+					.getRequestDispatcher("/administrador/usuarios.do");
 			dispatcher.forward(req, resp);
 			
 

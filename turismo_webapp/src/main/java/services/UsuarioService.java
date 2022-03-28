@@ -30,21 +30,20 @@ public class UsuarioService {
 		return usuario;
 	}
 	
-	public Usuario update(String original, String nombre, String password, String tipo, int monedas, float tiempo, boolean esAdmin) {
+	public Usuario update(int id, String password, String tipo, int monedas, float tiempo, boolean esAdmin) {
 
 		UsuarioDAOImpl usuarioDAO = DAOFactory.getUsuarioDAO();
-		Usuario usuario = usuarioDAO.findByNombre(original);
+		Usuario usuario = usuarioDAO.findByID(id);
 		TipoDeAtraccion tipoDeAtraccion= DAOFactory.getTipoDeAtraccionDAO().findByNombre(tipo);
-		int id= usuarioDAO.findIDByNombre(original);
 
-		usuario.setNombre(nombre);
+		//usuario.setNombre(nombre);
 		usuario.setPassword(password);
 		usuario.setTipoFavorito(tipoDeAtraccion);
 		usuario.setPresupuesto(monedas);
 		usuario.setTiempoDisponible(tiempo);
 		usuario.setAdmin(esAdmin);
 
-		if (usuario.isValid2()) {
+		if (usuario.isValid()) {
 			usuarioDAO.modificar(usuario, id);
 			// XXX: si no devuelve "1", es que hubo más errores
 		}

@@ -34,7 +34,7 @@
 
 				<img src="/turismo_webapp/assets/welcome.png" />
 				<p id="pindex">Ingresar como nombre cualquiera de los usuarios
-						del proyecto (Sam, Frodo, etc.) y como contraseña se repite el mismo nombre.</p>
+						del proyecto (Sam, Frodo, Eowyn, Gandalf, Galadriel, Boromir, Gollum, Legolas, Sauron, Arwen, Gimli, Aragorn) y como contraseña se repite el mismo nombre.</p>
 
 			</div>
 		</div>

@@ -24,8 +24,9 @@ public class EliminarUsuarioServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String name = (String)(req.getParameter("usuario_eliminar"));
-
+		name.replace("%20", " ");
+		
 		usuarioService.delete(name);
-		resp.sendRedirect("/turismo_webapp/administrador/eliminar.do");
+		resp.sendRedirect("/turismo_webapp/administrador/usuarios.do");
 	}
 }

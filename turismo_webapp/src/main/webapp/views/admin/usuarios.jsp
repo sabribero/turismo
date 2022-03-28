@@ -24,105 +24,119 @@
 			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Usuarios</a></li>
 		</ul>
 		<header class="headercentrado">
-							<div class="headercentrado">
-				<h1>Bienvenido <c:out value="${user.nombre}" />!</h1>
-				<br>
-				</div>
-			<p>Seleccione una de las siguientes opciones:</p>
+			<h1>Usuarios</h1>
 		</header>
 		<main class="contenido">
-			<div class="accordion accordion-flush" id="accordionFlushExample">
-
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="flush-headingOne">
-			      <button class="accordion-button collapsed botonacordeon" id="tipos_de_atraccion" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-			        Tipos de Atracci&oacute;n
-			      </button>
-			    </h2>
-			    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-				      <div class="accordion-body bodyacordeon">
-				      <div class="alert alert-danger">
-								<strong>ADVERTENCIA: Borrar un tipo de atracci&oacute;n har&aacute; que no aparezcan los usuarios, atracciones y promociones que lo utilicen.</strong>
-						</div>
-				      	<form action="/turismo_webapp/tipos/delete.do" class="adminform">
-				      		<label for="seleccion_tipo">Seleccione un tipo para eliminar:</label>
-				      			<select name="seleccion_tipo" id="seleccion_tipo" class="form-select" required>
-				      				<option value="" selected disabled>Tipos:</option>
+			<c:if test="${flash != null && !flash.getErrors().isEmpty()}">
+				<div class="alert alert-danger">
+						<ul>
+							<c:forEach items="${flash.getErrors()}" var="entry">
+								<li><c:out value="${entry.getValue()}"></c:out></li>
+							</c:forEach>
+						</ul>
+				</div>
+			</c:if>
+			<c:if test="${flash != null && flash.getErrors().isEmpty()}">
+				<div class="alert alert-success">
+					<p>Elemento agregado con &eacute;xito.</p>
+				</div>
+			</c:if>
+			
+			<a class="btn btn-primary excepciona" role="button" data-bs-toggle="collapse" href="#addcolapsable"
+				aria-expanded="false" aria-controls="addcolapsable">Agregar nuevo Usuario</a>
+				<!-- COLAPSABLE -->
+				<div class="collapse collapse-horizontal" id="addcolapsable">
+					<form action="/turismo_webapp/usuarios/create.do" method="post" class="adminform">
+				      		<label for="nombre_usuario">Nombre:</label>
+				      			<input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control" required><br>
+				      		<label for="password_usuario">Contrase&ntilde;a:</label>
+				      			<input type="password" name="password_usuario" id="password_usuario" class="form-control" required><br>
+				      		<label for="favorito_usuario">Tipo de atracción favorito:</label>
+				      			<select name="favorito_usuario" id="favorito_usuario" class="form-select" required>
+									<option value="" selected disabled>Tipos:</option>
 				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
 				      					<option value="${tipoDeAtraccion.getNombre()}"><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></option>
 				      				</c:forEach>
 				      			</select><br>
-				      			<input type="submit" value="Eliminar" class="btn btn-danger rounded excepciona">
+				      		<label for="monedas_usuario">Monedas:</label>
+				      			<input type="number" name="monedas_usuario" id="monedas_usuario" class="form-control" min=0 required><br>
+				      		<label for="tiempo_usuario">Tiempo disponible:</label>
+				      			<input type="number" name="tiempo_usuario" id="tiempo_usuario" class="form-control" min=0 step=0.5 required>
+				      		<br>
+				      		<p>Es administrador:</p>
+				      				<input type="radio" name="admin_usuario" id="no" value="no" checked>
+				      			<label for="no">No</label>
+				      				<input type="radio" name="admin_usuario" id="si" value="si">
+				      			<label for="si">S&iacute;</label>
+				      		<br>
+				      		<input type="submit" class="btn btn-success rounded excepciona" value="Crear">
 				      	</form>
-				      </div>
-			    </div>
-			  </div>	
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="flush-headingTwo">
-			      <button class="accordion-button collapsed botonacordeon" id="atracciones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-			        Atracciones
-			      </button>
-			    </h2>
-			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-			      <div class="accordion-body bodyacordeon">
-			      		<form action="/turismo_webapp/attractions/delete.do" class="adminform">
-				      		<label for="atraccion_eliminar">Seleccione una atracci&oacute;n para eliminar:</label>
-				      			<select name="atraccion_eliminar" id="atraccion_eliminar" class="form-select" required>
-				      				<option value="" selected disabled>Atracciones:</option>
-				      				<c:forEach items="${attractions}" var="atraccion">
-				      					<option value="${atraccion.nombre}"><c:out value="${atraccion.nombre}"></c:out></option>
-				      				</c:forEach>
-				      			</select><br>
-				      			<input type="submit" value="Eliminar" class="btn btn-danger rounded excepciona">
-				      	</form>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="flush-headingThree">
-			      <button class="accordion-button collapsed botonacordeon" id="promociones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-			        Promociones
-			      </button>
-			    </h2>
-			    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-			      <div class="accordion-body bodyacordeon">
-			      		<form action="/turismo_webapp/promociones/delete.do" class="adminform">
-				      		<label for="seleccion_promo">Seleccione una promoci&oacute;n para eliminar:</label>
-				      			<select name="seleccion_promo" id="seleccion_promo" class="form-select" required>
-				      				<option value="" selected disabled>Cada promoci&oacute;n</option>
-				      				<c:forEach items="${promociones}" var="promocion">
-				      					<option value="${promocion.getNombre()}"><c:out value="${promocion.getClass().getSimpleName().replace('Promo', '')}"></c:out>, 
-				      					<c:out value="${promocion.getNombre()}"></c:out></option>
-				      				</c:forEach>
-				      			</select><br>
-				      			<input type="submit" value="Eliminar" class="btn btn-danger rounded excepciona">
-				      	</form>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="flush-headingFour">
-			      <button class="accordion-button collapsed botonacordeon" id="usuarios" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-			        Usuarios
-			      </button>
-			    </h2>
-			    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-			      <div class="accordion-body bodyacordeon">
-			      		<form action="/turismo_webapp/usuarios/delete.do" class="adminform">
-		<!-- usuarios de bdd -->
-				      		<label for="usuario_eliminar">Seleccione un usuario para eliminar:</label>
-				      			<select name="usuario_eliminar" id="usuario_eliminar" class="form-select" required>
-				      				<option value="" selected disabled>Todos los usuarios</option>
-				      				<c:forEach items="${usuarios}" var="usuario">
-			      						<option value="${usuario.getNombre()}"><c:out value="${usuario.getNombre()}"></c:out></option>
-			      					</c:forEach>
-				      			</select><br>
-				      			<input type="submit" value="Eliminar" class="btn btn-danger rounded excepciona">
-				      	</form>
-			      </div>
-			    </div>
-			  </div>
-			</div>
+				</div>
+				<table class="table table-hover">
+				      		<thead>
+				      			<tr>
+				      				<th class="col-2">Nombre</th>
+				      				<th class="col-2">Tipo preferido</th>
+				      				<th class="col-2">Dinero</th>
+				      				<th class="col-2">Tiempo disponible</th>
+				      				<th class="col-2">Es Admin</th>
+				      				<th class="col-2">Acci&oacute;n</th>
+				      			</tr>
+				      		</thead>
+				      		<tbody>
+				      			<c:forEach items="${usuarios}" var="usuario">
+					      			<tr>
+					      				<td>${usuario.getNombre()}</td>
+					      				<td>${usuario.getNombreAtraccionFavorita()}</td>
+					      				<td>${usuario.getPresupuesto()}</td>
+					      				<td>${usuario.getTiempoDisponible()}</td>
+					      				<td><c:if test="${usuario.getEsAdmin()}">
+												S&iacute;
+											</c:if>
+											<c:if test="${!usuario.getEsAdmin()}">
+												No
+											</c:if>
+										</td>
+					      				<td><a class="btn btn-primary excepciona" role="button" data-bs-toggle="collapse" href="#editcolapsable${usuario.getNombre().replace(' ', '')}"
+												aria-expanded="false" aria-controls="editcolapsable${usuario.getNombre().replace(' ', '')}">Editar</a>
+											<a href="/turismo_webapp/usuarios/delete.do?usuario_eliminar=${usuario.getNombre().replace(' ', '%20')}"
+												class="btn btn-danger excepciona" role="button">Eliminar</a>
+										</td>
+					      			</tr>
+					      			<!-- COLAPSABLE -->
+									 <tr>
+			            				<td colspan="12" class="hiddenRow">
+											<div class="collapse collapse-horizontal" id="editcolapsable${usuario.getNombre().replace(' ', '')}">
+												<form action="/turismo_webapp/usuarios/edit.do" method="post" class="adminform">
+										      			<input type="hidden" name="seleccion_usuario" value="${usuario.getId()}">
+										      		<label for="password_usuario">Contrase&ntilde;a:</label>
+										      			<input type="password" name="password_usuario" id="password_usuario" class="form-control" required><br>
+										      		<label for="seleccion_favorito_usuario">Tipo de atracción favorito:</label>
+										      			<select name="seleccion_favorito_usuario" id="seleccion_favorito_usuario" class="form-select" required>
+															<option value="" selected disabled>Tipo:</option>
+										      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
+										      					<option value="${tipoDeAtraccion.getNombre()}" ${tipoDeAtraccion.getNombre()==usuario.getNombreAtraccionFavorita() ? "selected" : ""}><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></option>
+										      				</c:forEach>
+										      			</select><br>
+										      		<label for="dinero_usuario">Monedas:</label>
+										      			<input type="number" name="dinero_usuario" id="dinero_usuario" class="form-control" min=0 value="${usuario.getPresupuesto()}" required><br>
+										      		<label for="tiempo_usuario">Tiempo disponible:</label>
+										      			<input type="number" name="tiempo_usuario" id="tiempo_usuario" class="form-control" min=0 step=0.5 value="${usuario.getTiempoDisponible()}" required>
+										      		<br>
+										      		<p>Es administrador:</p>
+										      				<input type="radio" name="admin_usuario" id="no" value="no" ${!usuario.getEsAdmin() ? "checked" : ""}>
+										      			<label for="no">No</label>
+										      				<input type="radio" name="admin_usuario" id="si" value="si" ${usuario.getEsAdmin() ? "checked" : ""}>
+										      			<label for="si">S&iacute;</label>
+										      		<br>
+										      		<input type="submit" class="btn btn-success rounded excepciona" value="Guardar">
+										      	</form>
+											</div>
+										</td>
+									</tr>
+					      		</c:forEach>
+				      		</tbody>
+				      	</table>
 		</main>
 	</div>
 	<jsp:include page="../../partials/footer.jsp"></jsp:include>
