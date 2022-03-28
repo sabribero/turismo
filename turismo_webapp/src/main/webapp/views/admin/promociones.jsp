@@ -25,97 +25,89 @@
 		</ul>
 		<header class="headercentrado">
 				<div class="headercentrado">
-				<h1>Bienvenido <c:out value="${user.nombre}" />!</h1>
-				<br>
+					<h1>Promociones</h1>
 				</div>
 				
-			<p>Seleccione una de las siguientes opciones:</p>
 		</header>
 		<main class="contenido">
-			<div class="accordion accordion-flush" id="accordionFlushExample">
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="flush-headingOne">
-			      <button class="accordion-button collapsed botonacordeon" id="tipos_de_atraccion" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-			        Tipos de Atracción
-			      </button>
-			    </h2>
-			    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-				      <div class="accordion-body container bodyacordeon">
-				      	<table class="table table-hover">
-				      		<thead>
-				      			<tr>
-				      				<th class="col-6">Nombre</th>
-				      			</tr>
-				      		</thead>
-				      		<tbody>
-				      			<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
-				      				<tr>
-					      				<td><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></td>
-				      				</tr>
-					      		</c:forEach>
-				      		</tbody>
-				      	</table>
-				      </div>
-			    </div>
-			  </div>
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="flush-headingTwo">
-			      <button class="accordion-button collapsed botonacordeon" id="atracciones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-			        Atracciones
-			      </button>
-			    </h2>
-			    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-			      <div class="accordion-body container bodyacordeon">
-			      		<table class="table table-hover">
-				      		<thead>
-				      			<tr>
-				      				<th class="col-2">Nombre</th>
-				      				<th class="col-2">Costo</th>
-				      				<th class="col-2">Duración</th>
-				      				<th class="col-2">Cupos</th>
-				      				<th class="col-2">Tipo</th>
-				      			</tr>
-				      		</thead>
-				      		<tbody>
-				      			<c:forEach items="${attractions}" var="atraccion">
-				      				<tr>
-						      			<td><c:out value="${atraccion.nombre}"></c:out></td>
-						      			<td><c:out value="${atraccion.valor}"></c:out> monedas</td>
-						      			<td><c:out value="${atraccion.tiempoDeUso}"></c:out> hora/s</td>
-						      			<td><c:out value="${atraccion.usosDisponibles}"></c:out></td>
-						      			<td><c:out value="${atraccion.getTipo().getNombre()}"></c:out></td>
-				      				</tr>
-					      		</c:forEach>	
-				      		</tbody>
-				      	</table>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="flush-headingThree">
-			      <button class="accordion-button collapsed botonacordeon" id="promociones" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-			        Promociones
-			      </button>
-			    </h2>
-			    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-			      <div class="accordion-body container bodyacordeon">
-			      		<table class="table table-hover">
+			<c:if test="${flash != null && !flash.getErrors().isEmpty()}">
+			<div class="alert alert-danger">
+					<ul>
+						<c:forEach items="${flash.getErrors()}" var="entry">
+							<li><c:out value="${entry.getValue()}"></c:out></li>
+						</c:forEach>
+					</ul>
+			</div>
+		</c:if>
+		<c:if test="${flash != null && flash.getErrors().isEmpty()}">
+			<div class="alert alert-success">
+				<p>Elemento agregado con &eacute;xito.</p>
+			</div>
+		</c:if>
+		
+		<a class="btn btn-primary excepciona" role="button" data-bs-toggle="collapse" href="#addcolapsable"
+				aria-expanded="false" aria-controls="addcolapsable">Agregar nueva Promoci&oacute;n</a>
+				<!-- COLAPSABLE -->
+				<div class="collapse collapse-horizontal" id="addcolapsable">
+					<form action="/turismo_webapp/promociones/create.do" method="post" class="adminform">
+				      		<label for="tipo_promo">Tipo de promoci&oacute;n:</label>
+				      			<select name="tipo_promo" id="tipo_promo" class="form-select" required>
+									<option value="" selected disabled>Tipo:</option>
+				      				<option value="ABSOLUTA">ABSOLUTA: lleve las atracciones por determinada cantidad de monedas.</option>
+				      				<option value="PORCENTUAL">PORCENTUAL: lleve las atracciones con determinado porcentaje de descuento sobre el total.</option>
+				      				<option value="AxB">AxB: lleve determinadas atracciones y la última es gratis.</option>
+				      			</select><br>
+				      		<label for="valor_promo">Ingrese el valor/%descuento. Si ud. eligi&oacute; promocion AxB el valor se desestimar&aacute;</label>
+				      			<input type="number" name="valor_promo" id="valor_promo" class="form-control" min=0 value="${promocion.getValorPromo()}" required> <br>
+				      		<p>Seleccione las atracciones en promoci&oacute;n. Recuerde que deben ser del mismo tipo; 
+				      		para m&aacute;s informaci&oacute;n <a href="/turismo_webapp/administrador/atracciones.do" target="blank">consulte las atracciones</a>.</p><br>
+				      		<label for="atr1_promo">Atracci&oacute;n 1:</label>
+				      			<select name="atr1_promo" id="atr1_promo" class="form-select" required>
+				      				<option value="" selected disabled>Todas las atracciones</option>
+				      				<c:forEach items="${atracciones}" var="atraccion">
+				      					<option value="${atraccion.nombre}" title="Costo: ${atraccion.getValor()} monedas, Duracion: ${atraccion.getTiempoDeUso()} horas">
+				      					<c:out value="${atraccion.nombre}  [${atraccion.getNombreTipo()}]"></c:out>
+				      					</option>
+				      				</c:forEach>
+				      			</select><br>
+				      		<label for="atr2_promo">Atracci&oacute;n 2:</label>
+				      			<select name="atr2_promo" id="atr2_promo" class="form-select" required>
+				      				<option value="" selected disabled>Todas las atracciones</option>
+				      				<c:forEach items="${atracciones}" var="atraccion">
+				      					<option value="${atraccion.nombre}" title="Costo: ${atraccion.getValor()} monedas, Duracion: ${atraccion.getTiempoDeUso()} horas">
+				      					<c:out value="${atraccion.nombre}  [${atraccion.getNombreTipo()}]"></c:out>
+				      					</option>
+				      				</c:forEach>
+				      			</select><br>
+				      		<label for="atr3_promo">Atracci&oacute;n 3:</label>
+				      			<select name="atr3_promo" id="atr3_promo" class="form-select" required>
+				      				<option value="" selected disabled>Todas las atracciones</option>
+				      				<c:forEach items="${atracciones}" var="atraccion">
+				      					<option value="${atraccion.nombre}" title="Costo: ${atraccion.getValor()} monedas, Duracion: ${atraccion.getTiempoDeUso()} horas">
+				      					<c:out value="${atraccion.nombre}  [${atraccion.getNombreTipo()}]"></c:out>
+				      					</option>
+				      				</c:forEach>
+				      				<option value="-">-</option>
+				      			</select><br>
+				      		<input type="submit" class="btn btn-success rounded excepciona" value="Crear">
+				      	</form>
+				</div>
+						<table class="table table-hover">
 				      		<thead>
 				      			<tr>
 				      				<th class="col-2">Tipo de promoci&oacute;n</th>
-				      				<th class="col-2">Precio</th>
-				      				<th class="col-2">Duraci&oacute;n</th>
 				      				<th class="col-2">Atracci&oacute;n 1</th>
 				      				<th class="col-2">Atracci&oacute;n 2</th>
 				      				<th class="col-2">Atracci&oacute;n 3</th>
+				      				<th class="col-2">Precio</th>
+				      				<th class="col-2">Duraci&oacute;n</th>
+				      				<th class="col-2">Acci&oacute;n</th>
 				      			</tr>
 				      		</thead>
 				      		<tbody>
 				      			<c:forEach items="${promociones}" var="promocion">
 				      				<tr>
 						      			<td><c:out value="${promocion.getClass().getSimpleName().replace('Promo', '')}"></c:out></td>
-						      			<td><c:out value="${promocion.getValorPromo()}"></c:out> monedas</td>
-						      			<td><c:out value="${promocion.getTiempoDeUso()}"></c:out> hora/s</td>
 						      			<td><c:out value="${promocion.getAtraccionesEnPromocion().get(0)}"></c:out></td>
 						      			<td><c:out value="${promocion.getAtraccionesEnPromocion().get(1)}"></c:out></td>
 						      			<c:if test="${promocion.getAtraccionesEnPromocion().size()>2}">
@@ -124,45 +116,61 @@
 						      			<c:if test="${promocion.getAtraccionesEnPromocion().size()==2}">
 						      				<td>-</td>
 						      			</c:if>
+						      			<td><c:out value="${promocion.getValorPromo()}"></c:out> monedas</td>
+						      			<td><c:out value="${promocion.getTiempoDeUso()}"></c:out> hora/s</td>
+						      			<td><a class="btn btn-primary excepciona" role="button" data-bs-toggle="collapse" href="#editcolapsable${promocion.getId()}"
+												aria-expanded="false" aria-controls="editcolapsable${promocion.getId()}">Editar</a>
+											<a href="/turismo_webapp/promociones/delete.do?seleccion_promo=${promocion.getId()}"
+												class="btn btn-danger excepciona" role="button">Eliminar</a>
+										</td>
 				      				</tr>
+				      				<!-- COLAPSABLE -->
+									 <tr>
+			            				<td colspan="12" class="hiddenRow">
+											<div class="collapse collapse-horizontal" id="editcolapsable${promocion.getId()}">
+												<form action="/turismo_webapp/promociones/edit.do" method="post" class="adminform">
+														
+														<input type="hidden" name="seleccion_promo" value="${promocion.getId()}">
+											      		<label for="valor_promo">Ingrese el valor/%descuento. Si la promoci&oacute;n es AxB el valor se desestimar&aacute;</label>
+											      			<input type="number" name="valor_promo" id="valor_promo" class="form-control" value="${promocion.getValorPromo()}" min=0 required> <br>
+											      		<p>Seleccione las atracciones en promoci&oacute;n. Recuerde que deben ser del mismo tipo; 
+											      		para m&aacute;s informaci&oacute;n <a href="/turismo_webapp/administrador/atracciones.do" target="blank">consulte las atracciones</a>.</p><br>
+											      		<label for="seleccion_atr1_promo">Atracci&oacute;n 1:</label>
+											      			<select name="seleccion_atr1_promo" id="seleccion_atr1_promo" class="form-select" required>
+											      				<option value="" selected disabled>Todas las atracciones</option>
+											      				<c:forEach items="${atracciones}" var="atraccion">
+											      					<option value="${atraccion.nombre}" title="Costo: ${atraccion.getValor()} monedas, Duracion: ${atraccion.getTiempoDeUso()} horas" ${promocion.atraccionesEnPromocion.get(0).getNombre() == atraccion.getNombre() ? "selected" : ""}>
+											      					<c:out value="${atraccion.nombre}  [${atraccion.getNombreTipo()}]"></c:out>
+											      					</option>
+											      				</c:forEach>
+											      			</select><br>
+											      		<label for="seleccion_atr2_promo">Atracci&oacute;n 2:</label>
+											      			<select name="seleccion_atr2_promo" id="seleccion_atr2_promo" class="form-select" required>
+											      				<option value="" selected disabled>Todas las atracciones</option>
+											      				<c:forEach items="${atracciones}" var="atraccion">
+											      					<option value="${atraccion.nombre}" title="Costo: ${atraccion.getValor()} monedas, Duracion: ${atraccion.getTiempoDeUso()} horas" ${promocion.atraccionesEnPromocion.get(1).getNombre() == atraccion.getNombre() ? "selected" : ""}>
+											      					<c:out value="${atraccion.nombre}  [${atraccion.getNombreTipo()}]"></c:out>
+											      					</option>
+											      				</c:forEach>
+											      			</select><br>
+											      		<label for="seleccion_atr3_promo">Atracci&oacute;n 3:</label>
+											      			<select name="seleccion_atr3_promo" id="seleccion_atr3_promo" class="form-select" required>
+											      				<option value="" selected disabled>Todas las atracciones</option>
+											      				<c:forEach items="${atracciones}" var="atraccion">
+											      					<option value="${atraccion.nombre}" title="Costo: ${atraccion.getValor()} monedas, Duracion: ${atraccion.getTiempoDeUso()} horas" ${promocion.atraccionesEnPromocion.size() > 2 ? (promocion.atraccionesEnPromocion.get(2).getNombre() == atraccion.getNombre() ? "selected" : "") : ""}>
+											      					<c:out value="${atraccion.nombre}  [${atraccion.getNombreTipo()}]"></c:out>
+											      					</option>
+											      				</c:forEach>
+											      				<option value="-">-</option>
+											      			</select><br>
+											      		<input type="submit" class="btn btn-success rounded excepciona" value="Guardar">
+											      	</form>
+												</div>
+											</td>
+									</tr>
 					      		</c:forEach>
 				      		</tbody>
 				      	</table>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="flush-headingFour">
-			      <button class="accordion-button collapsed botonacordeon" id="usuarios" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-			        Usuarios
-			      </button>
-			    </h2>
-			    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-			      <div class="accordion-body container bodyacordeon">
-			      		<table class="table table-hover">
-				      		<thead>
-				      			<tr>
-				      				<th class="col-2">Nombre</th>
-				      				<th class="col-2">Tipo preferido</th>
-				      				<th class="col-2">Dinero</th>
-				      				<th class="col-2">Tiempo disponible</th>
-				      			</tr>
-				      		</thead>
-				      		<tbody>
-				      			<c:forEach items="${usuarios}" var="usuario">
-					      			<tr>
-					      				<td>${usuario.getNombre()}</td>
-					      				<td>${usuario.getNombreAtraccionFavorita()}</td>
-					      				<td>${usuario.getPresupuesto()}</td>
-					      				<td>${usuario.getTiempoDisponible()}</td>
-					      			</tr>
-					      		</c:forEach>
-				      		</tbody>
-				      	</table>
-			      </div>
-			    </div>
-			  </div>
-			</div>
 		</main>
 	</div>
 	<jsp:include page="../../partials/footer.jsp"></jsp:include>

@@ -68,6 +68,10 @@ public class Promocion {
 		}
 		return true;
 	}
+	
+	public int getDescuento() {
+		return 0;
+	}
 //-------------------------SETTERS--------------------
 	public void setTiempo() {
 		this.tiempoPromo=0;

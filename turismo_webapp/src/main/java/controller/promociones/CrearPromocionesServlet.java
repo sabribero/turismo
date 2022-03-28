@@ -44,7 +44,7 @@ public class CrearPromocionesServlet extends HttpServlet {
 			req.setAttribute("flash", promocion);
     		
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/administrador/agregar.do");
+					.getRequestDispatcher("/administrador/promociones.do");
 			dispatcher.forward(req, resp);
 
 	}

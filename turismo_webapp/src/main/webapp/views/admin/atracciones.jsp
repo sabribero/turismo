@@ -53,7 +53,7 @@
 				      			<input type="text" name="nombre_atraccion" id="nombre_atraccion" class="form-control" required><br>
 				      		<label for="seleccion_tipo_atraccion">Seleccione el tipo de atracción:</label>
 				      			<select name="seleccion_tipo_atraccion" id="seleccion_tipo_atraccion" class="form-select" required>
-									<option value="" selected disabled>Tipos:</option>
+									<option value="" selected disabled>Tipo:</option>
 				      				<c:forEach items="${tiposDeAtraccion}" var="tipoDeAtraccion">
 				      					<option value="${tipoDeAtraccion.getNombre()}"><c:out value="${tipoDeAtraccion.getNombre()}"></c:out></option>
 				      				</c:forEach>

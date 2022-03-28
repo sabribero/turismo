@@ -9,7 +9,12 @@ import java.util.List;
 
 import excepciones.MissingDataException;
 import jdbc.ConnectionProvider;
-import model.*;
+import model.Atraccion;
+import model.PromoAbsoluta;
+import model.PromoAxB;
+import model.PromoPorcentual;
+import model.Promocion;
+import model.TipoDePromo;
 
 public class PromocionDAOImpl implements PromocionDAO{
 
@@ -153,14 +158,18 @@ public class PromocionDAOImpl implements PromocionDAO{
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, promocion.getValorPromo());
+			if(promocion.getTipo().equals(TipoDePromo.PORCENTUAL)) {
+				statement.setInt(1, promocion.getDescuento());
+			}else {
+				statement.setInt(1, promocion.getValorPromo());
+			}
 			statement.setInt(2, DAOFactory.getAtraccionDAO().findIDByNombre(promocion.getAtraccionesEnPromocion().get(0).getNombre()));
 			statement.setInt(3, DAOFactory.getAtraccionDAO().findIDByNombre(promocion.getAtraccionesEnPromocion().get(1).getNombre()));
 			if(promocion.getAtraccionesEnPromocion().size()==3) {
 				statement.setInt(4, DAOFactory.getAtraccionDAO().findIDByNombre(promocion.getAtraccionesEnPromocion().get(2).getNombre()));
-				statement.setInt(5, this.findByAtraccionesList(promoOriginal.getAtraccionesEnPromocion()));
+				statement.setInt(5, promoOriginal.getId());
 			} else {
-				statement.setInt(4, this.findByAtraccionesList(promoOriginal.getAtraccionesEnPromocion()));
+				statement.setInt(4, promoOriginal.getId());
 			}
 			int rows = statement.executeUpdate();
 			

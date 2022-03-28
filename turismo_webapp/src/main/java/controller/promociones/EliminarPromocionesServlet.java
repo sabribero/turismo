@@ -24,9 +24,9 @@ public class EliminarPromocionesServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String name = req.getParameter("seleccion_promo");
+		int id= Integer.parseInt(name);
 
-		promocionService.delete(name);
-//TODO mostrar errores
-		resp.sendRedirect("/turismo_webapp/administrador/eliminar.do");
+		promocionService.delete(id);
+		resp.sendRedirect("/turismo_webapp/administrador/promociones.do");
 	}
 }

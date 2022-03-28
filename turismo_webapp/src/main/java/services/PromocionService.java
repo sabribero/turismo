@@ -59,23 +59,10 @@ public class PromocionService {
 		return promo;
 	}
 	
-	public Promocion update(String nombre, int valor, String atr1, String atr2, String atr3) {
-
-		//creo la promocion original
-		String[] listaAtracciones= nombre.split(",");
-		List<Atraccion> atracciones= new ArrayList<Atraccion>();
+	public Promocion update(int id, int valor, String atr1, String atr2, String atr3) {
+		
 		AtraccionDAOImpl atraccionDAO= DAOFactory.getAtraccionDAO();
 		List<Atraccion> attractions= new ArrayList<Atraccion>();
-		for(String cadaUna : listaAtracciones) {
-			cadaUna = cadaUna.trim();
-			Atraccion attraction = atraccionDAO.findByNombre(cadaUna);
-			atracciones.add(attraction);
-			
-		}
-		Promocion promoOriginal = new Promocion(0,atracciones);
-
-		//promocion nueva
-		
 		
 		Atraccion atraccion1=atraccionDAO.findByNombre(atr1);
 		Atraccion atraccion2=atraccionDAO.findByNombre(atr2);
@@ -86,10 +73,12 @@ public class PromocionService {
 			attractions.add(atraccion3);
 		}
 		
-		//"atracciones"==atracciones de la promo original, "attractions"==atracciones nuevas
 		PromocionDAOImpl promocionDAO = DAOFactory.getPromocionDAO();
-		int id= promocionDAO.findByAtraccionesList(atracciones);
+		//int id= promocionDAO.findByAtraccionesList(atracciones);
 		
+		Promocion promoOriginal= promocionDAO.findById(id, atraccionDAO.findAll());
+		
+		//promocion a modificar
 		Promocion promo= promocionDAO.findById(id, atraccionDAO.findAll());
 
 		promo.setValor(valor);
@@ -103,8 +92,8 @@ public class PromocionService {
 		return promo;
 	}
 
-	public void delete(String atracciones) {
-		String[] listaAtracciones= atracciones.split(",");
+	public void delete(int id) {
+		/*String[] listaAtracciones= atracciones.split(",");
 		List<Atraccion> attractions= new ArrayList<Atraccion>();
 		for(String cadaUna : listaAtracciones) {
 			cadaUna = cadaUna.trim();
@@ -113,8 +102,13 @@ public class PromocionService {
 			
 		}
 		Promocion promocion = new Promocion(0,attractions);
-
+		*/
+		
+		
 		PromocionDAOImpl promocionDAO = DAOFactory.getPromocionDAO();
+		List<Atraccion> atracciones= DAOFactory.getAtraccionDAO().findAll();
+		
+		Promocion promocion= promocionDAO.findById(id, atracciones);
 		promocionDAO.borradoLogico(promocion);
 	}
 
