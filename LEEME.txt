@@ -1,5 +1,0 @@
-Aclaraciones sobre el proyecto:
-
-Sam es administrador.
-Muchas rutas comienzan con /AP_parte3_webv02/ por lo que cambiar el nombre de esa carpeta haría que se 
-rompan muchos links.
